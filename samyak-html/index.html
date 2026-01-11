@@ -1,352 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keyword"
-        content="Buddhist Matrimony, Buddhist Vadhu Var Suchak Mandal, Buddhist Marriage Bureau, Buddhist Wedding Services, Vadhu Var Mandal, Marriage Bureau in Mumbai, Marriage Bureau in Pune, Buddhist Brides, Buddhist Grooms, Buddhist Matchmaking, Buddhist Shaadi, Buddhist Wedding Portal" />
-    <meta name="description"
-        content="Find your perfect match with our trusted Buddhist Matrimony & Vadhu Var Suchak Mandal. Leading marriage bureau in Mumbai & Pune,">
-    <meta name="author" content="Samyak Matrimony">
-    <title>Buddhist Matrimony | Vadhu Var Suchak Mandal | Marriage Bureau</title>
-
-    <!-- Favicons-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-
-    <!-- GOOGLE WEB FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samyak Matrimony - Find Your Perfect Buddhist Life Partner</title>
+    <meta name="description" content="Join thousands of Buddhist singles who have found their soulmate through Samyak Matrimony. The most trusted Buddhist matrimonial service.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-
     <!-- Header -->
-    <header class="header-area">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/img/logo.png" alt="Samyak Matrimony" height="50">
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>
+                <span>Samyak Matrimony</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="search.html" class="nav-link">Search</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+                    Login
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="search.html">Search</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-outline-primary ms-2" href="login.html">Login</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-2" href="register.html">Register</a></li>
-                    </ul>
-                </div>
+                <a href="register.html" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Register Free
+                </a>
             </div>
-        </nav>
+            
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="search.html" class="nav-link">Search</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-ghost">Login</a>
+                <a href="register.html" class="btn btn-primary">Register Free</a>
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Search Section -->
-    <section id="hero-search" class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-4">
-                <h1 class="display-5 fw-bold">Find Your Perfect Life Partner</h1>
-                <p class="lead text-muted">Search from thousands of verified profiles</p>
-            </div>
-            <form action="search-results.html" method="GET" class="bg-white p-4 rounded shadow">
-                <div class="row g-3">
-                    <div class="col-md-2">
-                        <label class="form-label">Looking For</label>
-                        <select class="form-select" name="gender">
-                            <option value="Bride">Bride</option>
-                            <option value="Groom">Groom</option>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80');"></div>
+        <div class="hero-overlay"></div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        <div class="floating-element floating-3"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-up">
+                Find Your Perfect
+                <span>Buddhist Life Partner</span>
+            </h1>
+            <p class="hero-subtitle animate-fade-up" style="animation-delay: 0.2s;">
+                Join thousands of Buddhist singles who have found their soulmate through Samyak Matrimony
+            </p>
+            
+            <!-- Search Box -->
+            <div class="hero-search-box glass animate-fade-up" style="animation-delay: 0.4s;">
+                <form class="search-form-grid" action="search.html">
+                    <div class="search-form-group">
+                        <label>I'm looking for</label>
+                        <select>
+                            <option value="bride">Bride</option>
+                            <option value="groom">Groom</option>
                         </select>
                     </div>
-                    <div class="col-md-1">
-                        <label class="form-label">Age From</label>
-                        <select class="form-select" name="age_from">
-                            <option value="18">18</option>
-                            <option value="20">20</option>
-                            <option value="22">22</option>
-                            <option value="24" selected>24</option>
-                            <option value="26">26</option>
-                            <option value="28">28</option>
-                            <option value="30">30</option>
-                            <option value="35">35</option>
-                            <option value="40">40</option>
+                    <div class="search-form-group">
+                        <label>Age From</label>
+                        <select>
+                            <option value="21">21 years</option>
+                            <option value="22">22 years</option>
+                            <option value="23">23 years</option>
+                            <option value="24">24 years</option>
+                            <option value="25">25 years</option>
                         </select>
                     </div>
-                    <div class="col-md-1">
-                        <label class="form-label">Age To</label>
-                        <select class="form-select" name="age_to">
-                            <option value="25">25</option>
-                            <option value="28">28</option>
-                            <option value="30">30</option>
-                            <option value="35">35</option>
-                            <option value="38" selected>38</option>
-                            <option value="40">40</option>
-                            <option value="45">45</option>
-                            <option value="50">50</option>
+                    <div class="search-form-group">
+                        <label>Age To</label>
+                        <select>
+                            <option value="28">28 years</option>
+                            <option value="29">29 years</option>
+                            <option value="30" selected>30 years</option>
+                            <option value="35">35 years</option>
+                            <option value="40">40 years</option>
                         </select>
                     </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Religion</label>
-                        <select class="form-select" name="religion">
-                            <option value="">Any Religion</option>
-                            <option value="7">Buddhist</option>
-                            <option value="1">Hindu</option>
-                            <option value="5">Jain</option>
-                            <option value="3">Christian</option>
-                            <option value="2">Muslim</option>
-                            <option value="4">Sikh</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Marital Status</label>
-                        <select class="form-select" name="m_status">
-                            <option value="">Any</option>
-                            <option value="Unmarried">Unmarried</option>
-                            <option value="Divorced">Divorced</option>
-                            <option value="Widow/Widower">Widow/Widower</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">City</label>
-                        <select class="form-select" name="city">
-                            <option value="">Any City</option>
-                            <option value="mumbai">Mumbai</option>
-                            <option value="pune">Pune</option>
-                            <option value="thane">Thane</option>
-                            <option value="nagpur">Nagpur</option>
-                            <option value="nashik">Nashik</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2 d-flex align-items-end">
-                        <button type="submit" class="btn btn-primary w-100">
-                            <i class="fas fa-search me-2"></i>Search
+                    <div class="search-submit">
+                        <button type="submit" class="btn btn-primary pulse-glow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            Search
                         </button>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="py-5">
+    <!-- Stats Section -->
+    <section class="stats-section">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Why Choose Samyak Matrimony?</h2>
-                <p class="text-muted">We help you find your perfect match</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="text-center p-4">
-                        <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px; line-height: 80px;">
-                            <i class="fas fa-users fa-2x"></i>
-                        </div>
-                        <h5>1000+ Happy Matches</h5>
-                        <p class="text-muted">Successfully matched thousands of couples</p>
+            <div class="stats-grid">
+                <div class="stat-card glass hover-lift animate-fade-up">
+                    <div class="stat-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
+                    <div class="stat-value gradient-text">15,000+</div>
+                    <div class="stat-label">Total Profiles</div>
                 </div>
-                <div class="col-md-3">
-                    <div class="text-center p-4">
-                        <div class="feature-icon bg-success bg-gradient text-white rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px; line-height: 80px;">
-                            <i class="fas fa-shield-alt fa-2x"></i>
-                        </div>
-                        <h5>Verified Profiles</h5>
-                        <p class="text-muted">All profiles are manually verified</p>
+                <div class="stat-card glass hover-lift animate-fade-up" style="animation-delay: 0.1s;">
+                    <div class="stat-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--secondary);"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
                     </div>
+                    <div class="stat-value gradient-text">8,500+</div>
+                    <div class="stat-label">Male Profiles</div>
                 </div>
-                <div class="col-md-3">
-                    <div class="text-center p-4">
-                        <div class="feature-icon bg-info bg-gradient text-white rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px; line-height: 80px;">
-                            <i class="fas fa-lock fa-2x"></i>
-                        </div>
-                        <h5>100% Privacy</h5>
-                        <p class="text-muted">Your data is safe and secure with us</p>
+                <div class="stat-card glass hover-lift animate-fade-up" style="animation-delay: 0.2s;">
+                    <div class="stat-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-foreground);"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                     </div>
+                    <div class="stat-value gradient-text">6,500+</div>
+                    <div class="stat-label">Female Profiles</div>
                 </div>
-                <div class="col-md-3">
-                    <div class="text-center p-4">
-                        <div class="feature-icon bg-warning bg-gradient text-white rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px; line-height: 80px;">
-                            <i class="fas fa-headset fa-2x"></i>
-                        </div>
-                        <h5>24/7 Support</h5>
-                        <p class="text-muted">Dedicated customer support team</p>
+                <div class="stat-card glass hover-lift animate-fade-up" style="animation-delay: 0.3s;">
+                    <div class="stat-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--success);"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
                     </div>
+                    <div class="stat-value gradient-text">500+</div>
+                    <div class="stat-label">Success Stories</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Featured Profiles Section -->
-    <section class="py-5 bg-light">
+    <section class="section">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Featured Profiles</h2>
-                <p class="text-muted">Meet our premium members</p>
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Featured Profiles</h2>
+                <p class="section-subtitle">Meet some of our verified members looking for their life partner</p>
             </div>
-            <div class="row g-4">
+            
+            <div class="profiles-grid">
                 <!-- Profile Card 1 -->
-                <div class="col-md-3">
-                    <div class="card h-100 shadow-sm">
-                        <img src="https://via.placeholder.com/300x200/c5073b/ffffff?text=Profile+1" class="card-img-top" alt="Profile">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">NX1234</h6>
-                            <p class="card-text text-muted mb-1">28 Yrs, 5'10"</p>
-                            <p class="card-text text-muted mb-2">Software Engineer, Mumbai</p>
-                            <span class="badge bg-primary">Buddhist</span>
+                <div class="profile-card glass hover-lift animate-fade-up">
+                    <div class="profile-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop" alt="Priya Ambedkar">
+                        <div class="profile-image-overlay"></div>
+                        <div class="profile-image-info">
+                            <h3>Priya Ambedkar</h3>
+                            <p>26 yrs, 5'4"</p>
                         </div>
-                        <div class="card-footer bg-white border-0 text-center">
-                            <a href="view-profile.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            <span>MBA</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            <span>Software Engineer</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Mumbai, Maharashtra</span>
+                        </div>
+                        <div class="profile-action">
+                            <a href="view-profile.html" class="btn btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                Send Interest
+                            </a>
                         </div>
                     </div>
                 </div>
+                
                 <!-- Profile Card 2 -->
-                <div class="col-md-3">
-                    <div class="card h-100 shadow-sm">
-                        <img src="https://via.placeholder.com/300x200/e91e63/ffffff?text=Profile+2" class="card-img-top" alt="Profile">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">NX1235</h6>
-                            <p class="card-text text-muted mb-1">25 Yrs, 5'4"</p>
-                            <p class="card-text text-muted mb-2">Teacher, Pune</p>
-                            <span class="badge bg-primary">Buddhist</span>
+                <div class="profile-card glass hover-lift animate-fade-up" style="animation-delay: 0.1s;">
+                    <div class="profile-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Rahul Gaikwad">
+                        <div class="profile-image-overlay"></div>
+                        <div class="profile-image-info">
+                            <h3>Rahul Gaikwad</h3>
+                            <p>29 yrs, 5'10"</p>
                         </div>
-                        <div class="card-footer bg-white border-0 text-center">
-                            <a href="view-profile.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            <span>B.Tech</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            <span>Civil Engineer</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Pune, Maharashtra</span>
+                        </div>
+                        <div class="profile-action">
+                            <a href="view-profile.html" class="btn btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                Send Interest
+                            </a>
                         </div>
                     </div>
                 </div>
+                
                 <!-- Profile Card 3 -->
-                <div class="col-md-3">
-                    <div class="card h-100 shadow-sm">
-                        <img src="https://via.placeholder.com/300x200/9c27b0/ffffff?text=Profile+3" class="card-img-top" alt="Profile">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">NX1236</h6>
-                            <p class="card-text text-muted mb-1">30 Yrs, 5'8"</p>
-                            <p class="card-text text-muted mb-2">Doctor, Thane</p>
-                            <span class="badge bg-primary">Buddhist</span>
+                <div class="profile-card glass hover-lift animate-fade-up" style="animation-delay: 0.2s;">
+                    <div class="profile-image">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop" alt="Sneha Kamble">
+                        <div class="profile-image-overlay"></div>
+                        <div class="profile-image-info">
+                            <h3>Sneha Kamble</h3>
+                            <p>24 yrs, 5'3"</p>
                         </div>
-                        <div class="card-footer bg-white border-0 text-center">
-                            <a href="view-profile.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            <span>MBBS</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            <span>Doctor</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Nagpur, Maharashtra</span>
+                        </div>
+                        <div class="profile-action">
+                            <a href="view-profile.html" class="btn btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                Send Interest
+                            </a>
                         </div>
                     </div>
                 </div>
+                
                 <!-- Profile Card 4 -->
-                <div class="col-md-3">
-                    <div class="card h-100 shadow-sm">
-                        <img src="https://via.placeholder.com/300x200/3f51b5/ffffff?text=Profile+4" class="card-img-top" alt="Profile">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">NX1237</h6>
-                            <p class="card-text text-muted mb-1">26 Yrs, 5'3"</p>
-                            <p class="card-text text-muted mb-2">Engineer, Nagpur</p>
-                            <span class="badge bg-primary">Buddhist</span>
+                <div class="profile-card glass hover-lift animate-fade-up" style="animation-delay: 0.3s;">
+                    <div class="profile-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop" alt="Amit Wankhede">
+                        <div class="profile-image-overlay"></div>
+                        <div class="profile-image-info">
+                            <h3>Amit Wankhede</h3>
+                            <p>31 yrs, 5'11"</p>
                         </div>
-                        <div class="card-footer bg-white border-0 text-center">
-                            <a href="view-profile.html" class="btn btn-sm btn-outline-primary">View Profile</a>
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            <span>M.Tech</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            <span>Data Scientist</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Bangalore, Karnataka</span>
+                        </div>
+                        <div class="profile-action">
+                            <a href="view-profile.html" class="btn btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                Send Interest
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
-                <a href="search.html" class="btn btn-primary btn-lg">View All Profiles</a>
+            
+            <div class="text-center mt-12">
+                <a href="search.html" class="btn btn-outline btn-lg">View All Profiles</a>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="py-5">
+    <!-- How It Works Section -->
+    <section class="section how-it-works">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">How It Works</h2>
-                <p class="text-muted">Simple steps to find your partner</p>
+            <div class="section-header">
+                <h2 class="section-title gradient-text">How It Works</h2>
+                <p class="section-subtitle">Find your perfect match in 4 simple steps</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="text-center">
-                        <div class="step-number bg-primary text-white rounded-circle mx-auto mb-3" style="width: 50px; height: 50px; line-height: 50px; font-size: 1.5rem;">1</div>
-                        <h5>Register</h5>
-                        <p class="text-muted">Create your free profile in minutes</p>
+            
+            <div class="steps-grid">
+                <div class="step-card animate-fade-up">
+                    <div class="step-icon-wrapper glass hover-scale">
+                        <span class="step-number">01</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+                    </div>
+                    <h3 class="step-title">Register Free</h3>
+                    <p class="step-description">Create your profile in just a few minutes with your basic details and preferences.</p>
+                </div>
+                
+                <div class="step-card animate-fade-up" style="animation-delay: 0.1s;">
+                    <div class="step-icon-wrapper glass hover-scale">
+                        <span class="step-number">02</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <h3 class="step-title">Search Matches</h3>
+                    <p class="step-description">Browse through thousands of verified Buddhist profiles using our advanced search filters.</p>
+                </div>
+                
+                <div class="step-card animate-fade-up" style="animation-delay: 0.2s;">
+                    <div class="step-icon-wrapper glass hover-scale">
+                        <span class="step-number">03</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                    </div>
+                    <h3 class="step-title">Send Interest</h3>
+                    <p class="step-description">Express your interest to profiles you like and wait for them to accept.</p>
+                </div>
+                
+                <div class="step-card animate-fade-up" style="animation-delay: 0.3s;">
+                    <div class="step-icon-wrapper glass hover-scale">
+                        <span class="step-number">04</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                    </div>
+                    <h3 class="step-title">Connect & Chat</h3>
+                    <p class="step-description">Once interest is accepted, start chatting and take the relationship forward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Success Stories</h2>
+                <p class="section-subtitle">Real couples who found their happily ever after through Samyak Matrimony</p>
+            </div>
+            
+            <div class="stories-grid">
+                <div class="story-card glass hover-lift animate-fade-up">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500&h=500&fit=crop" alt="Priya & Rahul">
+                    </div>
+                    <div class="story-content">
+                        <svg class="story-quote-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M10 11H5V6h5v5zm9 0h-5V6h5v5zm-9 7H5v-5h5v5zm9 0h-5v-5h5v5z"/></svg>
+                        <p class="story-quote">"We found each other on Samyak Matrimony and knew instantly that we were meant to be. Thank you for helping us find our soulmate!"</p>
+                        <div class="story-couple">
+                            <h4>Priya & Rahul</h4>
+                            <p>Mumbai • Married in 2024</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="text-center">
-                        <div class="step-number bg-primary text-white rounded-circle mx-auto mb-3" style="width: 50px; height: 50px; line-height: 50px; font-size: 1.5rem;">2</div>
-                        <h5>Search</h5>
-                        <p class="text-muted">Find matching profiles based on your preferences</p>
+                
+                <div class="story-card glass hover-lift animate-fade-up" style="animation-delay: 0.1s;">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=500&h=500&fit=crop" alt="Sneha & Amit">
+                    </div>
+                    <div class="story-content">
+                        <svg class="story-quote-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M10 11H5V6h5v5zm9 0h-5V6h5v5zm-9 7H5v-5h5v5zm9 0h-5v-5h5v5z"/></svg>
+                        <p class="story-quote">"The platform made it so easy to connect with like-minded Buddhist singles. We are grateful for this beautiful journey together."</p>
+                        <div class="story-couple">
+                            <h4>Sneha & Amit</h4>
+                            <p>Pune • Married in 2024</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="text-center">
-                        <div class="step-number bg-primary text-white rounded-circle mx-auto mb-3" style="width: 50px; height: 50px; line-height: 50px; font-size: 1.5rem;">3</div>
-                        <h5>Connect</h5>
-                        <p class="text-muted">Send interests and start conversations</p>
+                
+                <div class="story-card glass hover-lift animate-fade-up" style="animation-delay: 0.2s;">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=500&h=500&fit=crop" alt="Anjali & Vikram">
+                    </div>
+                    <div class="story-content">
+                        <svg class="story-quote-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M10 11H5V6h5v5zm9 0h-5V6h5v5zm-9 7H5v-5h5v5zm9 0h-5v-5h5v5z"/></svg>
+                        <p class="story-quote">"From the first message to our wedding day, Samyak Matrimony was with us every step of the way. Highly recommended!"</p>
+                        <div class="story-couple">
+                            <h4>Anjali & Vikram</h4>
+                            <p>Nagpur • Married in 2023</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="success-stories.html" class="btn btn-outline btn-lg">Read More Stories</a>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-5 bg-primary text-white">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-3">Ready to Find Your Perfect Match?</h2>
-            <p class="lead mb-4">Join thousands of happy couples who found their life partners through Samyak Matrimony</p>
-            <a href="register.html" class="btn btn-light btn-lg px-5">Register Now - It's Free!</a>
+    <section class="cta-section animated-gradient">
+        <div class="cta-floating-1"></div>
+        <div class="cta-floating-2"></div>
+        
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </div>
+                <h2 class="cta-title">Start Your Journey Today</h2>
+                <p class="cta-subtitle">Join thousands of Buddhist singles who have found their perfect life partner. Registration is free and takes just a few minutes.</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-white btn-lg shimmer">
+                        Register Free
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="about.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">
+                        Learn More
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer class="footer">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <h5>About Samyak Matrimony</h5>
-                    <p class="text-muted">Samyak Matrimony is a trusted Buddhist matrimonial platform helping people find their perfect life partners since 2010.</p>
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div>
+                    <a href="index.html" class="footer-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        <span>Samyak Matrimony</span>
+                    </a>
+                    <p class="footer-description">The most trusted Buddhist matrimonial service. Join thousands of happy couples who found their perfect match.</p>
+                    <div class="footer-social">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-muted">Home</a></li>
-                        <li><a href="search.html" class="text-muted">Search</a></li>
-                        <li><a href="about-us.html" class="text-muted">About Us</a></li>
-                        <li><a href="contact.html" class="text-muted">Contact</a></li>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="search.html">Search Profiles</a></li>
+                        <li><a href="success-stories.html">Success Stories</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="col-md-2">
-                    <h5>Help</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="faq.html" class="text-muted">FAQ</a></li>
-                        <li><a href="privacy-policy.html" class="text-muted">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="text-muted">Terms of Use</a></li>
+                
+                <!-- Legal -->
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="refund.html">Refund Policy</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h5>Contact Us</h5>
-                    <p class="text-muted mb-1"><i class="fas fa-phone me-2"></i>+91-79779-93616</p>
-                    <p class="text-muted mb-1"><i class="fas fa-envelope me-2"></i>info@samyakmatrimony.com</p>
-                    <p class="text-muted"><i class="fas fa-map-marker-alt me-2"></i>Thane, Maharashtra, India</p>
-                    <div class="mt-3">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>123 Buddhist Lane, Nagpur, Maharashtra 440001</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>+91 98765 43210</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <span>support@samyakmatrimony.com</span>
                     </div>
                 </div>
             </div>
-            <hr class="my-4">
-            <div class="text-center text-muted">
-                <p class="mb-0">&copy; 2024 Samyak Matrimony. All Rights Reserved.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Samyak Matrimony. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('show');
+        }
+    </script>
 </body>
-
 </html>
