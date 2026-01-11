@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My Matches - Samyak Matrimony</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        .sidebar { width: 250px; min-height: 100vh; }
+        .main-content { margin-left: 250px; }
+        @media (max-width: 991px) {
+            .sidebar { position: fixed; left: -250px; z-index: 1000; transition: left 0.3s; }
+            .sidebar.show { left: 0; }
+            .main-content { margin-left: 0; }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Sidebar -->
+    <aside class="sidebar bg-white shadow-sm position-fixed">
+        <div class="p-3 border-bottom">
+            <a href="index.html" class="text-decoration-none">
+                <h5 class="text-primary mb-0"><i class="fas fa-heart me-2"></i>Samyak</h5>
+            </a>
+        </div>
+        <nav class="p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="dashboard.html">
+                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link active bg-primary text-white rounded" href="my-matches.html">
+                        <i class="fas fa-users me-2"></i>My Matches
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="shortlisted.html">
+                        <i class="fas fa-star me-2"></i>Shortlisted
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="interests.html">
+                        <i class="fas fa-envelope me-2"></i>Interests
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="bg-white shadow-sm p-3 d-flex justify-content-between align-items-center">
+            <button class="btn btn-outline-primary d-lg-none" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h5 class="mb-0">My Matches</h5>
+            <div>
+                <select class="form-select form-select-sm d-inline-block w-auto">
+                    <option>Newest First</option>
+                    <option>Last Active</option>
+                    <option>Relevance</option>
+                </select>
+            </div>
+        </header>
+
+        <main class="p-4">
+            <div class="row g-4">
+                <!-- Match Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/300x200/e91e63/ffffff?text=Profile+1" class="card-img-top" alt="Profile">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-2">Online</span>
+                            <span class="badge bg-warning position-absolute top-0 start-0 m-2">95% Match</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">NX1240</h6>
+                            <p class="text-muted small mb-2">25 Yrs, 5'4" | Pune</p>
+                            <p class="text-muted small mb-2">Software Engineer | Buddhist</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="view-profile.html" class="btn btn-sm btn-outline-primary" title="View Profile">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn btn-sm btn-outline-danger" title="Send Interest">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" title="Shortlist">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info" title="Message">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Match Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/300x200/9c27b0/ffffff?text=Profile+2" class="card-img-top" alt="Profile">
+                            <span class="badge bg-warning position-absolute top-0 start-0 m-2">90% Match</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">NX1241</h6>
+                            <p class="text-muted small mb-2">26 Yrs, 5'3" | Mumbai</p>
+                            <p class="text-muted small mb-2">Teacher | Buddhist</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="view-profile.html" class="btn btn-sm btn-outline-primary" title="View Profile">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn btn-sm btn-outline-danger" title="Send Interest">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" title="Shortlist">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info" title="Message">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Match Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/300x200/3f51b5/ffffff?text=Profile+3" class="card-img-top" alt="Profile">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-2">Online</span>
+                            <span class="badge bg-warning position-absolute top-0 start-0 m-2">88% Match</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">NX1242</h6>
+                            <p class="text-muted small mb-2">24 Yrs, 5'5" | Thane</p>
+                            <p class="text-muted small mb-2">Doctor | Buddhist</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="view-profile.html" class="btn btn-sm btn-outline-primary" title="View Profile">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn btn-sm btn-outline-danger" title="Send Interest">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" title="Shortlist">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info" title="Message">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Match Card 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/300x200/009688/ffffff?text=Profile+4" class="card-img-top" alt="Profile">
+                            <span class="badge bg-warning position-absolute top-0 start-0 m-2">85% Match</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">NX1243</h6>
+                            <p class="text-muted small mb-2">27 Yrs, 5'2" | Nagpur</p>
+                            <p class="text-muted small mb-2">Engineer | Buddhist</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="view-profile.html" class="btn btn-sm btn-outline-primary" title="View Profile">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn btn-sm btn-outline-danger" title="Send Interest">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" title="Shortlist">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info" title="Message">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Match Card 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/300x200/ff5722/ffffff?text=Profile+5" class="card-img-top" alt="Profile">
+                            <span class="badge bg-warning position-absolute top-0 start-0 m-2">82% Match</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">NX1244</h6>
+                            <p class="text-muted small mb-2">28 Yrs, 5'6" | Nashik</p>
+                            <p class="text-muted small mb-2">Nurse | Buddhist</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="view-profile.html" class="btn btn-sm btn-outline-primary" title="View Profile">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn btn-sm btn-outline-danger" title="Send Interest">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" title="Shortlist">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info" title="Message">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Match Card 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/300x200/795548/ffffff?text=Profile+6" class="card-img-top" alt="Profile">
+                            <span class="badge bg-warning position-absolute top-0 start-0 m-2">80% Match</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title mb-1">NX1245</h6>
+                            <p class="text-muted small mb-2">23 Yrs, 5'4" | Kolhapur</p>
+                            <p class="text-muted small mb-2">Student | Buddhist</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="view-profile.html" class="btn btn-sm btn-outline-primary" title="View Profile">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn btn-sm btn-outline-danger" title="Send Interest">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" title="Shortlist">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-info" title="Message">
+                                    <i class="fas fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard - Samyak Matrimony</title>
+    <meta name="description" content="Your Samyak Matrimony Dashboard">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        .sidebar { width: 250px; min-height: 100vh; }
+        .main-content { margin-left: 250px; }
+        @media (max-width: 991px) {
+            .sidebar { position: fixed; left: -250px; z-index: 1000; transition: left 0.3s; }
+            .sidebar.show { left: 0; }
+            .main-content { margin-left: 0; }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Sidebar -->
+    <aside class="sidebar bg-white shadow-sm position-fixed">
+        <div class="p-3 border-bottom">
+            <a href="index.html" class="text-decoration-none">
+                <h5 class="text-primary mb-0"><i class="fas fa-heart me-2"></i>Samyak</h5>
+            </a>
+        </div>
+        <nav class="p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-1">
+                    <a class="nav-link active bg-primary text-white rounded" href="dashboard.html">
+                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="edit-profile.html">
+                        <i class="fas fa-user me-2"></i>My Profile
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="manage-photos.html">
+                        <i class="fas fa-images me-2"></i>Manage Photos
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="profile-statistics.html">
+                        <i class="fas fa-chart-bar me-2"></i>Profile Statistics
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="search.html">
+                        <i class="fas fa-search me-2"></i>Search
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="partner-preferences.html">
+                        <i class="fas fa-heart me-2"></i>Partner Preferences
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="my-matches.html">
+                        <i class="fas fa-users me-2"></i>My Matches
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="shortlisted.html">
+                        <i class="fas fa-star me-2"></i>Shortlisted
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="interests.html">
+                        <i class="fas fa-envelope me-2"></i>Interests
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="membership.html">
+                        <i class="fas fa-gem me-2"></i>Membership Plans
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="settings.html">
+                        <i class="fas fa-cog me-2"></i>Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="p-3 border-top mt-auto">
+            <a href="index.html" class="btn btn-outline-secondary btn-sm w-100 mb-2">
+                <i class="fas fa-home me-2"></i>Back to Home
+            </a>
+            <a href="login.html" class="btn btn-outline-danger btn-sm w-100">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="bg-white shadow-sm p-3 d-flex justify-content-between align-items-center">
+            <button class="btn btn-outline-primary d-lg-none" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="d-flex align-items-center">
+                <span class="me-3">Welcome, <strong>Rahul More</strong></span>
+                <img src="https://via.placeholder.com/40x40/c5073b/ffffff?text=RM" alt="Avatar" class="rounded-circle">
+            </div>
+        </header>
+
+        <main class="p-4">
+            <!-- Welcome Card -->
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h4>Welcome back, Rahul More!</h4>
+                            <p class="mb-0">Profile ID: NX1235 | Member since: Jan 2024</p>
+                        </div>
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <a href="edit-profile.html" class="btn btn-light">Complete Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <div class="display-6 text-primary mb-2">128</div>
+                            <p class="text-muted mb-0">Profile Views</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <div class="display-6 text-success mb-2">24</div>
+                            <p class="text-muted mb-0">Interests Received</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <div class="display-6 text-info mb-2">18</div>
+                            <p class="text-muted mb-0">Interests Sent</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <div class="display-6 text-warning mb-2">45</div>
+                            <p class="text-muted mb-0">Shortlisted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Membership Card -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-warning text-dark">
+                            <h6 class="mb-0"><i class="fas fa-crown me-2"></i>Membership Status</h6>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="text-primary">Classic Plan</h5>
+                            <p class="text-muted">Valid till: 29 Dec 2026</p>
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <small class="text-muted">Contacts</small>
+                                    <div class="fw-bold">17/25</div>
+                                </div>
+                                <div class="col-4">
+                                    <small class="text-muted">Profile Views</small>
+                                    <div class="fw-bold">2992/3000</div>
+                                </div>
+                                <div class="col-4">
+                                    <small class="text-muted">Messages</small>
+                                    <div class="fw-bold">24/25</div>
+                                </div>
+                            </div>
+                            <a href="membership.html" class="btn btn-primary btn-sm mt-3">Upgrade Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h6 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Profile Completeness</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="position-relative" style="width: 120px; height: 120px;">
+                                    <svg viewBox="0 0 36 36" class="circular-chart">
+                                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#eee" stroke-width="3"/>
+                                        <path class="circle" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#c5073b" stroke-width="3" stroke-dasharray="75, 100"/>
+                                    </svg>
+                                    <div class="position-absolute top-50 start-50 translate-middle">
+                                        <span class="display-6 fw-bold text-primary">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-center text-muted mb-2">Complete your profile to get more matches</p>
+                            <a href="edit-profile.html" class="btn btn-outline-primary btn-sm w-100">Complete Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Visitors -->
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h6 class="mb-0"><i class="fas fa-eye me-2"></i>Recent Visitors</h6>
+                    <a href="profile-statistics.html" class="btn btn-link btn-sm">View All</a>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-2 col-4 text-center">
+                            <img src="https://via.placeholder.com/80x80/e91e63/ffffff?text=P1" class="rounded-circle mb-2" width="60" height="60">
+                            <p class="small mb-0">NX1240</p>
+                            <small class="text-muted">Today</small>
+                        </div>
+                        <div class="col-md-2 col-4 text-center">
+                            <img src="https://via.placeholder.com/80x80/9c27b0/ffffff?text=P2" class="rounded-circle mb-2" width="60" height="60">
+                            <p class="small mb-0">NX1241</p>
+                            <small class="text-muted">Yesterday</small>
+                        </div>
+                        <div class="col-md-2 col-4 text-center">
+                            <img src="https://via.placeholder.com/80x80/3f51b5/ffffff?text=P3" class="rounded-circle mb-2" width="60" height="60">
+                            <p class="small mb-0">NX1242</p>
+                            <small class="text-muted">2 days ago</small>
+                        </div>
+                        <div class="col-md-2 col-4 text-center">
+                            <img src="https://via.placeholder.com/80x80/009688/ffffff?text=P4" class="rounded-circle mb-2" width="60" height="60">
+                            <p class="small mb-0">NX1243</p>
+                            <small class="text-muted">3 days ago</small>
+                        </div>
+                        <div class="col-md-2 col-4 text-center">
+                            <img src="https://via.placeholder.com/80x80/ff5722/ffffff?text=P5" class="rounded-circle mb-2" width="60" height="60">
+                            <p class="small mb-0">NX1244</p>
+                            <small class="text-muted">4 days ago</small>
+                        </div>
+                        <div class="col-md-2 col-4 text-center">
+                            <img src="https://via.placeholder.com/80x80/795548/ffffff?text=P6" class="rounded-circle mb-2" width="60" height="60">
+                            <p class="small mb-0">NX1245</p>
+                            <small class="text-muted">5 days ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Interests -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h6 class="mb-0"><i class="fas fa-heart me-2"></i>Recent Interests Received</h6>
+                    <a href="interests.html" class="btn btn-link btn-sm">View All</a>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>Profile</th>
+                                    <th>Name</th>
+                                    <th>Age / Location</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src="https://via.placeholder.com/40x40/e91e63/ffffff?text=A" class="rounded-circle"></td>
+                                    <td><a href="view-profile.html">NX1250</a></td>
+                                    <td>26 Yrs, Mumbai</td>
+                                    <td>10 Jan 2024</td>
+                                    <td>
+                                        <button class="btn btn-success btn-sm me-1"><i class="fas fa-check"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://via.placeholder.com/40x40/9c27b0/ffffff?text=B" class="rounded-circle"></td>
+                                    <td><a href="view-profile.html">NX1251</a></td>
+                                    <td>24 Yrs, Pune</td>
+                                    <td>9 Jan 2024</td>
+                                    <td>
+                                        <button class="btn btn-success btn-sm me-1"><i class="fas fa-check"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://via.placeholder.com/40x40/3f51b5/ffffff?text=C" class="rounded-circle"></td>
+                                    <td><a href="view-profile.html">NX1252</a></td>
+                                    <td>25 Yrs, Thane</td>
+                                    <td>8 Jan 2024</td>
+                                    <td>
+                                        <button class="btn btn-success btn-sm me-1"><i class="fas fa-check"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

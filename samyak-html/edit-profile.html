@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Edit Profile - Samyak Matrimony</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        .sidebar { width: 250px; min-height: 100vh; }
+        .main-content { margin-left: 250px; }
+        @media (max-width: 991px) {
+            .sidebar { position: fixed; left: -250px; z-index: 1000; transition: left 0.3s; }
+            .sidebar.show { left: 0; }
+            .main-content { margin-left: 0; }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Sidebar -->
+    <aside class="sidebar bg-white shadow-sm position-fixed">
+        <div class="p-3 border-bottom">
+            <a href="index.html" class="text-decoration-none">
+                <h5 class="text-primary mb-0"><i class="fas fa-heart me-2"></i>Samyak</h5>
+            </a>
+        </div>
+        <nav class="p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="dashboard.html">
+                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link active bg-primary text-white rounded" href="edit-profile.html">
+                        <i class="fas fa-user me-2"></i>My Profile
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="manage-photos.html">
+                        <i class="fas fa-images me-2"></i>Manage Photos
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="settings.html">
+                        <i class="fas fa-cog me-2"></i>Settings
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="bg-white shadow-sm p-3 d-flex justify-content-between align-items-center">
+            <button class="btn btn-outline-primary d-lg-none" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h5 class="mb-0">Edit Profile</h5>
+            <button class="btn btn-primary">
+                <i class="fas fa-save me-2"></i>Save Changes
+            </button>
+        </header>
+
+        <main class="p-4">
+            
+            <!-- Photo Section -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="mb-0"><i class="fas fa-camera me-2"></i>Profile Photos</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-2 col-4">
+                            <div class="position-relative">
+                                <img src="https://via.placeholder.com/150x150/c5073b/ffffff?text=Main" class="img-fluid rounded border border-primary border-2">
+                                <span class="badge bg-primary position-absolute top-0 start-0 m-1">Main</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-4">
+                            <div class="border border-dashed rounded d-flex align-items-center justify-content-center" style="height: 150px; cursor: pointer;">
+                                <div class="text-center text-muted">
+                                    <i class="fas fa-plus fa-2x mb-2"></i>
+                                    <small class="d-block">Add Photo</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-4">
+                            <div class="border border-dashed rounded d-flex align-items-center justify-content-center" style="height: 150px; cursor: pointer;">
+                                <div class="text-center text-muted">
+                                    <i class="fas fa-plus fa-2x mb-2"></i>
+                                    <small class="d-block">Add Photo</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted small mt-3 mb-0">Add up to 6 photos. First photo will be your profile picture.</p>
+                </div>
+            </div>
+
+            <!-- Profile Form -->
+            <form>
+                <!-- Tabs -->
+                <ul class="nav nav-tabs mb-4" id="profileTabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#personal" type="button">
+                            <i class="fas fa-user me-1"></i>Personal
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#religion" type="button">
+                            <i class="fas fa-pray me-1"></i>Religion
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#education" type="button">
+                            <i class="fas fa-graduation-cap me-1"></i>Education
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#family" type="button">
+                            <i class="fas fa-home me-1"></i>Family
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#lifestyle" type="button">
+                            <i class="fas fa-coffee me-1"></i>Lifestyle
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- Personal Details -->
+                    <div class="tab-pane fade show active" id="personal" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header">Personal Details</div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">First Name *</label>
+                                        <input type="text" class="form-control" value="Rahul">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" value="More">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Gender *</label>
+                                        <select class="form-select">
+                                            <option value="male" selected>Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Date of Birth *</label>
+                                        <input type="date" class="form-control" value="1995-06-15">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Marital Status *</label>
+                                        <select class="form-select">
+                                            <option value="unmarried" selected>Never Married</option>
+                                            <option value="divorced">Divorced</option>
+                                            <option value="widowed">Widowed</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Height</label>
+                                        <select class="form-select">
+                                            <option>5' 6"</option>
+                                            <option>5' 8"</option>
+                                            <option selected>5' 10"</option>
+                                            <option>6' 0"</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Weight (kg)</label>
+                                        <input type="number" class="form-control" value="72">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Blood Group</label>
+                                        <select class="form-select">
+                                            <option>A+</option>
+                                            <option>A-</option>
+                                            <option>B+</option>
+                                            <option>B-</option>
+                                            <option selected>O+</option>
+                                            <option>O-</option>
+                                            <option>AB+</option>
+                                            <option>AB-</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">About Me</label>
+                                        <textarea class="form-control" rows="4">I am a career-oriented individual who believes in balancing work and personal life. I enjoy reading, traveling, and exploring new cuisines. Looking for a life partner who shares similar values and has a positive outlook towards life.</textarea>
+                                        <small class="text-muted">240/500 characters</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Religion Details -->
+                    <div class="tab-pane fade" id="religion" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header">Religion & Community</div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Religion *</label>
+                                        <select class="form-select">
+                                            <option selected>Buddhist</option>
+                                            <option>Hindu</option>
+                                            <option>Jain</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Caste *</label>
+                                        <select class="form-select">
+                                            <option>Mahar</option>
+                                            <option selected>Nav Bauddha</option>
+                                            <option>Bauddha</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Sub Caste</label>
+                                        <input type="text" class="form-control" placeholder="Enter sub caste">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Mother Tongue</label>
+                                        <select class="form-select">
+                                            <option selected>Marathi</option>
+                                            <option>Hindi</option>
+                                            <option>English</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education & Career -->
+                    <div class="tab-pane fade" id="education" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header">Education & Career</div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Highest Education *</label>
+                                        <select class="form-select">
+                                            <option>10th</option>
+                                            <option>12th</option>
+                                            <option>Diploma</option>
+                                            <option>Graduate</option>
+                                            <option selected>B.Tech/B.E</option>
+                                            <option>MBA</option>
+                                            <option>M.Tech</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Education Details</label>
+                                        <input type="text" class="form-control" value="B.Tech in Computer Science from Pune University">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Occupation *</label>
+                                        <select class="form-select">
+                                            <option selected>Software Engineer</option>
+                                            <option>Civil Engineer</option>
+                                            <option>Doctor</option>
+                                            <option>Teacher</option>
+                                            <option>Business</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Company Name</label>
+                                        <input type="text" class="form-control" value="TCS">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Annual Income</label>
+                                        <select class="form-select">
+                                            <option>1-3 Lakh</option>
+                                            <option>3-5 Lakh</option>
+                                            <option>5-8 Lakh</option>
+                                            <option selected>8-12 Lakh</option>
+                                            <option>12-20 Lakh</option>
+                                            <option>20+ Lakh</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Working City</label>
+                                        <input type="text" class="form-control" value="Mumbai">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Family Details -->
+                    <div class="tab-pane fade" id="family" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header">Family Details</div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Family Type</label>
+                                        <select class="form-select">
+                                            <option>Joint</option>
+                                            <option selected>Nuclear</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Family Status</label>
+                                        <select class="form-select">
+                                            <option selected>Middle Class</option>
+                                            <option>Upper Middle Class</option>
+                                            <option>Rich</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Family Values</label>
+                                        <select class="form-select">
+                                            <option>Traditional</option>
+                                            <option selected>Moderate</option>
+                                            <option>Liberal</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Father's Occupation</label>
+                                        <input type="text" class="form-control" value="Government Employee">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Mother's Occupation</label>
+                                        <input type="text" class="form-control" value="Homemaker">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label">Siblings</label>
+                                        <input type="text" class="form-control" value="1 Sister (Married)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lifestyle -->
+                    <div class="tab-pane fade" id="lifestyle" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header">Lifestyle</div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Diet</label>
+                                        <select class="form-select">
+                                            <option selected>Vegetarian</option>
+                                            <option>Non-Vegetarian</option>
+                                            <option>Eggetarian</option>
+                                            <option>Vegan</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Smoking</label>
+                                        <select class="form-select">
+                                            <option selected>No</option>
+                                            <option>Yes</option>
+                                            <option>Occasionally</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Drinking</label>
+                                        <select class="form-select">
+                                            <option>No</option>
+                                            <option>Yes</option>
+                                            <option selected>Occasionally</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-end mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fas fa-save me-2"></i>Save All Changes
+                    </button>
+                </div>
+            </form>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
