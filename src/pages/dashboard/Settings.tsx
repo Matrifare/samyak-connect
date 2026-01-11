@@ -1,16 +1,38 @@
 import { useState } from "react";
-import { Key, Bell, Eye, Shield, Trash2, AlertTriangle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
+import { 
+  Key, 
+  Phone, 
+  Shield, 
+  Camera, 
+  User, 
+  Heart, 
+  Image, 
+  EyeOff, 
+  FileText, 
+  Lock, 
+  Trash2,
+  Edit,
+  CheckCircle2,
+  Mail,
+  BadgeCheck
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import defaultMale from "@/assets/default-male.jpg";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -29,40 +51,117 @@ const userData = {
   avatar: defaultMale,
 };
 
+// Settings menu items
+const settingsOptions = [
+  { 
+    label: "Change Password", 
+    icon: Key, 
+    action: "password",
+    description: "Update your account password"
+  },
+  { 
+    label: "Edit Contact Details", 
+    icon: Phone, 
+    action: "contact",
+    description: "Update your phone and email"
+  },
+  { 
+    label: "Contact Security", 
+    icon: Shield, 
+    action: "security",
+    description: "Manage who can view your contact details"
+  },
+  { 
+    label: "Edit Photo", 
+    icon: Camera, 
+    action: "photo",
+    description: "Update your profile photos"
+  },
+  { 
+    label: "Edit Profile", 
+    icon: User, 
+    action: "profile",
+    description: "Update your profile information"
+  },
+  { 
+    label: "Edit Match", 
+    icon: Heart, 
+    action: "match",
+    description: "Update partner preferences"
+  },
+  { 
+    label: "Photo Hide/Unhide", 
+    icon: Image, 
+    action: "photo-visibility",
+    description: "Control photo visibility"
+  },
+  { 
+    label: "Profile Hide/Unhide", 
+    icon: EyeOff, 
+    action: "profile-visibility",
+    description: "Control profile visibility"
+  },
+  { 
+    label: "Profile Description Update", 
+    icon: FileText, 
+    action: "description",
+    description: "Update your bio and about me"
+  },
+  { 
+    label: "Express Interest / View Contact Privacy", 
+    icon: Lock, 
+    action: "privacy",
+    description: "Manage interest and contact privacy"
+  },
+];
+
+// Trust status items
+const trustStatus = [
+  { label: "Phone Number", verified: true, icon: Phone },
+  { label: "Email Verification", verified: true, icon: Mail },
+  { label: "Photo Id Proof Verification", verified: true, icon: BadgeCheck },
+];
+
 const Settings = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [settings, setSettings] = useState({
-    // Password
+  const [passwordData, setPasswordData] = useState({
     currentPassword: "",
     newPassword: "",
     confirmPassword: "",
-    
-    // Notifications
-    emailNotifications: true,
-    smsNotifications: false,
-    newMatchNotification: true,
-    interestNotification: true,
-    viewNotification: true,
-    messageNotification: true,
-    
-    // Privacy
-    profileVisibility: "all",
-    showLastSeen: true,
-    allowScreenshot: false,
-    
-    // Account
-    profileStatus: "active",
   });
 
-  const handleSettingChange = (key: string, value: boolean | string) => {
-    setSettings(prev => ({ ...prev, [key]: value }));
+  const handleSettingClick = (action: string) => {
+    switch (action) {
+      case "photo":
+        window.location.href = "/dashboard/photos";
+        break;
+      case "profile":
+        window.location.href = "/dashboard/profile";
+        break;
+      case "match":
+        window.location.href = "/dashboard/preferences";
+        break;
+      default:
+        toast({
+          title: "Settings",
+          description: `Opening ${action} settings...`,
+        });
+    }
   };
 
   const handlePasswordChange = () => {
-    if (settings.newPassword !== settings.confirmPassword) {
+    if (passwordData.newPassword !== passwordData.confirmPassword) {
       toast({
         title: "Error",
         description: "Passwords do not match",
+        variant: "destructive",
+      });
+      return;
+    }
+    if (passwordData.newPassword.length < 6) {
+      toast({
+        title: "Error",
+        description: "Password must be at least 6 characters",
         variant: "destructive",
       });
       return;
@@ -71,18 +170,18 @@ const Settings = () => {
       title: "Password Updated",
       description: "Your password has been changed successfully.",
     });
-    setSettings(prev => ({
-      ...prev,
+    setPasswordData({
       currentPassword: "",
       newPassword: "",
       confirmPassword: "",
-    }));
+    });
   };
 
-  const handleDeactivate = () => {
+  const handleDeleteAccount = () => {
     toast({
-      title: "Account Deactivated",
-      description: "Your account has been deactivated. You can reactivate anytime by logging in.",
+      title: "Account Deletion Requested",
+      description: "Your account deletion request has been submitted. You will receive a confirmation email.",
+      variant: "destructive",
     });
   };
 
@@ -95,265 +194,149 @@ const Settings = () => {
         
         <main className="p-4 md:p-6 lg:p-8 max-w-4xl">
           <div className="mb-6">
-            <h1 className="text-2xl md:text-3xl font-bold text-foreground">Account Settings</h1>
-            <p className="text-muted-foreground">Manage your account preferences and security</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground">Settings</h1>
+            <p className="text-muted-foreground">Manage your account settings and preferences</p>
           </div>
 
           <div className="space-y-6">
-            {/* Change Password */}
+            {/* Settings Options */}
             <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Key className="h-5 w-5 text-primary" />
-                  Change Password
-                </CardTitle>
-                <CardDescription>
-                  Update your password to keep your account secure
-                </CardDescription>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg">Settings</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="currentPassword">Current Password</Label>
-                  <Input
-                    id="currentPassword"
-                    type="password"
-                    value={settings.currentPassword}
-                    onChange={(e) => handleSettingChange("currentPassword", e.target.value)}
-                  />
-                </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="newPassword">New Password</Label>
-                    <Input
-                      id="newPassword"
-                      type="password"
-                      value={settings.newPassword}
-                      onChange={(e) => handleSettingChange("newPassword", e.target.value)}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="confirmPassword">Confirm New Password</Label>
-                    <Input
-                      id="confirmPassword"
-                      type="password"
-                      value={settings.confirmPassword}
-                      onChange={(e) => handleSettingChange("confirmPassword", e.target.value)}
-                    />
-                  </div>
-                </div>
-                <Button onClick={handlePasswordChange}>Update Password</Button>
-              </CardContent>
-            </Card>
-
-            {/* Notification Settings */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Bell className="h-5 w-5 text-primary" />
-                  Notification Settings
-                </CardTitle>
-                <CardDescription>
-                  Choose how you want to be notified
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label>Email Notifications</Label>
-                    <p className="text-sm text-muted-foreground">Receive updates via email</p>
-                  </div>
-                  <Switch
-                    checked={settings.emailNotifications}
-                    onCheckedChange={(v) => handleSettingChange("emailNotifications", v)}
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label>SMS Notifications</Label>
-                    <p className="text-sm text-muted-foreground">Receive updates via SMS</p>
-                  </div>
-                  <Switch
-                    checked={settings.smsNotifications}
-                    onCheckedChange={(v) => handleSettingChange("smsNotifications", v)}
-                  />
-                </div>
-                
-                <Separator />
-                
-                <p className="font-medium text-sm">Notify me about:</p>
-                <div className="space-y-4 pl-4">
-                  <div className="flex items-center justify-between">
-                    <Label>New Matches</Label>
-                    <Switch
-                      checked={settings.newMatchNotification}
-                      onCheckedChange={(v) => handleSettingChange("newMatchNotification", v)}
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <Label>Interest Received</Label>
-                    <Switch
-                      checked={settings.interestNotification}
-                      onCheckedChange={(v) => handleSettingChange("interestNotification", v)}
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <Label>Profile Views</Label>
-                    <Switch
-                      checked={settings.viewNotification}
-                      onCheckedChange={(v) => handleSettingChange("viewNotification", v)}
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <Label>Messages</Label>
-                    <Switch
-                      checked={settings.messageNotification}
-                      onCheckedChange={(v) => handleSettingChange("messageNotification", v)}
-                    />
-                  </div>
+              <CardContent className="p-0">
+                <div className="divide-y divide-border">
+                  {settingsOptions.map((option, index) => (
+                    <div key={index}>
+                      {option.action === "password" ? (
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <button className="w-full flex items-center justify-between py-4 px-6 hover:bg-muted/50 transition-colors text-left">
+                              <div className="flex items-center gap-3">
+                                <option.icon className="h-5 w-5 text-primary" />
+                                <span className="font-medium">{option.label}</span>
+                              </div>
+                              <Edit className="h-5 w-5 text-muted-foreground" />
+                            </button>
+                          </DialogTrigger>
+                          <DialogContent>
+                            <DialogHeader>
+                              <DialogTitle>Change Password</DialogTitle>
+                              <DialogDescription>
+                                Enter your current password and a new password to update.
+                              </DialogDescription>
+                            </DialogHeader>
+                            <div className="space-y-4 py-4">
+                              <div className="space-y-2">
+                                <Label htmlFor="currentPassword">Current Password</Label>
+                                <Input
+                                  id="currentPassword"
+                                  type="password"
+                                  value={passwordData.currentPassword}
+                                  onChange={(e) => setPasswordData(prev => ({ ...prev, currentPassword: e.target.value }))}
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label htmlFor="newPassword">New Password</Label>
+                                <Input
+                                  id="newPassword"
+                                  type="password"
+                                  value={passwordData.newPassword}
+                                  onChange={(e) => setPasswordData(prev => ({ ...prev, newPassword: e.target.value }))}
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label htmlFor="confirmPassword">Confirm New Password</Label>
+                                <Input
+                                  id="confirmPassword"
+                                  type="password"
+                                  value={passwordData.confirmPassword}
+                                  onChange={(e) => setPasswordData(prev => ({ ...prev, confirmPassword: e.target.value }))}
+                                />
+                              </div>
+                            </div>
+                            <DialogFooter>
+                              <Button onClick={handlePasswordChange}>Update Password</Button>
+                            </DialogFooter>
+                          </DialogContent>
+                        </Dialog>
+                      ) : (
+                        <button
+                          onClick={() => handleSettingClick(option.action)}
+                          className="w-full flex items-center justify-between py-4 px-6 hover:bg-muted/50 transition-colors text-left"
+                        >
+                          <div className="flex items-center gap-3">
+                            <option.icon className="h-5 w-5 text-primary" />
+                            <span className="font-medium">{option.label}</span>
+                          </div>
+                          <Edit className="h-5 w-5 text-muted-foreground" />
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                  
+                  {/* Delete Profile Option */}
+                  <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                      <button className="w-full flex items-center justify-between py-4 px-6 hover:bg-destructive/10 transition-colors text-left">
+                        <div className="flex items-center gap-3">
+                          <Trash2 className="h-5 w-5 text-destructive" />
+                          <span className="font-medium text-destructive">Delete Profile</span>
+                        </div>
+                        <Trash2 className="h-5 w-5 text-destructive" />
+                      </button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                        <AlertDialogDescription>
+                          This action cannot be undone. This will permanently delete your
+                          account and remove all your data from our servers.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction 
+                          onClick={handleDeleteAccount}
+                          className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                        >
+                          Delete Account
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Privacy Settings */}
+            {/* Profile Trust Status */}
             <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Eye className="h-5 w-5 text-primary" />
-                  Privacy Settings
-                </CardTitle>
-                <CardDescription>
-                  Control who can see your profile
-                </CardDescription>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg">Profile Trust Status</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-2">
-                  <Label>Profile Visibility</Label>
-                  <Select
-                    value={settings.profileVisibility}
-                    onValueChange={(v) => handleSettingChange("profileVisibility", v)}
-                  >
-                    <SelectTrigger className="w-full md:w-64">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">Visible to All Members</SelectItem>
-                      <SelectItem value="premium">Visible to Premium Members Only</SelectItem>
-                      <SelectItem value="none">Hidden from All</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <p className="text-sm text-muted-foreground">
-                    Choose who can view your profile
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <Label>Show Last Seen</Label>
-                    <p className="text-sm text-muted-foreground">Show when you were last active</p>
-                  </div>
-                  <Switch
-                    checked={settings.showLastSeen}
-                    onCheckedChange={(v) => handleSettingChange("showLastSeen", v)}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Account Management */}
-            <Card className="border-destructive/20">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-destructive">
-                  <Shield className="h-5 w-5" />
-                  Account Management
-                </CardTitle>
-                <CardDescription>
-                  Manage your account status
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-2">
-                  <Label>Profile Status</Label>
-                  <Select
-                    value={settings.profileStatus}
-                    onValueChange={(v) => handleSettingChange("profileStatus", v)}
-                  >
-                    <SelectTrigger className="w-full md:w-64">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="active">Active - Visible & Searchable</SelectItem>
-                      <SelectItem value="hidden">Hidden - Not Visible to Others</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Separator />
-
+              <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <AlertTriangle className="h-5 w-5 text-amber-500 mt-0.5" />
-                    <div>
-                      <h4 className="font-medium">Deactivate Account</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Temporarily hide your profile. You can reactivate anytime.
-                      </p>
-                      <AlertDialog>
-                        <AlertDialogTrigger asChild>
-                          <Button variant="outline" className="mt-2">
-                            Deactivate Account
-                          </Button>
-                        </AlertDialogTrigger>
-                        <AlertDialogContent>
-                          <AlertDialogHeader>
-                            <AlertDialogTitle>Deactivate your account?</AlertDialogTitle>
-                            <AlertDialogDescription>
-                              Your profile will be hidden from all members. You can reactivate
-                              your account anytime by logging in again.
-                            </AlertDialogDescription>
-                          </AlertDialogHeader>
-                          <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={handleDeactivate}>
-                              Deactivate
-                            </AlertDialogAction>
-                          </AlertDialogFooter>
-                        </AlertDialogContent>
-                      </AlertDialog>
+                  {trustStatus.map((item, index) => (
+                    <div 
+                      key={index}
+                      className="flex items-center justify-between py-3 px-4 rounded-lg bg-muted/30"
+                    >
+                      <div className="flex items-center gap-3">
+                        <item.icon className="h-5 w-5 text-muted-foreground" />
+                        <span className="font-medium">{item.label}</span>
+                      </div>
+                      {item.verified ? (
+                        <CheckCircle2 className="h-6 w-6 text-green-600" />
+                      ) : (
+                        <Button size="sm" variant="outline">Verify</Button>
+                      )}
                     </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <Trash2 className="h-5 w-5 text-destructive mt-0.5" />
-                    <div>
-                      <h4 className="font-medium text-destructive">Delete Account</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Permanently delete your account and all data. This cannot be undone.
-                      </p>
-                      <AlertDialog>
-                        <AlertDialogTrigger asChild>
-                          <Button variant="destructive" className="mt-2">
-                            Delete Account
-                          </Button>
-                        </AlertDialogTrigger>
-                        <AlertDialogContent>
-                          <AlertDialogHeader>
-                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                            <AlertDialogDescription>
-                              This action cannot be undone. This will permanently delete your
-                              account and remove all your data from our servers.
-                            </AlertDialogDescription>
-                          </AlertDialogHeader>
-                          <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
-                              Delete Account
-                            </AlertDialogAction>
-                          </AlertDialogFooter>
-                        </AlertDialogContent>
-                      </AlertDialog>
-                    </div>
-                  </div>
+                  ))}
                 </div>
+                <p className="text-sm text-muted-foreground text-center mt-6 px-4">
+                  By verifying email address, mobile number, and Photo Id Proof trust score will be increased. 
+                  Profile having good trust score gets more interest from other users.
+                </p>
               </CardContent>
             </Card>
           </div>
