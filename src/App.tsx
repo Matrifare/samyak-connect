@@ -18,6 +18,11 @@ import Shortlisted from "./pages/dashboard/Shortlisted";
 import Interests from "./pages/dashboard/Interests";
 import Settings from "./pages/dashboard/Settings";
 import DashboardSearch from "./pages/dashboard/Search";
+import Membership from "./pages/Membership";
+import MembershipCompare from "./pages/MembershipCompare";
+import MembershipUpgrade from "./pages/MembershipUpgrade";
+import MembershipSuccess from "./pages/MembershipSuccess";
+import MembershipTransactions from "./pages/MembershipTransactions";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +47,11 @@ const App = () => (
           <Route path="/dashboard/shortlisted" element={<Shortlisted />} />
           <Route path="/dashboard/interests" element={<Interests />} />
           <Route path="/dashboard/settings" element={<Settings />} />
+          <Route path="/membership" element={<Membership />} />
+          <Route path="/membership/compare" element={<MembershipCompare />} />
+          <Route path="/membership/upgrade" element={<MembershipUpgrade />} />
+          <Route path="/membership/success" element={<MembershipSuccess />} />
+          <Route path="/membership/transactions" element={<MembershipTransactions />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
