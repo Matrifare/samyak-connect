@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Interests - Samyak Matrimony</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        .sidebar { width: 250px; min-height: 100vh; }
+        .main-content { margin-left: 250px; }
+        @media (max-width: 991px) {
+            .sidebar { position: fixed; left: -250px; z-index: 1000; transition: left 0.3s; }
+            .sidebar.show { left: 0; }
+            .main-content { margin-left: 0; }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Sidebar (simplified) -->
+    <aside class="sidebar bg-white shadow-sm position-fixed">
+        <div class="p-3 border-bottom">
+            <a href="index.html" class="text-decoration-none">
+                <h5 class="text-primary mb-0"><i class="fas fa-heart me-2"></i>Samyak</h5>
+            </a>
+        </div>
+        <nav class="p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="dashboard.html">
+                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link text-dark" href="my-matches.html">
+                        <i class="fas fa-users me-2"></i>My Matches
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link active bg-primary text-white rounded" href="interests.html">
+                        <i class="fas fa-envelope me-2"></i>Interests
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="bg-white shadow-sm p-3 d-flex justify-content-between align-items-center">
+            <button class="btn btn-outline-primary d-lg-none" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h5 class="mb-0">Interests</h5>
+            <img src="https://via.placeholder.com/40x40/c5073b/ffffff?text=RM" alt="Avatar" class="rounded-circle">
+        </header>
+
+        <main class="p-4">
+            <!-- Tabs -->
+            <ul class="nav nav-tabs mb-4">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#received">
+                        <i class="fas fa-inbox me-1"></i>Received <span class="badge bg-primary">5</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sent">
+                        <i class="fas fa-paper-plane me-1"></i>Sent <span class="badge bg-secondary">8</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#accepted">
+                        <i class="fas fa-check-circle me-1"></i>Accepted <span class="badge bg-success">12</span>
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <!-- Received Interests -->
+                <div class="tab-pane fade show active" id="received">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th>Profile</th>
+                                            <th>Details</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/50x50/e91e63/ffffff?text=A" class="rounded-circle me-2">
+                                                    <a href="view-profile.html">NX1250</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>26 Yrs, 5'4"</div>
+                                                <small class="text-muted">Mumbai | Software Engineer</small>
+                                            </td>
+                                            <td>10 Jan 2024</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-success btn-sm me-1"><i class="fas fa-check"></i> Accept</button>
+                                                <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Decline</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/50x50/9c27b0/ffffff?text=B" class="rounded-circle me-2">
+                                                    <a href="view-profile.html">NX1251</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>24 Yrs, 5'3"</div>
+                                                <small class="text-muted">Pune | Teacher</small>
+                                            </td>
+                                            <td>9 Jan 2024</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-success btn-sm me-1"><i class="fas fa-check"></i> Accept</button>
+                                                <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Decline</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/50x50/3f51b5/ffffff?text=C" class="rounded-circle me-2">
+                                                    <a href="view-profile.html">NX1252</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>25 Yrs, 5'5"</div>
+                                                <small class="text-muted">Thane | Doctor</small>
+                                            </td>
+                                            <td>8 Jan 2024</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-success btn-sm me-1"><i class="fas fa-check"></i> Accept</button>
+                                                <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Decline</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sent Interests -->
+                <div class="tab-pane fade" id="sent">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th>Profile</th>
+                                            <th>Details</th>
+                                            <th>Sent On</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/50x50/009688/ffffff?text=D" class="rounded-circle me-2">
+                                                    <a href="view-profile.html">NX1260</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>27 Yrs, 5'6"</div>
+                                                <small class="text-muted">Nagpur | Engineer</small>
+                                            </td>
+                                            <td>7 Jan 2024</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>
+                                                <a href="view-profile.html" class="btn btn-outline-primary btn-sm">View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/50x50/ff5722/ffffff?text=E" class="rounded-circle me-2">
+                                                    <a href="view-profile.html">NX1261</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>23 Yrs, 5'2"</div>
+                                                <small class="text-muted">Nashik | Student</small>
+                                            </td>
+                                            <td>6 Jan 2024</td>
+                                            <td><span class="badge bg-success">Accepted</span></td>
+                                            <td>
+                                                <a href="view-profile.html" class="btn btn-primary btn-sm">Contact</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/50x50/795548/ffffff?text=F" class="rounded-circle me-2">
+                                                    <a href="view-profile.html">NX1262</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>28 Yrs, 5'4"</div>
+                                                <small class="text-muted">Kolhapur | Nurse</small>
+                                            </td>
+                                            <td>5 Jan 2024</td>
+                                            <td><span class="badge bg-danger">Declined</span></td>
+                                            <td>
+                                                <a href="view-profile.html" class="btn btn-outline-primary btn-sm">View</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accepted Interests -->
+                <div class="tab-pane fade" id="accepted">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th>Profile</th>
+                                            <th>Details</th>
+                                            <th>Accepted On</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/50x50/4caf50/ffffff?text=G" class="rounded-circle me-2">
+                                                    <a href="view-profile.html">NX1270</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>25 Yrs, 5'5"</div>
+                                                <small class="text-muted">Mumbai | Software Engineer</small>
+                                            </td>
+                                            <td>3 Jan 2024</td>
+                                            <td>
+                                                <a href="view-profile.html" class="btn btn-primary btn-sm me-1"><i class="fas fa-phone"></i> Contact</a>
+                                                <button class="btn btn-outline-info btn-sm"><i class="fas fa-envelope"></i> Message</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://via.placeholder.com/50x50/2196f3/ffffff?text=H" class="rounded-circle me-2">
+                                                    <a href="view-profile.html">NX1271</a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>26 Yrs, 5'3"</div>
+                                                <small class="text-muted">Pune | Teacher</small>
+                                            </td>
+                                            <td>1 Jan 2024</td>
+                                            <td>
+                                                <a href="view-profile.html" class="btn btn-primary btn-sm me-1"><i class="fas fa-phone"></i> Contact</a>
+                                                <button class="btn btn-outline-info btn-sm"><i class="fas fa-envelope"></i> Message</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
