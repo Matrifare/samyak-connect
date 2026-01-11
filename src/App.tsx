@@ -17,6 +17,7 @@ import Matches from "./pages/dashboard/Matches";
 import Shortlisted from "./pages/dashboard/Shortlisted";
 import Interests from "./pages/dashboard/Interests";
 import Settings from "./pages/dashboard/Settings";
+import DashboardSearch from "./pages/dashboard/Search";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/profile" element={<ProfileEdit />} />
+          <Route path="/dashboard/search" element={<DashboardSearch />} />
           <Route path="/dashboard/preferences" element={<Preferences />} />
           <Route path="/dashboard/matches" element={<Matches />} />
           <Route path="/dashboard/shortlisted" element={<Shortlisted />} />
