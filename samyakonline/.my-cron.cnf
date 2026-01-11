@@ -1,0 +1,5 @@
+[client]
+user=DB_USERNAME
+password=DB_PASSWORD
+host=localhost
+port=3306

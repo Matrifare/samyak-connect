@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>icon-inn WebFont</title>
+    <link rel="stylesheet" type="text/css" href="icon-inn.css">
+    <meta charset="UTF-8">
+    <style>
+    body {
+        font-family: sans-serif;
+        line-height: 1.5;
+        font-size: 16px;
+        padding: 20px;
+        color:#333;
+    }
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    [class^="icon-inn-"]:before, [class*=" icon-inn-"]:before, [class^="icon-inn-"]:after, [class*=" icon-inn-"]:after {
+        font-family: icon-inn;
+        font-size: 30px;
+        font-style: normal;
+        margin-left: 20px;
+        color: #333;
+    }
+    .image p {
+		font-size: 12px;
+		margin: 0px;
+		clear: none;
+		width: 300px;
+		line-height: 40px;
+	}
+    .text {
+        float: left;
+        font-size:14px;
+        margin-top: 15px;
+    }
+    .text ul {
+        margin-left:0px;
+        color:#111;
+        margin-bottom:20px;
+    }
+    .text .ex {
+        font-size:12px;
+        color:#666;
+        margin-left:35px;
+        display:block;
+    }
+    .text ul li {
+        margin-top:10px;
+        list-style:none;
+    }
+    .num {
+        background:#66A523;
+        color:#fff;
+        border-radius:20px;
+        padding:1px;
+        display:inline-block;
+        width:22px;
+        height:22px;
+        text-align:center;
+        margin-right: 5px;
+    }
+    .text ul strong {
+        font-weight:normal;
+        color:#000;
+    }
+    .image {
+        width: 280px;
+        float: left;
+        margin-bottom: 15px;
+        margin-right: 30px;
+    }
+    #glyphs {
+        clear: both;
+    }
+    .image p:nth-child(even) i {
+        clear: none;
+    }
+    .glyph {
+        display: inline-block;
+        width: 120px;
+        margin: 10px;
+        text-align: center;
+        vertical-align: top;
+        background: #FFF;
+    }
+    .glyph .glyph-icon {
+        padding: 10px;
+        display: block;
+        font-family:"icon-inn";
+        font-size: 64px;
+        line-height: 1;
+    }
+    .glyph .glyph-icon:before {
+        font-size: 64px;
+        color: #666;
+        margin-left: 0;
+    }
+    .class-name {
+        font-size: 12px;
+    }
+    .author-name {
+		font-size: 10px;
+	}
+	a{
+		color: #66A523;
+	}
+    .instructions {
+        font-style:italic;
+        font-size:22px;
+        margin-bottom:10px;
+    }
+    .iconsuse {
+        font-size:22px;
+        font-style:italic;
+        padding-top:20px;
+        margin-top:20px;
+        border-top:1px solid #bbb;
+    }
+    .usetitle {
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-style: italic;
+    }
+    .class-name:last-child {
+        font-size: 10px;
+        color:#888;
+    }
+    .class-name:last-child a {
+        font-size: 10px;
+        color:#555;
+    }
+    .class-name:last-child a:hover {
+        color:#66A523;
+    }
+    .glyph > input {
+        display: block;
+        width: 100px;
+        margin: 5px auto;
+        text-align: center;
+        font-size: 12px;
+        cursor: text;
+    }
+    .glyph > input.icon-input {
+        font-family:"icon-inn";
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    h1.logo {
+        font-size: 40px;
+        letter-spacing: -1px;
+        margin-top: -16px;
+        text-transform: lowercase;
+        border-bottom:1px solid #bbb;
+    }
+    h1.logo strong {
+        font-size: 16px;
+        font-family:sans-serif;
+        font-weight:normal;
+        color:#333;
+    }
+    h1.logo a {
+        color:#34302d;
+        text-decoration: none;
+    }
+    h1.logo a span {
+        color:#66A523;
+    }
+    #footer {
+        padding-top:40px;
+        clear:both;
+        text-align:center;
+    }
+    #footer a {
+        color:#66A523;
+    }
+    textarea {
+		margin: 0px;
+		width: 800px;
+		height: 150px;
+		border: 1px solid #CCC;
+		resize: none;
+		background: #EEE;
+    }
+    .author-link, .attrDiv a{
+    	font-size: 12px;
+    	color: #333;
+    	text-decoration: none;
+    }
+    .external {
+    	display: block;
+    }
+    .attrDiv {
+		font-size: 12px;
+	}
+    .attribution {
+        border-top: 1px solid #AAA;
+        margin: 10px 0;
+        padding-top: 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            <a href="http://www.icon-inn.com">
+                <span>FLAT</span>ICON</a>
+            <strong>Font Demo</strong>
+        </h1>
+    </header>
+
+    <section class="demo">
+        <div class="text">
+
+            <div class="instructions">Instructions:</div>
+
+            <ul>
+                <li>
+                    <p>
+                        <span class="num">1</span>Copy the "Fonts" files and CSS files to your website CSS folder.
+                </li>
+                <li>
+                    <p>
+                        <span class="num">2</span>Add the CSS link to your website source code on header.
+                        <br />
+                        <span class="ex">&lt;head&gt;
+                            <br/>...
+                            <br/>&lt;link rel="stylesheet" type="text/css" href="your_website_domain/css_root/icon-inn.css"&gt;
+                            <br/>...
+                            <br/>&lt;/head&gt;</span>
+                </li>
+
+                <li>
+                    <p>
+                        <span class="num">3</span>Use the icon class on "display:inline" elements:
+                        <br />
+                        <span class="ex">Use example: &lt;i class=&quot;icon-inn-airplane49&quot;&gt;&lt;/i&gt; or &lt;span class=&quot;icon-inn-airplane49&quot;&gt;&lt;/span&gt;</span>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="glyphs"><div class="glyph">
+		<div class="glyph-icon icon-inn-air12"></div>
+		<div class="class-name">.icon-inn-air12</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/air-conditioner-outlined-tool_60411">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-baggage25"></div>
+		<div class="class-name">.icon-inn-baggage25</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/baggage-cart-transport-outline_60375">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-bathtub5"></div>
+		<div class="class-name">.icon-inn-bathtub5</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/bathtub-outline_60437">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-book208"></div>
+		<div class="class-name">.icon-inn-book208</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/book-of-text-opened-outline_60439">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-bottle39"></div>
+		<div class="class-name">.icon-inn-bottle39</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/bottle-and-cup-outline_60414">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-bowling22"></div>
+		<div class="class-name">.icon-inn-bowling22</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/bowling-bowl-and-ball-outline_60442">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-building74"></div>
+		<div class="class-name">.icon-inn-building74</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/building-outline_60396">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-bus45"></div>
+		<div class="class-name">.icon-inn-bus45</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/bus-outline_60394">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-calculator68"></div>
+		<div class="class-name">.icon-inn-calculator68</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/calculator-outlined-tool_60424">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-calendar155"></div>
+		<div class="class-name">.icon-inn-calendar155</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/calendar-outline_60419">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-candy14"></div>
+		<div class="class-name">.icon-inn-candy14</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/candy-outline-with-stripes_60405">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-chinese15"></div>
+		<div class="class-name">.icon-inn-chinese15</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/chinese-food-bowl-with-chopsticks_60377">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-cigarette6"></div>
+		<div class="class-name">.icon-inn-cigarette6</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/cigarette_60410">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-clock99"></div>
+		<div class="class-name">.icon-inn-clock99</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/clock-digital-tool-outline_60395">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-debit"></div>
+		<div class="class-name">.icon-inn-debit</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/debit-card_60378">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-dices1"></div>
+		<div class="class-name">.icon-inn-dices1</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/dices_60386">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-dumbbells5"></div>
+		<div class="class-name">.icon-inn-dumbbells5</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/dumbbells-outline_60379">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-first47"></div>
+		<div class="class-name">.icon-inn-first47</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/first-aid-bag-outline_60428">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-five19"></div>
+		<div class="class-name">.icon-inn-five19</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/five-stars-outlines_60450">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-hairdresser16"></div>
+		<div class="class-name">.icon-inn-hairdresser16</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/hair-dryer_60391">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-heart294"></div>
+		<div class="class-name">.icon-inn-heart294</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/heart-playing-card-outline_60406">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-hotel67"></div>
+		<div class="class-name">.icon-inn-hotel67</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/hotel-doors-hanger-outline_60383">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-key171"></div>
+		<div class="class-name">.icon-inn-key171</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/key-with-label-outline_60446">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-laptop116"></div>
+		<div class="class-name">.icon-inn-laptop116</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/laptop-outline_60407">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-lifesaver9"></div>
+		<div class="class-name">.icon-inn-lifesaver9</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/lifesaver-security-sportive-tool_60401">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-lotion"></div>
+		<div class="class-name">.icon-inn-lotion</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/lotion-tube-and-soap-bottle-outlines_60382">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-man458"></div>
+		<div class="class-name">.icon-inn-man458</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/man-and-woman-couple-with-a-table_60432">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-microwave4"></div>
+		<div class="class-name">.icon-inn-microwave4</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/microwave-outline_60387">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-note47"></div>
+		<div class="class-name">.icon-inn-note47</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/note_60408">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-pair2"></div>
+		<div class="class-name">.icon-inn-pair2</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/pair-of-shoes-outline_60426">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-passport3"></div>
+		<div class="class-name">.icon-inn-passport3</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/passport-outline_60423">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-pawprint3"></div>
+		<div class="class-name">.icon-inn-pawprint3</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/pawprint-outline-in-a-circle_60422">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-photo209"></div>
+		<div class="class-name">.icon-inn-photo209</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/photo-camera-outlined-tool_60429">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-plant42"></div>
+		<div class="class-name">.icon-inn-plant42</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/plant-with-flower-on-a-pot-outline_60413">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-plate20"></div>
+		<div class="class-name">.icon-inn-plate20</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/plate-of-food-with-rounded-cover-outline_60435">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-raquet"></div>
+		<div class="class-name">.icon-inn-raquet</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/racquet-and-ball_60393">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-refrigerator8"></div>
+		<div class="class-name">.icon-inn-refrigerator8</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/refrigerator-outline_60400">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-safe22"></div>
+		<div class="class-name">.icon-inn-safe22</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/safe-box-with-double-password-system_60385">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-shopping230"></div>
+		<div class="class-name">.icon-inn-shopping230</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/shopping-basket-outline_60384">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-shower13"></div>
+		<div class="class-name">.icon-inn-shower13</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/shower-outline_60433">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-signal47"></div>
+		<div class="class-name">.icon-inn-signal47</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/signal_60390">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-sofa8"></div>
+		<div class="class-name">.icon-inn-sofa8</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/sofa-outline-of-two-seats_60397">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-tea21"></div>
+		<div class="class-name">.icon-inn-tea21</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/tea-hot-cup-outline_60376">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-telephone104"></div>
+		<div class="class-name">.icon-inn-telephone104</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/telephone-auricular-outline_60418">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-towel2"></div>
+		<div class="class-name">.icon-inn-towel2</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/towel-outline_60436">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-train30"></div>
+		<div class="class-name">.icon-inn-train30</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/train-outline_60389">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-tv26"></div>
+		<div class="class-name">.icon-inn-tv26</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/tv-monitor-outline_60416">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-washing15"></div>
+		<div class="class-name">.icon-inn-washing15</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/washing-machine-for-laundry_60443">Freepik</a></div></div><div class="glyph">
+		<div class="glyph-icon icon-inn-woman124"></div>
+		<div class="class-name">.icon-inn-woman124</div><div class="author-name">Author: <a href="http://www.icon-inn.com/free-icon/woman-outline_60444">Freepik</a></div></div></section>
+
+<section class="attribution">
+
+	<div class="usetitle">License and attribution:</div><div class="attrDiv">Font generated by <a href="http://www.icon-inn.com">icon-inn.com</a>
+ under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY</a>. The authors are: <a href="http://www.freepik.com">Freepik</a>.</div><div class="usetitle">Copy the Attribution License:</div>
+
+<textarea onclick="this.focus();this.select();">Font generated by &lt;a href=&quot;http://www.icon-inn.com&quot;&gt;icon-inn.com&lt;/a&gt;
+ under &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/&quot;&gt;CC BY&lt;/a&gt;. The authors are: &lt;a href=&quot;http://www.freepik.com&quot;&gt;Freepik&lt;/a&gt;.</textarea>
+
+</section>
+
+<section class="iconsuse">
+    	<div class="usetitle">Examples:</div>
+		<div class="image"><p>&lt;i class=&quot;icon-inn-air12&quot;&gt;&lt;/i&gt; <i class="icon-inn-air12"></i></p><p>&lt;i class=&quot;icon-inn-baggage25&quot;&gt;&lt;/i&gt; <i class="icon-inn-baggage25"></i></p><p>&lt;i class=&quot;icon-inn-bathtub5&quot;&gt;&lt;/i&gt; <i class="icon-inn-bathtub5"></i></p><p>&lt;i class=&quot;icon-inn-book208&quot;&gt;&lt;/i&gt; <i class="icon-inn-book208"></i></p><p>&lt;i class=&quot;icon-inn-bottle39&quot;&gt;&lt;/i&gt; <i class="icon-inn-bottle39"></i></p></div><div class="image"><p>&lt;span class=&quot;icon-inn-bowling22&quot;&gt;&lt;/span&gt; <span class="icon-inn-bowling22"></span></p><p>&lt;span class=&quot;icon-inn-building74&quot;&gt;&lt;/span&gt; <span class="icon-inn-building74"></span></p><p>&lt;span class=&quot;icon-inn-bus45&quot;&gt;&lt;/span&gt; <span class="icon-inn-bus45"></span></p><p>&lt;span class=&quot;icon-inn-calculator68&quot;&gt;&lt;/span&gt; <span class="icon-inn-calculator68"></span></p><p>&lt;span class=&quot;icon-inn-calendar155&quot;&gt;&lt;/span&gt; <span class="icon-inn-calendar155"></span></p></div><div class="image"><p>&lt;span class=&quot;icon-inn-candy14&quot;&gt;&lt;/span&gt; <span class="icon-inn-candy14"></span></p><p>&lt;i class=&quot;icon-inn-chinese15&quot;&gt;&lt;/i&gt; <i class="icon-inn-chinese15"></i></p><p>&lt;i class=&quot;icon-inn-cigarette6&quot;&gt;&lt;/i&gt; <i class="icon-inn-cigarette6"></i></p><p>&lt;i class=&quot;icon-inn-clock99&quot;&gt;&lt;/i&gt; <i class="icon-inn-clock99"></i></p><p>&lt;i class=&quot;icon-inn-debit&quot;&gt;&lt;/i&gt; <i class="icon-inn-debit"></i></p></div><div class="image"><p>&lt;span class=&quot;icon-inn-dices1&quot;&gt;&lt;/span&gt; <span class="icon-inn-dices1"></span></p><p>&lt;span class=&quot;icon-inn-dumbbells5&quot;&gt;&lt;/span&gt; <span class="icon-inn-dumbbells5"></span></p><p>&lt;span class=&quot;icon-inn-first47&quot;&gt;&lt;/span&gt; <span class="icon-inn-first47"></span></p><p>&lt;span class=&quot;icon-inn-five19&quot;&gt;&lt;/span&gt; <span class="icon-inn-five19"></span></p><p>&lt;span class=&quot;icon-inn-hairdresser16&quot;&gt;&lt;/span&gt; <span class="icon-inn-hairdresser16"></span></p></div><div class="image"></div>
+</section>
+<div id="footer">
+    <div>Generated by <a href="http://www.icon-inn.com">icon-inn.com</a>
+    </div>
+</div>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+.idea
+themeforest-t4uJNQ67-simpleapp-responsive-notification-email-html-templates
+SamyakOnline.com.zip
+themeforest-fVliSHOw-extretion-local-accommodations-html-template.zip
+themeforest-t4uJNQ67-simpleapp-responsive-notification-email-html-templates.zip
+samyak_design.zip
+
+# Database credentials - NEVER commit these
+config/database.local.php
+*.local.php
+
+# Error logs
+error_log
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# API Keys and Secrets - NEVER commit
+# Note: All API tokens should be stored in environment variables
+# VOICE_API_TOKEN - Voice call API bearer token
+# DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE - Database credentials
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# IDE files
+.vscode/
+*.swp
+*.swo

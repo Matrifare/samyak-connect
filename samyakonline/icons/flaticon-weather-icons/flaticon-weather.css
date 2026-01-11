@@ -1,0 +1,81 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 12/07/2016 15:09
+  	*/
+
+@font-face {
+  font-family: "Flaticon Weather";
+  src: url("Flaticon-weather.eot");
+  src: url("Flaticon-weather.eot?#iefix") format("embedded-opentype"),
+       url("Flaticon-weather.woff") format("woff"),
+       url("Flaticon-weather.ttf") format("truetype"),
+       url("Flaticon-weather.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon Weather";
+    src: url("Flaticon-weather.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-weather-"]:before, [class*=" flaticon-weather-"]:before,
+[class^="flaticon-weather-"]:after, [class*=" flaticon-weather-"]:after {   
+  font-family: Flaticon Weather;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-weather-bad-weather:before { content: "\f100"; }
+.flaticon-weather-bad-weather-1:before { content: "\f101"; }
+.flaticon-weather-barometer:before { content: "\f102"; }
+.flaticon-weather-cardinal-points:before { content: "\f103"; }
+.flaticon-weather-celsius:before { content: "\f104"; }
+.flaticon-weather-cloudy-night:before { content: "\f105"; }
+.flaticon-weather-fahrenheit:before { content: "\f106"; }
+.flaticon-weather-foggy:before { content: "\f107"; }
+.flaticon-weather-foggy-1:before { content: "\f108"; }
+.flaticon-weather-foggy-2:before { content: "\f109"; }
+.flaticon-weather-foggy-3:before { content: "\f10a"; }
+.flaticon-weather-foggy-4:before { content: "\f10b"; }
+.flaticon-weather-hail:before { content: "\f10c"; }
+.flaticon-weather-mist:before { content: "\f10d"; }
+.flaticon-weather-mist-1:before { content: "\f10e"; }
+.flaticon-weather-mist-2:before { content: "\f10f"; }
+.flaticon-weather-moon:before { content: "\f110"; }
+.flaticon-weather-moon-1:before { content: "\f111"; }
+.flaticon-weather-moon-2:before { content: "\f112"; }
+.flaticon-weather-night-rain:before { content: "\f113"; }
+.flaticon-weather-night-rain-1:before { content: "\f114"; }
+.flaticon-weather-planet:before { content: "\f115"; }
+.flaticon-weather-rain:before { content: "\f116"; }
+.flaticon-weather-rain-1:before { content: "\f117"; }
+.flaticon-weather-rainbow:before { content: "\f118"; }
+.flaticon-weather-rainfall:before { content: "\f119"; }
+.flaticon-weather-rainfall-1:before { content: "\f11a"; }
+.flaticon-weather-snow:before { content: "\f11b"; }
+.flaticon-weather-snow-1:before { content: "\f11c"; }
+.flaticon-weather-snowing:before { content: "\f11d"; }
+.flaticon-weather-snowing-1:before { content: "\f11e"; }
+.flaticon-weather-snowing-2:before { content: "\f11f"; }
+.flaticon-weather-storm:before { content: "\f120"; }
+.flaticon-weather-storm-1:before { content: "\f121"; }
+.flaticon-weather-thermometer:before { content: "\f122"; }
+.flaticon-weather-thermometer-1:before { content: "\f123"; }
+.flaticon-weather-thermometer-2:before { content: "\f124"; }
+.flaticon-weather-thermometer-3:before { content: "\f125"; }
+.flaticon-weather-thermometer-4:before { content: "\f126"; }
+.flaticon-weather-thermometer-5:before { content: "\f127"; }
+.flaticon-weather-thunder:before { content: "\f128"; }
+.flaticon-weather-thunder-1:before { content: "\f129"; }
+.flaticon-weather-tornado:before { content: "\f12a"; }
+.flaticon-weather-tsunami:before { content: "\f12b"; }
+.flaticon-weather-umbrella:before { content: "\f12c"; }
+.flaticon-weather-weather:before { content: "\f12d"; }
+.flaticon-weather-wind:before { content: "\f12e"; }
+.flaticon-weather-windmill:before { content: "\f12f"; }
+.flaticon-weather-windy:before { content: "\f130"; }
+.flaticon-weather-windy-1:before { content: "\f131"; }

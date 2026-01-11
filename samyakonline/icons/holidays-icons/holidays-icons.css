@@ -1,0 +1,212 @@
+@font-face {
+	font-family: "holidays-icons";
+	src: url("holidays-icons.eot");
+	src: url("holidays-icons.eot#iefix") format("embedded-opentype"),
+	url("holidays-icons.woff") format("woff"),
+	url("holidays-icons.ttf") format("truetype"),
+	url("holidays-icons.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="holidays-icons-"]:before, [class*=" holidays-icons-"]:before,
+[class^="holidays-icons-"]:after, [class*=" holidays-icons-"]:after {   
+	font-family: holidays-icons;
+    display: inline-block;
+  font: normal normal normal 14px/1 holidays-icons;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}.holidays-icons-24:before {
+	content: "\e000";
+}
+.holidays-icons-airplane2:before {
+	content: "\e001";
+}
+.holidays-icons-baggage:before {
+	content: "\e002";
+}
+.holidays-icons-ball4:before {
+	content: "\e003";
+}
+.holidays-icons-bar3:before {
+	content: "\e004";
+}
+.holidays-icons-bathtub2:before {
+	content: "\e005";
+}
+.holidays-icons-bikini:before {
+	content: "\e006";
+}
+.holidays-icons-bright1:before {
+	content: "\e007";
+}
+.holidays-icons-bubbles:before {
+	content: "\e008";
+}
+.holidays-icons-car13:before {
+	content: "\e009";
+}
+.holidays-icons-car14:before {
+	content: "\e00a";
+}
+.holidays-icons-car15:before {
+	content: "\e00b";
+}
+.holidays-icons-chef4:before {
+	content: "\e00c";
+}
+.holidays-icons-chef5:before {
+	content: "\e00d";
+}
+.holidays-icons-compass12:before {
+	content: "\e00e";
+}
+.holidays-icons-covered3:before {
+	content: "\e00f";
+}
+.holidays-icons-cup11:before {
+	content: "\e010";
+}
+.holidays-icons-do1:before {
+	content: "\e011";
+}
+.holidays-icons-dumbbell2:before {
+	content: "\e012";
+}
+.holidays-icons-fish6:before {
+	content: "\e013";
+}
+.holidays-icons-five7:before {
+	content: "\e014";
+}
+.holidays-icons-frontal5:before {
+	content: "\e015";
+}
+.holidays-icons-geolocated1:before {
+	content: "\e016";
+}
+.holidays-icons-geolocated:before {
+	content: "\e017";
+}
+.holidays-icons-glasses7:before {
+	content: "\e018";
+}
+.holidays-icons-hanged:before {
+	content: "\e019";
+}
+.holidays-icons-holidays1:before {
+	content: "\e01a";
+}
+.holidays-icons-holidays:before {
+	content: "\e01b";
+}
+.holidays-icons-hotel14:before {
+	content: "\e01c";
+}
+.holidays-icons-hotel3:before {
+	content: "\e01d";
+}
+.holidays-icons-hotel4:before {
+	content: "\e01e";
+}
+.holidays-icons-hotel5:before {
+	content: "\e01f";
+}
+.holidays-icons-hotel6:before {
+	content: "\e020";
+}
+.holidays-icons-hotel7:before {
+	content: "\e021";
+}
+.holidays-icons-hotel8:before {
+	content: "\e022";
+}
+.holidays-icons-icecream6:before {
+	content: "\e023";
+}
+.holidays-icons-key18:before {
+	content: "\e024";
+}
+.holidays-icons-laptop8:before {
+	content: "\e025";
+}
+.holidays-icons-laundry1:before {
+	content: "\e026";
+}
+.holidays-icons-mechanic1:before {
+	content: "\e027";
+}
+.holidays-icons-microphone8:before {
+	content: "\e028";
+}
+.holidays-icons-motorboat:before {
+	content: "\e029";
+}
+.holidays-icons-parking1:before {
+	content: "\e02a";
+}
+.holidays-icons-parking3:before {
+	content: "\e02b";
+}
+.holidays-icons-photo10:before {
+	content: "\e02c";
+}
+.holidays-icons-plastic:before {
+	content: "\e02d";
+}
+.holidays-icons-plate3:before {
+	content: "\e02e";
+}
+.holidays-icons-present4:before {
+	content: "\e02f";
+}
+.holidays-icons-rent1:before {
+	content: "\e030";
+}
+.holidays-icons-rent:before {
+	content: "\e031";
+}
+.holidays-icons-ripped1:before {
+	content: "\e032";
+}
+.holidays-icons-sailing:before {
+	content: "\e033";
+}
+.holidays-icons-sandcastle:before {
+	content: "\e034";
+}
+.holidays-icons-scissors4:before {
+	content: "\e035";
+}
+.holidays-icons-screen5:before {
+	content: "\e036";
+}
+.holidays-icons-shower1:before {
+	content: "\e037";
+}
+.holidays-icons-simple37:before {
+	content: "\e038";
+}
+.holidays-icons-skin:before {
+	content: "\e039";
+}
+.holidays-icons-sportive14:before {
+	content: "\e03a";
+}
+.holidays-icons-swimming2:before {
+	content: "\e03b";
+}
+.holidays-icons-taxi1:before {
+	content: "\e03c";
+}
+.holidays-icons-tourist:before {
+	content: "\e03d";
+}
+.holidays-icons-travel:before {
+	content: "\e03e";
+}
+.holidays-icons-ventilation:before {
+	content: "\e03f";
+}

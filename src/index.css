@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
+
+    /* Brand colors - Vibrant Magenta & Coral theme */
+    --primary: 330 96% 43%;  /* Vibrant Magenta #d7036c */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 330 96% 55%;
+    --primary-glow: 330 96% 75%;
+
+    --secondary: 11 100% 70%;  /* Coral #FF7F66 */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 11 100% 80%;
+
+    --accent: 324 100% 82%;  /* Soft Pink #FFA5D8 */
+    --accent-foreground: 330 96% 43%;
+
+    --success: 158 64% 52%;  /* Emerald #10B981 */
+    --success-foreground: 0 0% 100%;
+
+    /* UI colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --muted: 220 13% 95%;
+    --muted-foreground: 215 16% 47%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 265 51% 51%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(330 96% 43%) 0%, hsl(11 100% 70%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(330 96% 43% / 0.90) 0%, hsl(11 100% 70% / 0.85) 50%, hsl(324 100% 82% / 0.80) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(324 100% 82%) 0%, hsl(330 96% 55%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(330 96% 43% / 0.08);
+    --shadow-md: 0 4px 16px hsl(330 96% 43% / 0.12);
+    --shadow-lg: 0 10px 30px hsl(330 96% 43% / 0.15);
+    --shadow-glow: 0 0 40px hsl(330 96% 75% / 0.4);
+
+    /* Glass effect */
+    --glass-bg: hsl(0 0% 100% / 0.7);
+    --glass-border: hsl(0 0% 100% / 0.3);
+
+    /* Animations */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 0 0% 98%;
+
+    --primary: 330 96% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 11 100% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --card: 222 40% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 222 40% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 324 100% 75%;
+    --accent-foreground: 222 47% 11%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 330 96% 55%;
+
+    --glass-bg: hsl(222 47% 11% / 0.7);
+    --glass-border: hsl(0 0% 100% / 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  /* Glass morphism */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: var(--transition-base);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Hover scale */
+  .hover-scale {
+    transition: var(--transition-base);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  /* Animated gradient */
+  .animated-gradient {
+    background: linear-gradient(
+      -45deg,
+      hsl(330 96% 43%),
+      hsl(324 100% 82%),
+      hsl(11 100% 70%),
+      hsl(330 96% 55%)
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(0 0% 100% / 0.3),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    to {
+      left: 100%;
+    }
+  }
+
+  /* Pulse glow */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(330 96% 75% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(330 96% 75% / 0.6);
+    }
+  }
+}

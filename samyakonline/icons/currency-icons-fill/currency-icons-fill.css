@@ -1,0 +1,287 @@
+@font-face {
+	font-family: "currency-icons-fill";
+	src: url("currency-icons-fill.eot");
+	src: url("currency-icons-fill.eot#iefix") format("embedded-opentype"),
+	url("currency-icons-fill.woff") format("woff"),
+	url("currency-icons-fill.ttf") format("truetype"),
+	url("currency-icons-fill.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="currency-icons-fill-"]:before, [class*=" currency-icons-fill-"]:before,
+[class^="currency-icons-fill-"]:after, [class*=" currency-icons-fill-"]:after {   
+	font-family: currency-icons-fill;
+  display: inline-block;
+  font: normal normal normal 14px/1 currency-icons-fill;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}.currency-icons-fill-afghanistan1:before {
+	content: "\e000";
+}
+.currency-icons-fill-albania1:before {
+	content: "\e001";
+}
+.currency-icons-fill-aruba1:before {
+	content: "\e002";
+}
+.currency-icons-fill-azerbaijan1:before {
+	content: "\e003";
+}
+.currency-icons-fill-belarus1:before {
+	content: "\e004";
+}
+.currency-icons-fill-belize1:before {
+	content: "\e005";
+}
+.currency-icons-fill-bolivia1:before {
+	content: "\e006";
+}
+.currency-icons-fill-bosnia1:before {
+	content: "\e007";
+}
+.currency-icons-fill-botswana1:before {
+	content: "\e008";
+}
+.currency-icons-fill-brazil1:before {
+	content: "\e009";
+}
+.currency-icons-fill-bulgaria1:before {
+	content: "\e00a";
+}
+.currency-icons-fill-cambodia1:before {
+	content: "\e00b";
+}
+.currency-icons-fill-costa1:before {
+	content: "\e00c";
+}
+.currency-icons-fill-croatia1:before {
+	content: "\e00d";
+}
+.currency-icons-fill-cuba1:before {
+	content: "\e00e";
+}
+.currency-icons-fill-czech1:before {
+	content: "\e00f";
+}
+.currency-icons-fill-denmark1:before {
+	content: "\e010";
+}
+.currency-icons-fill-dollar100:before {
+	content: "\e011";
+}
+.currency-icons-fill-dollar101:before {
+	content: "\e012";
+}
+.currency-icons-fill-dollar102:before {
+	content: "\e013";
+}
+.currency-icons-fill-dollar93:before {
+	content: "\e014";
+}
+.currency-icons-fill-dollar94:before {
+	content: "\e015";
+}
+.currency-icons-fill-dollar96:before {
+	content: "\e016";
+}
+.currency-icons-fill-dollar97:before {
+	content: "\e017";
+}
+.currency-icons-fill-dollar98:before {
+	content: "\e018";
+}
+.currency-icons-fill-dollar99:before {
+	content: "\e019";
+}
+.currency-icons-fill-dominican1:before {
+	content: "\e01a";
+}
+.currency-icons-fill-estonia1:before {
+	content: "\e01b";
+}
+.currency-icons-fill-euro30:before {
+	content: "\e01c";
+}
+.currency-icons-fill-ghana1:before {
+	content: "\e01d";
+}
+.currency-icons-fill-guatemala1:before {
+	content: "\e01e";
+}
+.currency-icons-fill-honduras1:before {
+	content: "\e01f";
+}
+.currency-icons-fill-hungary1:before {
+	content: "\e020";
+}
+.currency-icons-fill-iceland1:before {
+	content: "\e021";
+}
+.currency-icons-fill-india1:before {
+	content: "\e022";
+}
+.currency-icons-fill-indonesia1:before {
+	content: "\e023";
+}
+.currency-icons-fill-iran1:before {
+	content: "\e024";
+}
+.currency-icons-fill-israel1:before {
+	content: "\e025";
+}
+.currency-icons-fill-jamaica1:before {
+	content: "\e026";
+}
+.currency-icons-fill-kazakhstan1:before {
+	content: "\e027";
+}
+.currency-icons-fill-kyrgyzstan1:before {
+	content: "\e028";
+}
+.currency-icons-fill-laos1:before {
+	content: "\e029";
+}
+.currency-icons-fill-latvia1:before {
+	content: "\e02a";
+}
+.currency-icons-fill-lithuania1:before {
+	content: "\e02b";
+}
+.currency-icons-fill-macedonia1:before {
+	content: "\e02c";
+}
+.currency-icons-fill-malaysia1:before {
+	content: "\e02d";
+}
+.currency-icons-fill-mauritius1:before {
+	content: "\e02e";
+}
+.currency-icons-fill-mongolia1:before {
+	content: "\e02f";
+}
+.currency-icons-fill-mozambique1:before {
+	content: "\e030";
+}
+.currency-icons-fill-nepal1:before {
+	content: "\e031";
+}
+.currency-icons-fill-netherlands1:before {
+	content: "\e032";
+}
+.currency-icons-fill-nicaragua1:before {
+	content: "\e033";
+}
+.currency-icons-fill-nigeria1:before {
+	content: "\e034";
+}
+.currency-icons-fill-north5:before {
+	content: "\e035";
+}
+.currency-icons-fill-norway1:before {
+	content: "\e036";
+}
+.currency-icons-fill-oman1:before {
+	content: "\e037";
+}
+.currency-icons-fill-pakistan2:before {
+	content: "\e038";
+}
+.currency-icons-fill-panama1:before {
+	content: "\e039";
+}
+.currency-icons-fill-paraguay1:before {
+	content: "\e03a";
+}
+.currency-icons-fill-peru1:before {
+	content: "\e03b";
+}
+.currency-icons-fill-philippines1:before {
+	content: "\e03c";
+}
+.currency-icons-fill-poland1:before {
+	content: "\e03d";
+}
+.currency-icons-fill-pound12:before {
+	content: "\e03e";
+}
+.currency-icons-fill-qatar1:before {
+	content: "\e03f";
+}
+.currency-icons-fill-romania1:before {
+	content: "\e040";
+}
+.currency-icons-fill-rounded36:before {
+	content: "\e041";
+}
+.currency-icons-fill-russia1:before {
+	content: "\e042";
+}
+.currency-icons-fill-saudi1:before {
+	content: "\e043";
+}
+.currency-icons-fill-serbia1:before {
+	content: "\e044";
+}
+.currency-icons-fill-seychelles1:before {
+	content: "\e045";
+}
+.currency-icons-fill-somalia1:before {
+	content: "\e046";
+}
+.currency-icons-fill-south5:before {
+	content: "\e047";
+}
+.currency-icons-fill-south6:before {
+	content: "\e048";
+}
+.currency-icons-fill-sri2:before {
+	content: "\e049";
+}
+.currency-icons-fill-sweden2:before {
+	content: "\e04a";
+}
+.currency-icons-fill-switzerland1:before {
+	content: "\e04b";
+}
+.currency-icons-fill-taiwan1:before {
+	content: "\e04c";
+}
+.currency-icons-fill-thailand1:before {
+	content: "\e04d";
+}
+.currency-icons-fill-trinidad1:before {
+	content: "\e04e";
+}
+.currency-icons-fill-turkey1:before {
+	content: "\e04f";
+}
+.currency-icons-fill-turkey2:before {
+	content: "\e050";
+}
+.currency-icons-fill-ukraine1:before {
+	content: "\e051";
+}
+.currency-icons-fill-uruguay1:before {
+	content: "\e052";
+}
+.currency-icons-fill-uzbekistan1:before {
+	content: "\e053";
+}
+.currency-icons-fill-venezuela1:before {
+	content: "\e054";
+}
+.currency-icons-fill-viet:before {
+	content: "\e055";
+}
+.currency-icons-fill-yemen1:before {
+	content: "\e056";
+}
+.currency-icons-fill-yen19:before {
+	content: "\e057";
+}
+.currency-icons-fill-zimbabwe1:before {
+	content: "\e058";
+}

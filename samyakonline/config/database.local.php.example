@@ -1,0 +1,18 @@
+<?php
+/**
+ * Database Configuration Template
+ * 
+ * INSTRUCTIONS:
+ * 1. Copy this file to 'database.local.php' in the same directory
+ * 2. Update the values with your actual database credentials
+ * 3. NEVER commit database.local.php to version control
+ * 
+ * The database.local.php file should be added to .gitignore
+ */
+
+return [
+    'host' => 'localhost',
+    'username' => 'your_database_username',
+    'password' => 'your_database_password',
+    'database' => 'your_database_name'
+];
