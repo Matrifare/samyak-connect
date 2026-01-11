@@ -16,6 +16,8 @@
         <li><a href="/shortlist" class="<?= strpos($_SERVER['REQUEST_URI'], '/shortlist') === 0 ? 'active' : '' ?>"><i class="bi bi-bookmark"></i> Shortlist</a></li>
         <li><a href="/search" class="<?= strpos($_SERVER['REQUEST_URI'], '/search') === 0 ? 'active' : '' ?>"><i class="bi bi-search"></i> Search</a></li>
         <li><hr class="my-2"></li>
+        <li><a href="/membership" class="<?= strpos($_SERVER['REQUEST_URI'], '/membership') === 0 ? 'active' : '' ?>"><i class="bi bi-gem"></i> Membership Plans</a></li>
+        <li><hr class="my-2"></li>
         <li><a href="/settings" class="<?= strpos($_SERVER['REQUEST_URI'], '/settings') === 0 ? 'active' : '' ?>"><i class="bi bi-gear"></i> Settings</a></li>
         <li><a href="/logout" class="text-danger"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
     </ul>

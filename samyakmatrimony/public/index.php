@@ -107,6 +107,16 @@ $router->add('settings/delete-account', ['controller' => 'settings', 'action' =>
 $router->add('settings/hide-profile', ['controller' => 'settings', 'action' => 'hideProfile']);
 $router->add('settings/unhide-profile', ['controller' => 'settings', 'action' => 'unhideProfile']);
 
+// Membership Plans
+$router->add('membership', ['controller' => 'membership', 'action' => 'index']);
+$router->add('membership/plans', ['controller' => 'membership', 'action' => 'index']);
+$router->add('membership/compare', ['controller' => 'membership', 'action' => 'compare']);
+$router->add('membership/upgrade', ['controller' => 'membership', 'action' => 'upgrade']);
+$router->add('membership/process-payment', ['controller' => 'membership', 'action' => 'processPayment']);
+$router->add('membership/success', ['controller' => 'membership', 'action' => 'success']);
+$router->add('membership/failure', ['controller' => 'membership', 'action' => 'failure']);
+$router->add('membership/transactions', ['controller' => 'membership', 'action' => 'transactions']);
+
 // API Routes (AJAX)
 $router->add('api/castes', ['controller' => 'api', 'action' => 'getCastes']);
 $router->add('api/cities', ['controller' => 'api', 'action' => 'getCities']);
