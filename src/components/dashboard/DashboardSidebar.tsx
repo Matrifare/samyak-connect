@@ -10,7 +10,9 @@ import {
   LogOut,
   X,
   Home,
-  Search
+  Search,
+  Images,
+  Gem
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -23,11 +25,13 @@ interface DashboardSidebarProps {
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   { icon: User, label: "My Profile", href: "/dashboard/profile" },
+  { icon: Images, label: "Manage Photos", href: "/dashboard/photos" },
   { icon: Search, label: "Search", href: "/dashboard/search" },
   { icon: Heart, label: "Partner Preferences", href: "/dashboard/preferences" },
   { icon: Users, label: "Matches", href: "/dashboard/matches" },
   { icon: Star, label: "Shortlisted", href: "/dashboard/shortlisted" },
   { icon: MessageCircle, label: "Interests", href: "/dashboard/interests" },
+  { icon: Gem, label: "Membership Plans", href: "/membership" },
   { icon: Settings, label: "Settings", href: "/dashboard/settings" },
 ];
 

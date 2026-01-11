@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
+import DashboardMembershipCard from "@/components/membership/DashboardMembershipCard";
 import defaultMale from "@/assets/default-male.jpg";
 
 // Dummy user data
@@ -219,9 +220,12 @@ const Dashboard = () => {
               </Card>
             </div>
 
-            {/* Recent Activity */}
+            {/* Membership */}
             <div>
-              <Card>
+              <DashboardMembershipCard />
+
+              {/* Recent Activity */}
+              <Card className="mt-6">
                 <CardHeader className="flex flex-row items-center justify-between">
                   <CardTitle className="text-lg font-semibold">Recent Activity</CardTitle>
                   <Bell className="h-5 w-5 text-muted-foreground" />
