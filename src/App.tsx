@@ -19,6 +19,7 @@ import Interests from "./pages/dashboard/Interests";
 import Settings from "./pages/dashboard/Settings";
 import DashboardSearch from "./pages/dashboard/Search";
 import Photos from "./pages/dashboard/Photos";
+import ProfileStatistics from "./pages/dashboard/ProfileStatistics";
 import Membership from "./pages/Membership";
 import MembershipCompare from "./pages/MembershipCompare";
 import MembershipUpgrade from "./pages/MembershipUpgrade";
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/profile" element={<ProfileEdit />} />
           <Route path="/dashboard/photos" element={<Photos />} />
+          <Route path="/dashboard/statistics" element={<ProfileStatistics />} />
           <Route path="/dashboard/search" element={<DashboardSearch />} />
           <Route path="/dashboard/preferences" element={<Preferences />} />
           <Route path="/dashboard/matches" element={<Matches />} />

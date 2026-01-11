@@ -12,7 +12,8 @@ import {
   Home,
   Search,
   Images,
-  Gem
+  Gem,
+  BarChart3
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -26,6 +27,7 @@ const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   { icon: User, label: "My Profile", href: "/dashboard/profile" },
   { icon: Images, label: "Manage Photos", href: "/dashboard/photos" },
+  { icon: BarChart3, label: "Profile Statistics", href: "/dashboard/statistics" },
   { icon: Search, label: "Search", href: "/dashboard/search" },
   { icon: Heart, label: "Partner Preferences", href: "/dashboard/preferences" },
   { icon: Users, label: "Matches", href: "/dashboard/matches" },
