@@ -93,16 +93,39 @@ $router->add('send-message', ['controller' => 'message', 'action' => 'send']);
 $router->add('who-viewed-me', ['controller' => 'profile', 'action' => 'viewers']);
 $router->add('profiles-viewed', ['controller' => 'profile', 'action' => 'viewed']);
 
-// Photos
-$router->add('edit-photo', ['controller' => 'photo', 'action' => 'edit']);
-$router->add('upload-photo', ['controller' => 'photo', 'action' => 'upload']);
-$router->add('delete-photo', ['controller' => 'photo', 'action' => 'delete']);
+// Photos Gallery Management
+$router->add('photos', ['controller' => 'photo', 'action' => 'index']);
+$router->add('profile/photos', ['controller' => 'photo', 'action' => 'index']);
+$router->add('edit-photo', ['controller' => 'photo', 'action' => 'index']);
+
+// Settings
+$router->add('settings', ['controller' => 'settings', 'action' => 'index']);
+$router->add('settings/password', ['controller' => 'settings', 'action' => 'password']);
+$router->add('settings/privacy', ['controller' => 'settings', 'action' => 'privacy']);
+$router->add('settings/notifications', ['controller' => 'settings', 'action' => 'notifications']);
+$router->add('settings/delete-account', ['controller' => 'settings', 'action' => 'deleteAccount']);
+$router->add('settings/hide-profile', ['controller' => 'settings', 'action' => 'hideProfile']);
+$router->add('settings/unhide-profile', ['controller' => 'settings', 'action' => 'unhideProfile']);
 
 // API Routes (AJAX)
 $router->add('api/castes', ['controller' => 'api', 'action' => 'getCastes']);
 $router->add('api/cities', ['controller' => 'api', 'action' => 'getCities']);
+$router->add('api/states', ['controller' => 'api', 'action' => 'getStates']);
 $router->add('api/check-email', ['controller' => 'api', 'action' => 'checkEmail']);
 $router->add('api/check-mobile', ['controller' => 'api', 'action' => 'checkMobile']);
+$router->add('api/search', ['controller' => 'api', 'action' => 'searchProfiles']);
+$router->add('api/send-interest', ['controller' => 'api', 'action' => 'sendInterest']);
+$router->add('api/accept-interest', ['controller' => 'api', 'action' => 'acceptInterest']);
+$router->add('api/decline-interest', ['controller' => 'api', 'action' => 'declineInterest']);
+$router->add('api/toggle-shortlist', ['controller' => 'api', 'action' => 'toggleShortlist']);
+$router->add('api/send-message', ['controller' => 'api', 'action' => 'sendMessage']);
+$router->add('api/messages', ['controller' => 'api', 'action' => 'getMessages']);
+$router->add('api/photos/upload', ['controller' => 'photo', 'action' => 'upload']);
+$router->add('api/photos/upload-cropped', ['controller' => 'photo', 'action' => 'uploadCropped']);
+$router->add('api/photos/delete', ['controller' => 'photo', 'action' => 'delete']);
+$router->add('api/photos/reorder', ['controller' => 'photo', 'action' => 'reorder']);
+$router->add('api/photos/set-primary', ['controller' => 'photo', 'action' => 'setPrimary']);
+$router->add('api/dashboard-stats', ['controller' => 'api', 'action' => 'getDashboardStats']);
 
 // ==========================================
 // Dispatch Request
