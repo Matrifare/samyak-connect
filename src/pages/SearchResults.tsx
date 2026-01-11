@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, Filter, Grid, List, Heart, MessageCircle, Eye, MapPin, Briefcase, GraduationCap } from "lucide-react";
+import { Search, Filter, Grid, List, Eye, MapPin, Briefcase, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/matrimony/Header";
 import Footer from "@/components/matrimony/Footer";
+import ProfileActions from "@/components/profile/ProfileActions";
 import defaultMale from "@/assets/default-male.jpg";
 import defaultFemale from "@/assets/default-female.jpg";
 
@@ -224,17 +225,12 @@ const SearchResults = () => {
 
                 {/* Profile Info */}
                 <div className="p-4 flex-1 flex flex-col">
-                  <div className="flex items-start justify-between mb-2">
-                    <div>
-                      <h3 className="font-semibold text-base text-foreground line-clamp-1">{profile.name}</h3>
-                      <p className="text-xs text-primary font-medium">{profile.id}</p>
-                    </div>
-                    <Button size="icon" variant="ghost" className="h-8 w-8 text-rose-500 hover:text-rose-600 hover:bg-rose-50">
-                      <Heart className="h-4 w-4" />
-                    </Button>
+                  <div className="mb-2">
+                    <h3 className="font-semibold text-base text-foreground line-clamp-1">{profile.name}</h3>
+                    <p className="text-xs text-primary font-medium">{profile.id}</p>
                   </div>
 
-                  <div className="space-y-1.5 text-sm text-muted-foreground mb-4 flex-1">
+                  <div className="space-y-1.5 text-sm text-muted-foreground mb-3 flex-1">
                     <p className="font-medium text-foreground text-sm">
                       {profile.age} yrs, {profile.height}
                     </p>
@@ -255,17 +251,15 @@ const SearchResults = () => {
                     </p>
                   </div>
 
-                  <div className="flex gap-2 mt-auto">
-                    <Link to={`/profile/${profile.id}`} className="flex-1">
+                  {/* Profile Actions - Always visible on mobile, hover on desktop */}
+                  <div className="border-t pt-3 mt-auto">
+                    <ProfileActions profileId={profile.id} variant="card" className="justify-center" />
+                    <Link to={`/profile/${profile.id}`} className="block mt-2">
                       <Button size="sm" variant="outline" className="w-full gap-1 text-xs h-9">
                         <Eye className="h-3.5 w-3.5" />
-                        View
+                        View Full Profile
                       </Button>
                     </Link>
-                    <Button size="sm" className="flex-1 gap-1 bg-gradient-primary text-xs h-9">
-                      <MessageCircle className="h-3.5 w-3.5" />
-                      Interest
-                    </Button>
                   </div>
                 </div>
               </div>

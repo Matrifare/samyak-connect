@@ -1,10 +1,11 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Heart, MessageCircle, Share2, MapPin, Briefcase, GraduationCap, Calendar, Ruler, Users, Home, Star, CheckCircle } from "lucide-react";
+import { ArrowLeft, MapPin, Briefcase, GraduationCap, Calendar, Ruler, Users, Home, Star, CheckCircle, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import Header from "@/components/matrimony/Header";
 import Footer from "@/components/matrimony/Footer";
+import ProfileActions from "@/components/profile/ProfileActions";
 import defaultMale from "@/assets/default-male.jpg";
 import defaultFemale from "@/assets/default-female.jpg";
 
@@ -147,20 +148,9 @@ const Profile = () => {
                 </div>
 
                 {/* Quick Actions */}
-                <div className="p-4 space-y-3">
-                  <Button className="w-full bg-gradient-primary gap-2">
-                    <MessageCircle className="h-4 w-4" />
-                    Send Interest
-                  </Button>
-                  <div className="flex gap-2">
-                    <Button variant="outline" className="flex-1 gap-2">
-                      <Heart className="h-4 w-4" />
-                      Shortlist
-                    </Button>
-                    <Button variant="outline" size="icon">
-                      <Share2 className="h-4 w-4" />
-                    </Button>
-                  </div>
+                <div className="p-4 space-y-4">
+                  <h4 className="font-semibold text-sm text-foreground">Quick Actions</h4>
+                  <ProfileActions profileId={profile.id} variant="full" className="flex-col" />
                 </div>
               </div>
             </div>
