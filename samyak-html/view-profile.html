@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>View Profile - NX1234 - Samyak Matrimony</title>
+    <meta name="description" content="View profile details of NX1234 on Samyak Matrimony">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <!-- Header Bar -->
+    <header class="bg-primary text-white py-2">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="javascript:history.back()" class="text-white text-decoration-none">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Search
+                </a>
+                <a href="index.html" class="text-white text-decoration-none">
+                    <img src="assets/img/logo-white.png" alt="Samyak Matrimony" height="30">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-4">
+        <div class="container">
+            <div class="row">
+                
+                <!-- Profile Sidebar -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body text-center">
+                            <!-- Profile Photo -->
+                            <div class="mb-3">
+                                <img src="assets/img/default-male.png" alt="Profile Photo" class="rounded-circle img-thumbnail" style="width: 180px; height: 180px; object-fit: cover;">
+                            </div>
+                            
+                            <!-- Basic Info -->
+                            <h5 class="text-primary mb-1">Rahul Kumar - NX1234</h5>
+                            <p class="text-muted mb-1">
+                                <small>Last Online: 10 Jan, 2024</small>
+                            </p>
+                            <p class="mb-3">
+                                28 Yrs, Unmarried, Buddhist<br>
+                                Software Engineer from Mumbai
+                            </p>
+
+                            <!-- Action Buttons -->
+                            <div class="d-grid gap-2 mb-3">
+                                <a href="login.html" class="btn btn-primary">
+                                    <i class="fas fa-phone me-2"></i>View Contact Details
+                                </a>
+                                <a href="#" class="btn btn-outline-danger">
+                                    <i class="fas fa-heart me-2"></i>Send Interest
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary">
+                                    <i class="fas fa-bookmark me-2"></i>Shortlist Profile
+                                </a>
+                            </div>
+
+                            <!-- Premium Badge -->
+                            <div class="badge bg-warning text-dark p-2">
+                                <i class="fas fa-crown me-1"></i> Premium Member
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo Gallery -->
+                    <div class="card shadow-sm mt-4">
+                        <div class="card-header">
+                            <h6 class="mb-0"><i class="fas fa-images me-2"></i>Photo Gallery</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <img src="assets/img/default-male.png" alt="Photo" class="img-fluid rounded">
+                                </div>
+                                <div class="col-4">
+                                    <div class="bg-secondary rounded d-flex align-items-center justify-content-center" style="height: 80px;">
+                                        <i class="fas fa-lock text-white"></i>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="bg-secondary rounded d-flex align-items-center justify-content-center" style="height: 80px;">
+                                        <i class="fas fa-lock text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted small text-center mt-2 mb-0">Login to view all photos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Details -->
+                <div class="col-lg-8">
+                    
+                    <!-- Tabs -->
+                    <div class="card shadow-sm">
+                        <div class="card-header p-0">
+                            <ul class="nav nav-tabs card-header-tabs" id="profileTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button">
+                                        <i class="fas fa-user me-1"></i> About
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="family-tab" data-bs-toggle="tab" data-bs-target="#family" type="button">
+                                        <i class="fas fa-users me-1"></i> Family
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button">
+                                        <i class="fas fa-graduation-cap me-1"></i> Education & Career
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="partner-tab" data-bs-toggle="tab" data-bs-target="#partner" type="button">
+                                        <i class="fas fa-heart me-1"></i> Partner Preference
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="profileTabContent">
+                                
+                                <!-- About Tab -->
+                                <div class="tab-pane fade show active" id="about" role="tabpanel">
+                                    <h6 class="border-bottom pb-2 mb-3 text-primary">
+                                        <i class="fas fa-info-circle me-2"></i>About Me
+                                    </h6>
+                                    <p class="text-muted">
+                                        I am a career-oriented individual who believes in balancing work and personal life. 
+                                        I enjoy reading, traveling, and exploring new cuisines. Looking for a life partner 
+                                        who shares similar values and has a positive outlook towards life.
+                                    </p>
+
+                                    <h6 class="border-bottom pb-2 mb-3 mt-4 text-primary">
+                                        <i class="fas fa-id-card me-2"></i>Basic Details
+                                    </h6>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Profile ID</th><td>NX1234</td></tr>
+                                                <tr><th class="text-muted">Name</th><td>Rahul Kumar</td></tr>
+                                                <tr><th class="text-muted">Age</th><td>28 Years</td></tr>
+                                                <tr><th class="text-muted">Height</th><td>5' 10" (178 cm)</td></tr>
+                                                <tr><th class="text-muted">Weight</th><td>72 Kg</td></tr>
+                                                <tr><th class="text-muted">Marital Status</th><td>Never Married</td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Body Type</th><td>Average</td></tr>
+                                                <tr><th class="text-muted">Complexion</th><td>Fair</td></tr>
+                                                <tr><th class="text-muted">Blood Group</th><td>O+</td></tr>
+                                                <tr><th class="text-muted">Diet</th><td>Vegetarian</td></tr>
+                                                <tr><th class="text-muted">Smoking</th><td>No</td></tr>
+                                                <tr><th class="text-muted">Drinking</th><td>Occasionally</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <h6 class="border-bottom pb-2 mb-3 mt-4 text-primary">
+                                        <i class="fas fa-pray me-2"></i>Religion Details
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Religion</th><td>Buddhist</td></tr>
+                                                <tr><th class="text-muted">Caste</th><td>Nav Bauddha</td></tr>
+                                                <tr><th class="text-muted">Mother Tongue</th><td>Marathi</td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Sub Caste</th><td>-</td></tr>
+                                                <tr><th class="text-muted">Gothra</th><td>-</td></tr>
+                                                <tr><th class="text-muted">Manglik</th><td>No</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <h6 class="border-bottom pb-2 mb-3 mt-4 text-primary">
+                                        <i class="fas fa-map-marker-alt me-2"></i>Location Details
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Country</th><td>India</td></tr>
+                                                <tr><th class="text-muted">State</th><td>Maharashtra</td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">City</th><td>Mumbai</td></tr>
+                                                <tr><th class="text-muted">Citizenship</th><td>Indian</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Family Tab -->
+                                <div class="tab-pane fade" id="family" role="tabpanel">
+                                    <h6 class="border-bottom pb-2 mb-3 text-primary">
+                                        <i class="fas fa-home me-2"></i>Family Details
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Family Type</th><td>Nuclear</td></tr>
+                                                <tr><th class="text-muted">Family Status</th><td>Middle Class</td></tr>
+                                                <tr><th class="text-muted">Family Values</th><td>Moderate</td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Father's Occupation</th><td>Government Employee</td></tr>
+                                                <tr><th class="text-muted">Mother's Occupation</th><td>Homemaker</td></tr>
+                                                <tr><th class="text-muted">Siblings</th><td>1 Sister (Married)</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <h6 class="border-bottom pb-2 mb-3 mt-4 text-primary">
+                                        <i class="fas fa-map-pin me-2"></i>Family Origin
+                                    </h6>
+                                    <p class="text-muted">Nagpur, Maharashtra</p>
+                                </div>
+
+                                <!-- Education & Career Tab -->
+                                <div class="tab-pane fade" id="education" role="tabpanel">
+                                    <h6 class="border-bottom pb-2 mb-3 text-primary">
+                                        <i class="fas fa-graduation-cap me-2"></i>Education Details
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Education Level</th><td>B.Tech/B.E</td></tr>
+                                                <tr><th class="text-muted">Education Field</th><td>Computers/IT</td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Education Details</th><td>B.Tech in Computer Science from Pune University</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <h6 class="border-bottom pb-2 mb-3 mt-4 text-primary">
+                                        <i class="fas fa-briefcase me-2"></i>Career Details
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Occupation</th><td>Software Engineer</td></tr>
+                                                <tr><th class="text-muted">Company</th><td>TCS</td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Annual Income</th><td>8-12 Lakh</td></tr>
+                                                <tr><th class="text-muted">Working City</th><td>Mumbai</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Partner Preference Tab -->
+                                <div class="tab-pane fade" id="partner" role="tabpanel">
+                                    <h6 class="border-bottom pb-2 mb-3 text-primary">
+                                        <i class="fas fa-heart me-2"></i>Partner Expectations
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Age</th><td>22 - 28 Years</td></tr>
+                                                <tr><th class="text-muted">Height</th><td>5' 0" - 5' 6"</td></tr>
+                                                <tr><th class="text-muted">Marital Status</th><td>Never Married</td></tr>
+                                                <tr><th class="text-muted">Religion</th><td>Buddhist</td></tr>
+                                                <tr><th class="text-muted">Caste</th><td>Any</td></tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table table-sm">
+                                                <tr><th class="text-muted" width="40%">Education</th><td>Graduate & Above</td></tr>
+                                                <tr><th class="text-muted">Occupation</th><td>Any</td></tr>
+                                                <tr><th class="text-muted">Income</th><td>Doesn't Matter</td></tr>
+                                                <tr><th class="text-muted">Location</th><td>Maharashtra, India</td></tr>
+                                                <tr><th class="text-muted">Manglik</th><td>Doesn't Matter</td></tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <h6 class="border-bottom pb-2 mb-3 mt-4 text-primary">
+                                        <i class="fas fa-comment me-2"></i>Expectations
+                                    </h6>
+                                    <p class="text-muted">
+                                        Looking for a well-educated, caring, and understanding life partner who values family 
+                                        and has a positive outlook towards life. She should be supportive and have good values.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Similar Profiles -->
+                    <div class="card shadow-sm mt-4">
+                        <div class="card-header">
+                            <h6 class="mb-0"><i class="fas fa-users me-2"></i>Similar Profiles</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-3 text-center">
+                                    <img src="assets/img/default-male.png" class="rounded-circle mb-2" width="60" height="60">
+                                    <p class="mb-0 small">NX1240</p>
+                                    <p class="text-muted small">29 Yrs, Mumbai</p>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <img src="assets/img/default-male.png" class="rounded-circle mb-2" width="60" height="60">
+                                    <p class="mb-0 small">NX1241</p>
+                                    <p class="text-muted small">27 Yrs, Pune</p>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <img src="assets/img/default-male.png" class="rounded-circle mb-2" width="60" height="60">
+                                    <p class="mb-0 small">NX1242</p>
+                                    <p class="text-muted small">30 Yrs, Thane</p>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <img src="assets/img/default-male.png" class="rounded-circle mb-2" width="60" height="60">
+                                    <p class="mb-0 small">NX1243</p>
+                                    <p class="text-muted small">28 Yrs, Nagpur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Samyak Matrimony. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

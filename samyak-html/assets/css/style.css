@@ -1,0 +1,201 @@
+/* Samyak Matrimony - Custom Styles */
+
+:root {
+    --primary-color: #c5073b;
+    --secondary-color: #005294;
+    --accent-color: #ffc107;
+}
+
+/* Override Bootstrap Primary Color */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #a00630;
+    border-color: #a00630;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.border-primary {
+    border-color: var(--primary-color) !important;
+}
+
+/* Header Styles */
+.header-area .navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.header-area .navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+.header-area .nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Card Hover Effects */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Profile Card Styles */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Feature Icons */
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Form Styles */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(197, 7, 59, 0.25);
+}
+
+/* Badge Styles */
+.badge {
+    font-weight: 500;
+}
+
+/* Footer Styles */
+footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Search Filter Sidebar */
+.card-header {
+    font-weight: 600;
+}
+
+/* Tab Styles */
+.nav-tabs .nav-link {
+    color: #666;
+    border: none;
+    padding: 12px 20px;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Table Styles */
+.table th {
+    font-weight: 500;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a00630;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 150px;
+    }
+    
+    .display-5 {
+        font-size: 1.75rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Loading Spinner */
+.spinner-border {
+    color: var(--primary-color);
+}
+
+/* Premium Badge */
+.badge.bg-warning {
+    color: #333 !important;
+}
+
+/* Online Status */
+.badge.bg-success {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}

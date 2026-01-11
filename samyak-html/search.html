@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Search Profiles - Samyak Matrimony</title>
+    <meta name="description" content="Search for your perfect match from thousands of verified Buddhist matrimonial profiles.">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <!-- Header -->
+    <header class="header-area">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/img/logo.png" alt="Samyak Matrimony" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="search.html">Search</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-outline-primary ms-2" href="login.html">Login</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-2" href="register.html">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-4">
+        <div class="container">
+            <div class="row">
+                
+                <!-- Search Filters Sidebar -->
+                <div class="col-lg-3 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Search Filters</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="search-results.html" method="GET">
+                                
+                                <!-- Looking For -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Looking For</label>
+                                    <select class="form-select" name="gender">
+                                        <option value="Bride">Bride</option>
+                                        <option value="Groom">Groom</option>
+                                    </select>
+                                </div>
+
+                                <!-- Age Range -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Age Range</label>
+                                    <div class="row g-2">
+                                        <div class="col-6">
+                                            <select class="form-select form-select-sm" name="age_from">
+                                                <option value="">From</option>
+                                                <option value="18">18</option>
+                                                <option value="20">20</option>
+                                                <option value="22">22</option>
+                                                <option value="24">24</option>
+                                                <option value="26">26</option>
+                                                <option value="28">28</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <select class="form-select form-select-sm" name="age_to">
+                                                <option value="">To</option>
+                                                <option value="25">25</option>
+                                                <option value="28">28</option>
+                                                <option value="30">30</option>
+                                                <option value="35">35</option>
+                                                <option value="40">40</option>
+                                                <option value="45">45</option>
+                                                <option value="50">50</option>
+                                                <option value="55">55</option>
+                                                <option value="60">60</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Height Range -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Height Range</label>
+                                    <div class="row g-2">
+                                        <div class="col-6">
+                                            <select class="form-select form-select-sm" name="height_from">
+                                                <option value="">From</option>
+                                                <option value="4.6">4' 6"</option>
+                                                <option value="4.8">4' 8"</option>
+                                                <option value="5.0">5' 0"</option>
+                                                <option value="5.2">5' 2"</option>
+                                                <option value="5.4">5' 4"</option>
+                                                <option value="5.6">5' 6"</option>
+                                                <option value="5.8">5' 8"</option>
+                                                <option value="6.0">6' 0"</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <select class="form-select form-select-sm" name="height_to">
+                                                <option value="">To</option>
+                                                <option value="5.0">5' 0"</option>
+                                                <option value="5.2">5' 2"</option>
+                                                <option value="5.4">5' 4"</option>
+                                                <option value="5.6">5' 6"</option>
+                                                <option value="5.8">5' 8"</option>
+                                                <option value="6.0">6' 0"</option>
+                                                <option value="6.2">6' 2"</option>
+                                                <option value="6.4">6' 4"</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Marital Status -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Marital Status</label>
+                                    <select class="form-select" name="marital_status">
+                                        <option value="">Any</option>
+                                        <option value="Unmarried">Unmarried</option>
+                                        <option value="Divorced">Divorced</option>
+                                        <option value="Widow/Widower">Widow/Widower</option>
+                                        <option value="Separated">Separated</option>
+                                    </select>
+                                </div>
+
+                                <!-- Religion -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Religion</label>
+                                    <select class="form-select" name="religion">
+                                        <option value="">Any</option>
+                                        <option value="7" selected>Buddhist</option>
+                                        <option value="1">Hindu</option>
+                                        <option value="5">Jain</option>
+                                        <option value="3">Christian</option>
+                                        <option value="2">Muslim</option>
+                                    </select>
+                                </div>
+
+                                <!-- Caste -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Caste</label>
+                                    <select class="form-select" name="caste">
+                                        <option value="">Any</option>
+                                        <option value="1">Mahar</option>
+                                        <option value="2">Nav Bauddha</option>
+                                        <option value="3">Bauddha</option>
+                                    </select>
+                                </div>
+
+                                <!-- Education -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Education</label>
+                                    <select class="form-select" name="education">
+                                        <option value="">Any</option>
+                                        <option value="7">Computers/IT</option>
+                                        <option value="9">Engineering</option>
+                                        <option value="17">Medicine</option>
+                                        <option value="16">Management</option>
+                                        <option value="8">Education</option>
+                                        <option value="6">Commerce</option>
+                                        <option value="21">Science</option>
+                                    </select>
+                                </div>
+
+                                <!-- City -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">City</label>
+                                    <select class="form-select" name="city">
+                                        <option value="">Any</option>
+                                        <option value="mumbai">Mumbai</option>
+                                        <option value="pune">Pune</option>
+                                        <option value="thane">Thane</option>
+                                        <option value="nagpur">Nagpur</option>
+                                        <option value="nashik">Nashik</option>
+                                        <option value="aurangabad">Aurangabad</option>
+                                    </select>
+                                </div>
+
+                                <!-- With Photo -->
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="with_photo" name="with_photo" value="yes">
+                                        <label class="form-check-label" for="with_photo">With Photo Only</label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-search me-2"></i>Search
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Search by Profile ID -->
+                    <div class="card shadow-sm mt-4">
+                        <div class="card-header bg-secondary text-white">
+                            <h6 class="mb-0"><i class="fas fa-id-badge me-2"></i>Search by Profile ID</h6>
+                        </div>
+                        <div class="card-body">
+                            <form action="view-profile.html" method="GET">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter Profile ID" name="profile_id">
+                                    <button class="btn btn-secondary" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Results -->
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="mb-0">Search Profiles</h5>
+                        <div>
+                            <span class="text-muted me-2">Sort by:</span>
+                            <select class="form-select form-select-sm d-inline-block w-auto" name="sort">
+                                <option value="newest">Newest First</option>
+                                <option value="last_login">Last Login</option>
+                                <option value="relevance">Relevance</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Profile Cards -->
+                    <div class="row g-4">
+                        <!-- Profile 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="assets/img/default-male.png" class="card-img-top" alt="Profile">
+                                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Online</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">NX1234</h6>
+                                    <p class="card-text text-muted mb-1">28 Yrs, 5'10", Unmarried</p>
+                                    <p class="card-text text-muted mb-2">Software Engineer, Mumbai</p>
+                                    <span class="badge bg-primary">Buddhist</span>
+                                </div>
+                                <div class="card-footer bg-white border-0">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="view-profile.html" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-bookmark"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="assets/img/default-female.png" class="card-img-top" alt="Profile">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">NX1235</h6>
+                                    <p class="card-text text-muted mb-1">25 Yrs, 5'4", Unmarried</p>
+                                    <p class="card-text text-muted mb-2">Teacher, Pune</p>
+                                    <span class="badge bg-primary">Buddhist</span>
+                                </div>
+                                <div class="card-footer bg-white border-0">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="view-profile.html" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-bookmark"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="assets/img/default-male.png" class="card-img-top" alt="Profile">
+                                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Premium</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">NX1236</h6>
+                                    <p class="card-text text-muted mb-1">30 Yrs, 5'8", Unmarried</p>
+                                    <p class="card-text text-muted mb-2">Doctor, Thane</p>
+                                    <span class="badge bg-primary">Buddhist</span>
+                                </div>
+                                <div class="card-footer bg-white border-0">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="view-profile.html" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-bookmark"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="assets/img/default-female.png" class="card-img-top" alt="Profile">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">NX1237</h6>
+                                    <p class="card-text text-muted mb-1">26 Yrs, 5'3", Unmarried</p>
+                                    <p class="card-text text-muted mb-2">Engineer, Nagpur</p>
+                                    <span class="badge bg-primary">Buddhist</span>
+                                </div>
+                                <div class="card-footer bg-white border-0">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="view-profile.html" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-bookmark"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="assets/img/default-male.png" class="card-img-top" alt="Profile">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">NX1238</h6>
+                                    <p class="card-text text-muted mb-1">32 Yrs, 5'11", Divorced</p>
+                                    <p class="card-text text-muted mb-2">Business, Mumbai</p>
+                                    <span class="badge bg-primary">Buddhist</span>
+                                </div>
+                                <div class="card-footer bg-white border-0">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="view-profile.html" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-bookmark"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="assets/img/default-female.png" class="card-img-top" alt="Profile">
+                                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Online</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">NX1239</h6>
+                                    <p class="card-text text-muted mb-1">24 Yrs, 5'5", Unmarried</p>
+                                    <p class="card-text text-muted mb-2">Nurse, Pune</p>
+                                    <span class="badge bg-primary">Buddhist</span>
+                                </div>
+                                <div class="card-footer bg-white border-0">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="view-profile.html" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-bookmark"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Samyak Matrimony. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
