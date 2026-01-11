@@ -1,21 +1,29 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Mail, Lock, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "@/hooks/use-toast";
 import Header from "@/components/matrimony/Header";
 import Footer from "@/components/matrimony/Footer";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login attempt:", { email, password });
+    // Temporary: Accept any credentials for demo
+    // TODO: Replace with real authentication
+    toast({
+      title: "Login Successful",
+      description: "Welcome back! Redirecting to dashboard...",
+    });
+    setTimeout(() => navigate("/dashboard"), 500);
   };
 
   return (
