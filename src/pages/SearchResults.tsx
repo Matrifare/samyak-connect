@@ -256,10 +256,12 @@ const SearchResults = () => {
                   </div>
 
                   <div className="flex gap-2 mt-auto">
-                    <Button size="sm" variant="outline" className="flex-1 gap-1 text-xs h-9">
-                      <Eye className="h-3.5 w-3.5" />
-                      View
-                    </Button>
+                    <Link to={`/profile/${profile.id}`} className="flex-1">
+                      <Button size="sm" variant="outline" className="w-full gap-1 text-xs h-9">
+                        <Eye className="h-3.5 w-3.5" />
+                        View
+                      </Button>
+                    </Link>
                     <Button size="sm" className="flex-1 gap-1 bg-gradient-primary text-xs h-9">
                       <MessageCircle className="h-3.5 w-3.5" />
                       Interest
