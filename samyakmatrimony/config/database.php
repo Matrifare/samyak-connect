@@ -13,9 +13,9 @@ if (file_exists($localConfig)) {
 
 return [
     'host' => getenv('DB_HOST') ?: 'localhost',
-    'database' => getenv('DB_DATABASE') ?: 'samyak',
-    'username' => getenv('DB_USERNAME') ?: 'root',
-    'password' => getenv('DB_PASSWORD') ?: '',
+    'database' => getenv('DB_DATABASE') ?: 'samyakm1_samyakmatrimony_samyak',
+    'username' => getenv('DB_USERNAME') ?: 'samyakm1_bigrock',
+    'password' => getenv('DB_PASSWORD') ?: 'TdPLXV+eR$d%',
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
 ];
