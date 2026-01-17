@@ -24,6 +24,12 @@ jobs:
       #       --no-dev \
       #       --optimize-autoloader \
       #       --prefer-dist
+      - name: Debug SSH target
+        run: |
+          echo "SSH_USER=${{ secrets.SSH_USER }}"
+          echo "SSH_HOST=${{ secrets.SSH_HOST }}"
+          echo "SSH_KEY=${{ secrets.SSH_KEY }}"
+          echo "APP_PATH=${{ secrets.APP_PATH }}"
 
       - name: Configure SSH
         run: |
