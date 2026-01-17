@@ -293,4 +293,50 @@ class User extends Model
             'grooms' => (int) ($grooms['count'] ?? 0)
         ];
     }
+
+    /**
+     * Get featured profiles for homepage
+     */
+    public function getFeaturedProfiles(int $limit = 8): array
+    {
+        $query = "SELECT r.matri_id, r.username, r.gender, r.birthdate, r.height, 
+                         r.education, r.occupation, r.city, r.photo1,
+                         TIMESTAMPDIFF(YEAR, r.birthdate, CURDATE()) as age,
+                         rel.religion_name, c.caste_name, ct.city_name
+                  FROM {$this->table} r
+                  LEFT JOIN religion rel ON r.religion_id = rel.religion_id
+                  LEFT JOIN caste c ON r.caste_id = c.caste_id
+                  LEFT JOIN cities ct ON r.city = ct.id
+                  WHERE r.status = 'APPROVED' 
+                  AND r.photo1 IS NOT NULL 
+                  AND r.photo1 != ''
+                  ORDER BY RAND()
+                  LIMIT ?";
+
+        return $this->db->select($query, [$limit]);
+    }
+
+    /**
+     * Get total count of approved profiles
+     */
+    public function getTotalCount(): int
+    {
+        $result = $this->db->selectOne(
+            "SELECT COUNT(*) as count FROM {$this->table} WHERE status = 'APPROVED'"
+        );
+        return (int) ($result['count'] ?? 0);
+    }
+
+    /**
+     * Get count by gender
+     */
+    public function getCountByGender(string $gender): int
+    {
+        $genderValue = ($gender === 'Male') ? 'Groom' : 'Bride';
+        $result = $this->db->selectOne(
+            "SELECT COUNT(*) as count FROM {$this->table} WHERE gender = ? AND status = 'APPROVED'",
+            [$genderValue]
+        );
+        return (int) ($result['count'] ?? 0);
+    }
 }
