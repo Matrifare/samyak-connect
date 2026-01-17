@@ -17,12 +17,13 @@ jobs:
         with:
           php-version: "8.2"
 
+      # Uncomment only if you want build on CI
       # - name: Install dependencies (production)
-        # run: |
-        #   composer install \
-        #     --no-dev \
-        #     --optimize-autoloader \
-        #     --prefer-dist
+      #   run: |
+      #     composer install \
+      #       --no-dev \
+      #       --optimize-autoloader \
+      #       --prefer-dist
 
       - name: Configure SSH
         run: |
@@ -31,24 +32,31 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to Server
+      - name: Create release directory on server
         run: |
-          ssh -o StrictHostKeyChecking=no \
-          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             set -e
+            RELEASE=\$(date +%Y%m%d%H%M%S)
+            mkdir -p ${{ secrets.APP_ROOT }}/releases/\$RELEASE
+            echo \$RELEASE > /tmp/release_id
+          "
 
-            APP_ROOT="${{ secrets.APP_ROOT }}"
-            RELEASE=$(date +%Y%m%d%H%M%S)
+      - name: Sync code to server (rsync)
+        run: |
+          RELEASE=$(ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cat /tmp/release_id")
 
-            mkdir -p $APP_ROOT/releases/$RELEASE
+          rsync -az --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.env' \
+            --exclude='storage' \
+            --exclude='node_modules' \
+            ./ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.APP_ROOT }}/releases/$RELEASE/
 
-            rsync -az --delete \
-              --exclude='.git' \
-              --exclude='.github' \
-              --exclude='.env' \
-              --exclude='storage' \
-              --exclude='node_modules' \
-              ./ $APP_ROOT/releases/$RELEASE/
-
-            ln -sfn $APP_ROOT/releases/$RELEASE $APP_ROOT/current
-          EOF
+      - name: Activate release
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+            ln -sfn ${{ secrets.APP_ROOT }}/releases/\$(cat /tmp/release_id) \
+                   ${{ secrets.APP_ROOT }}/current
+          "
