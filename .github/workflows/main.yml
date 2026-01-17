@@ -1,0 +1,52 @@
+name: Deploy PHP App via SSH
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+
+      - name: Install dependencies (production)
+        run: |
+          composer install \
+            --no-dev \
+            --optimize-autoloader \
+            --prefer-dist
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Deploy to Server
+        run: |
+          ssh -o StrictHostKeyChecking=no \
+          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            set -e
+
+            APP_ROOT="${{ secrets.APP_ROOT }}"
+            RELEASE=$(date +%Y%m%d%H%M%S)
+
+            mkdir -p $APP_ROOT/releases/$RELEASE
+
+            rsync -az --delete \
+              --exclude='.git' \
+              --exclude='.github' \
+              --exclude='.env' \
+              --exclude='storage' \
+              --exclude='node_modules' \
+              ./ $APP_ROOT/releases/$RELEASE/
+
+            ln -sfn $APP_ROOT/releases/$RELEASE $APP_ROOT/current
+          EOF
