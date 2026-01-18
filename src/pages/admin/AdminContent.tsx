@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import {
   Dialog,
@@ -23,84 +24,9 @@ import {
   Eye,
   EyeOff,
   RefreshCw,
+  FileText,
 } from "lucide-react";
-
-interface PageContent {
-  id: string;
-  slug: string;
-  page_name: string;
-  seo_title: string;
-  seo_description: string;
-  seo_keywords: string;
-  is_published: boolean;
-}
-
-// Default pages data (stored locally until database is set up)
-const defaultPages: PageContent[] = [
-  {
-    id: "1",
-    slug: "success-stories",
-    page_name: "Success Stories",
-    seo_title: "Success Stories - Samyak Matrimony",
-    seo_description: "Read inspiring success stories of couples who found love on Samyak Matrimony",
-    seo_keywords: "success stories, matrimony, wedding, couples",
-    is_published: true,
-  },
-  {
-    id: "2",
-    slug: "about-us",
-    page_name: "About Us",
-    seo_title: "About Us - Samyak Matrimony",
-    seo_description: "Learn about Samyak Matrimony - trusted Buddhist matrimonial service",
-    seo_keywords: "about, matrimony, buddhist, wedding service",
-    is_published: true,
-  },
-  {
-    id: "3",
-    slug: "contact-us",
-    page_name: "Contact Us",
-    seo_title: "Contact Us - Samyak Matrimony",
-    seo_description: "Get in touch with Samyak Matrimony for queries or support",
-    seo_keywords: "contact, support, help, matrimony",
-    is_published: true,
-  },
-  {
-    id: "4",
-    slug: "privacy-policy",
-    page_name: "Privacy Policy",
-    seo_title: "Privacy Policy - Samyak Matrimony",
-    seo_description: "Read our privacy policy to understand how we protect your data",
-    seo_keywords: "privacy, policy, data protection",
-    is_published: true,
-  },
-  {
-    id: "5",
-    slug: "terms-conditions",
-    page_name: "Terms & Conditions",
-    seo_title: "Terms & Conditions - Samyak Matrimony",
-    seo_description: "Read our terms and conditions for using Samyak Matrimony services",
-    seo_keywords: "terms, conditions, rules, agreement",
-    is_published: true,
-  },
-  {
-    id: "6",
-    slug: "faq",
-    page_name: "FAQ",
-    seo_title: "Frequently Asked Questions - Samyak Matrimony",
-    seo_description: "Find answers to common questions about Samyak Matrimony",
-    seo_keywords: "faq, questions, help, support",
-    is_published: true,
-  },
-  {
-    id: "7",
-    slug: "refund-policy",
-    page_name: "Refund Policy",
-    seo_title: "Refund Policy - Samyak Matrimony",
-    seo_description: "Learn about our refund policy for premium memberships",
-    seo_keywords: "refund, policy, payment, membership",
-    is_published: true,
-  },
-];
+import { usePageContent, PageContent } from "@/hooks/usePageContent";
 
 const STORAGE_KEY = "samyak_page_content";
 
@@ -109,13 +35,31 @@ const AdminContent = () => {
   const [pages, setPages] = useState<PageContent[]>([]);
   const [editingPage, setEditingPage] = useState<PageContent | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editMode, setEditMode] = useState<"seo" | "content">("seo");
   const [isLoading, setIsLoading] = useState(true);
+  const { defaultPages } = usePageContent();
 
   // Load pages from localStorage or use defaults
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
-      setPages(JSON.parse(stored));
+      try {
+        const parsed = JSON.parse(stored);
+        const merged = defaultPages.map((defaultPage) => {
+          const storedPage = parsed.find((p: PageContent) => p.id === defaultPage.id);
+          if (storedPage) {
+            return {
+              ...defaultPage,
+              ...storedPage,
+              content: { ...defaultPage.content, ...storedPage.content },
+            };
+          }
+          return defaultPage;
+        });
+        setPages(merged);
+      } catch {
+        setPages(defaultPages);
+      }
     } else {
       setPages(defaultPages);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultPages));
@@ -135,8 +79,15 @@ const AdminContent = () => {
       page.slug.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleEdit = (page: PageContent) => {
+  const handleEditSEO = (page: PageContent) => {
     setEditingPage({ ...page });
+    setEditMode("seo");
+    setIsDialogOpen(true);
+  };
+
+  const handleEditContent = (page: PageContent) => {
+    setEditingPage({ ...page });
+    setEditMode("content");
     setIsDialogOpen(true);
   };
 
@@ -147,7 +98,7 @@ const AdminContent = () => {
       p.id === editingPage.id ? editingPage : p
     );
     savePages(updatedPages);
-    toast.success("Page SEO updated successfully!");
+    toast.success(editMode === "seo" ? "SEO settings updated!" : "Page content updated!");
     setIsDialogOpen(false);
     setEditingPage(null);
   };
@@ -245,31 +196,50 @@ const AdminContent = () => {
                     </p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-xs text-slate-400">SEO Description</p>
-                    <p className="text-sm text-slate-300 line-clamp-2">
-                      {page.seo_description || "Not set"}
+                    <p className="text-xs text-slate-400">Page Heading</p>
+                    <p className="text-sm text-slate-300 truncate">
+                      {page.content?.heading || "Not set"}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 pt-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => handleEdit(page)}
-                      className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-700"
-                    >
-                      <Edit className="h-4 w-4 mr-1" />
-                      Edit SEO
-                    </Button>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex flex-col gap-2 pt-2">
+                    <div className="flex gap-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => handleEditSEO(page)}
+                        className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-700"
+                      >
+                        <Globe className="h-4 w-4 mr-1" />
+                        Edit SEO
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => handleEditContent(page)}
+                        className="flex-1 border-blue-600 text-blue-300 hover:bg-blue-900/30"
+                      >
+                        <FileText className="h-4 w-4 mr-1" />
+                        Edit Content
+                      </Button>
+                    </div>
                     <Button
                       size="sm"
                       variant="ghost"
                       onClick={() => togglePublish(page.id)}
-                      className="text-slate-400 hover:text-white"
+                      className="w-full text-slate-400 hover:text-white"
                     >
                       {page.is_published ? (
-                        <EyeOff className="h-4 w-4" />
+                        <>
+                          <EyeOff className="h-4 w-4 mr-1" />
+                          Unpublish
+                        </>
                       ) : (
-                        <Eye className="h-4 w-4" />
+                        <>
+                          <Eye className="h-4 w-4 mr-1" />
+                          Publish
+                        </>
                       )}
                     </Button>
                   </div>
@@ -281,102 +251,186 @@ const AdminContent = () => {
 
         {/* Edit Dialog */}
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogContent className="bg-slate-900 border-slate-700 max-w-lg">
+          <DialogContent className="bg-slate-900 border-slate-700 max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle className="text-white flex items-center gap-2">
-                <Globe className="h-5 w-5 text-primary" />
-                Edit SEO Settings - {editingPage?.page_name}
+                {editMode === "seo" ? (
+                  <>
+                    <Globe className="h-5 w-5 text-primary" />
+                    Edit SEO - {editingPage?.page_name}
+                  </>
+                ) : (
+                  <>
+                    <FileText className="h-5 w-5 text-blue-400" />
+                    Edit Content - {editingPage?.page_name}
+                  </>
+                )}
               </DialogTitle>
             </DialogHeader>
 
             {editingPage && (
-              <div className="space-y-4 py-4">
-                <div className="space-y-2">
-                  <Label htmlFor="seo_title" className="text-slate-300">
-                    SEO Title
-                  </Label>
-                  <Input
-                    id="seo_title"
-                    value={editingPage.seo_title}
-                    onChange={(e) =>
-                      setEditingPage({ ...editingPage, seo_title: e.target.value })
-                    }
-                    placeholder="Enter SEO title (60 characters recommended)"
-                    className="bg-slate-800 border-slate-700 text-white"
-                  />
-                  <p className="text-xs text-slate-500">
-                    {editingPage.seo_title?.length || 0}/60 characters
-                  </p>
-                </div>
+              <Tabs value={editMode} onValueChange={(v) => setEditMode(v as "seo" | "content")}>
+                <TabsList className="grid w-full grid-cols-2 bg-slate-800">
+                  <TabsTrigger value="seo" className="data-[state=active]:bg-primary">
+                    <Globe className="h-4 w-4 mr-2" />
+                    SEO Settings
+                  </TabsTrigger>
+                  <TabsTrigger value="content" className="data-[state=active]:bg-blue-600">
+                    <FileText className="h-4 w-4 mr-2" />
+                    Page Content
+                  </TabsTrigger>
+                </TabsList>
 
-                <div className="space-y-2">
-                  <Label htmlFor="seo_description" className="text-slate-300">
-                    SEO Description
-                  </Label>
-                  <Textarea
-                    id="seo_description"
-                    value={editingPage.seo_description}
-                    onChange={(e) =>
-                      setEditingPage({
-                        ...editingPage,
-                        seo_description: e.target.value,
-                      })
-                    }
-                    placeholder="Enter meta description (160 characters recommended)"
-                    className="bg-slate-800 border-slate-700 text-white resize-none"
-                    rows={3}
-                  />
-                  <p className="text-xs text-slate-500">
-                    {editingPage.seo_description?.length || 0}/160 characters
-                  </p>
-                </div>
+                <TabsContent value="seo" className="space-y-4 py-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="seo_title" className="text-slate-300">
+                      SEO Title
+                    </Label>
+                    <Input
+                      id="seo_title"
+                      value={editingPage.seo_title}
+                      onChange={(e) =>
+                        setEditingPage({ ...editingPage, seo_title: e.target.value })
+                      }
+                      placeholder="Enter SEO title (60 characters recommended)"
+                      className="bg-slate-800 border-slate-700 text-white"
+                    />
+                    <p className="text-xs text-slate-500">
+                      {editingPage.seo_title?.length || 0}/60 characters
+                    </p>
+                  </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="seo_keywords" className="text-slate-300">
-                    SEO Keywords
-                  </Label>
-                  <Input
-                    id="seo_keywords"
-                    value={editingPage.seo_keywords}
-                    onChange={(e) =>
-                      setEditingPage({ ...editingPage, seo_keywords: e.target.value })
-                    }
-                    placeholder="keyword1, keyword2, keyword3"
-                    className="bg-slate-800 border-slate-700 text-white"
-                  />
-                  <p className="text-xs text-slate-500">
-                    Separate keywords with commas
-                  </p>
-                </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="seo_description" className="text-slate-300">
+                      SEO Description
+                    </Label>
+                    <Textarea
+                      id="seo_description"
+                      value={editingPage.seo_description}
+                      onChange={(e) =>
+                        setEditingPage({
+                          ...editingPage,
+                          seo_description: e.target.value,
+                        })
+                      }
+                      placeholder="Enter meta description (160 characters recommended)"
+                      className="bg-slate-800 border-slate-700 text-white resize-none"
+                      rows={3}
+                    />
+                    <p className="text-xs text-slate-500">
+                      {editingPage.seo_description?.length || 0}/160 characters
+                    </p>
+                  </div>
 
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="is_published" className="text-slate-300">
-                    Published
-                  </Label>
-                  <Switch
-                    id="is_published"
-                    checked={editingPage.is_published}
-                    onCheckedChange={(checked) =>
-                      setEditingPage({ ...editingPage, is_published: checked })
-                    }
-                  />
-                </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="seo_keywords" className="text-slate-300">
+                      SEO Keywords
+                    </Label>
+                    <Input
+                      id="seo_keywords"
+                      value={editingPage.seo_keywords}
+                      onChange={(e) =>
+                        setEditingPage({ ...editingPage, seo_keywords: e.target.value })
+                      }
+                      placeholder="keyword1, keyword2, keyword3"
+                      className="bg-slate-800 border-slate-700 text-white"
+                    />
+                    <p className="text-xs text-slate-500">
+                      Separate keywords with commas
+                    </p>
+                  </div>
+                </TabsContent>
 
-                <div className="flex gap-3 pt-4">
-                  <Button
-                    onClick={() => setIsDialogOpen(false)}
-                    variant="outline"
-                    className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-800"
-                  >
-                    <X className="h-4 w-4 mr-1" />
-                    Cancel
-                  </Button>
-                  <Button onClick={handleSave} className="flex-1">
-                    <Save className="h-4 w-4 mr-1" />
-                    Save Changes
-                  </Button>
+                <TabsContent value="content" className="space-y-4 py-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="heading" className="text-slate-300">
+                      Page Heading
+                    </Label>
+                    <Input
+                      id="heading"
+                      value={editingPage.content?.heading || ""}
+                      onChange={(e) =>
+                        setEditingPage({
+                          ...editingPage,
+                          content: { ...editingPage.content, heading: e.target.value },
+                        })
+                      }
+                      placeholder="Main heading displayed on the page"
+                      className="bg-slate-800 border-slate-700 text-white"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="subheading" className="text-slate-300">
+                      Subheading / Tagline
+                    </Label>
+                    <Textarea
+                      id="subheading"
+                      value={editingPage.content?.subheading || ""}
+                      onChange={(e) =>
+                        setEditingPage({
+                          ...editingPage,
+                          content: { ...editingPage.content, subheading: e.target.value },
+                        })
+                      }
+                      placeholder="Short description shown below the heading"
+                      className="bg-slate-800 border-slate-700 text-white resize-none"
+                      rows={2}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="body" className="text-slate-300">
+                      Page Body Content
+                    </Label>
+                    <Textarea
+                      id="body"
+                      value={editingPage.content?.body || ""}
+                      onChange={(e) =>
+                        setEditingPage({
+                          ...editingPage,
+                          content: { ...editingPage.content, body: e.target.value },
+                        })
+                      }
+                      placeholder="Main content of the page. Use line breaks for paragraphs."
+                      className="bg-slate-800 border-slate-700 text-white resize-none"
+                      rows={8}
+                    />
+                    <p className="text-xs text-slate-500">
+                      Use double line breaks to separate paragraphs
+                    </p>
+                  </div>
+                </TabsContent>
+
+                <div className="flex items-center justify-between pt-4 border-t border-slate-700">
+                  <div className="flex items-center gap-2">
+                    <Label htmlFor="is_published" className="text-slate-300">
+                      Published
+                    </Label>
+                    <Switch
+                      id="is_published"
+                      checked={editingPage.is_published}
+                      onCheckedChange={(checked) =>
+                        setEditingPage({ ...editingPage, is_published: checked })
+                      }
+                    />
+                  </div>
+                  <div className="flex gap-3">
+                    <Button
+                      onClick={() => setIsDialogOpen(false)}
+                      variant="outline"
+                      className="border-slate-600 text-slate-300 hover:bg-slate-800"
+                    >
+                      <X className="h-4 w-4 mr-1" />
+                      Cancel
+                    </Button>
+                    <Button onClick={handleSave}>
+                      <Save className="h-4 w-4 mr-1" />
+                      Save Changes
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </Tabs>
             )}
           </DialogContent>
         </Dialog>
