@@ -44,6 +44,14 @@ import AdminApprovals from "./pages/admin/AdminApprovals";
 import AdminReports from "./pages/admin/AdminReports";
 import AdminSettings from "./pages/admin/AdminSettings";
 import AdminContent from "./pages/admin/AdminContent";
+import AdminBlogPosts from "./pages/admin/AdminBlogPosts";
+import AdminBlogCategories from "./pages/admin/AdminBlogCategories";
+import AdminBlogEditor from "./pages/admin/AdminBlogEditor";
+
+// Blog Pages
+import Blog from "./pages/Blog";
+import BlogCategory from "./pages/BlogCategory";
+import BlogPost from "./pages/BlogPost";
 
 const queryClient = new QueryClient();
 
@@ -102,7 +110,12 @@ const App = () => (
               <Route path="/faq" element={<FAQ />} />
               <Route path="/refund" element={<Refund />} />
               
-{/* Admin Routes */}
+{/* Blog Routes */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/category/:slug" element={<BlogCategory />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+
+              {/* Admin Routes */}
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/admin/users" element={<AdminUsers />} />
@@ -110,6 +123,10 @@ const App = () => (
               <Route path="/admin/reports" element={<AdminReports />} />
               <Route path="/admin/settings" element={<AdminSettings />} />
               <Route path="/admin/content" element={<AdminContent />} />
+              <Route path="/admin/blog" element={<AdminBlogPosts />} />
+              <Route path="/admin/blog/new" element={<AdminBlogEditor />} />
+              <Route path="/admin/blog/edit/:id" element={<AdminBlogEditor />} />
+              <Route path="/admin/blog/categories" element={<AdminBlogCategories />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
