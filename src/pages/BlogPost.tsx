@@ -106,20 +106,6 @@ const BlogPostPage = () => {
             {post.title}
           </h1>
           
-          <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <User className="h-4 w-4" />
-              <span>{post.author_name}</span>
-            </div>
-            {post.published_at && (
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                <time dateTime={post.published_at}>
-                  {format(new Date(post.published_at), "MMMM d, yyyy")}
-                </time>
-              </div>
-            )}
-          </div>
         </div>
       </section>
 
