@@ -80,14 +80,14 @@ const FeaturedProfiles = () => {
           </p>
         </div>
         
-        {/* Mobile Carousel View */}
-        <div className="block sm:hidden">
+        {/* Mobile Carousel View - visible below md breakpoint (768px) */}
+        <div className="md:hidden">
           <div className="relative overflow-hidden">
             <div 
               className="flex transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {profiles.map((profile, index) => (
+              {profiles.map((profile) => (
                 <div
                   key={profile.id}
                   className="w-full flex-shrink-0 px-2"
@@ -133,7 +133,7 @@ const FeaturedProfiles = () => {
           
           {/* Progress Bar */}
           <div className="mt-4 mx-2">
-            <div className="h-1 bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-1 bg-muted rounded-full overflow-hidden">
               <div 
                 className="h-full bg-primary transition-all duration-300 ease-in-out rounded-full"
                 style={{ width: `${progressPercentage}%` }}
@@ -145,23 +145,23 @@ const FeaturedProfiles = () => {
           <div className="flex justify-center items-center gap-4 mt-4">
             <button
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
+              className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors"
               aria-label="Previous profile"
             >
-              <ChevronLeft className="h-5 w-5 text-gray-600" />
+              <ChevronLeft className="h-5 w-5 text-muted-foreground" />
             </button>
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
+              className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors"
               aria-label="Next profile"
             >
-              <ChevronRight className="h-5 w-5 text-gray-600" />
+              <ChevronRight className="h-5 w-5 text-muted-foreground" />
             </button>
           </div>
         </div>
 
-        {/* Desktop Grid View */}
-        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Desktop Grid View - visible at md breakpoint and above */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {profiles.map((profile, index) => (
             <div
               key={profile.id}
