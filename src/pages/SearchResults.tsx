@@ -200,15 +200,15 @@ const SearchResults = () => {
               <div
                 key={profile.id}
                 className={`bg-card rounded-xl shadow-lg border border-border overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
-                  viewType === "list" ? "flex" : "flex flex-col"
+                  viewType === "list" ? "flex flex-col sm:flex-row" : "flex flex-col"
                 }`}
               >
                 {/* Profile Image */}
-                <div className={`relative ${viewType === "list" ? "w-48 flex-shrink-0" : "aspect-[3/4]"}`}>
+                <div className={`relative ${viewType === "list" ? "w-full sm:w-48 aspect-[4/5] sm:aspect-auto flex-shrink-0" : "aspect-[3/4]"}`}>
                   <img
                     src={profile.gender === "female" ? defaultFemale : defaultMale}
                     alt={profile.name}
-                    className={`w-full h-full object-cover object-top ${viewType === "list" ? "" : ""}`}
+                    className="w-full h-full object-cover object-top"
                   />
                   {profile.premium && (
                     <Badge className="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs">
@@ -253,7 +253,7 @@ const SearchResults = () => {
 
                   {/* Profile Actions - Always visible on mobile, hover on desktop */}
                   <div className="border-t pt-3 mt-auto">
-                    <ProfileActions profileId={profile.id} variant="card" className="justify-center" />
+                    <ProfileActions profileId={profile.id} variant="card" className="justify-start flex-wrap" />
                     <Link to={`/profile/${profile.id}`} className="block mt-2">
                       <Button size="sm" variant="outline" className="w-full gap-1 text-xs h-9">
                         <Eye className="h-3.5 w-3.5" />
