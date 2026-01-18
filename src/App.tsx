@@ -49,6 +49,7 @@ import AdminBlogCategories from "./pages/admin/AdminBlogCategories";
 import AdminBlogEditor from "./pages/admin/AdminBlogEditor";
 import AdminMemberships from "./pages/admin/AdminMemberships";
 import AdminProfiles from "./pages/admin/AdminProfiles";
+import AdminRoles from "./pages/admin/AdminRoles";
 
 // Blog Pages
 import Blog from "./pages/Blog";
@@ -132,6 +133,7 @@ const App = () => (
               <Route path="/admin/blog/categories" element={<AdminBlogCategories />} />
               <Route path="/admin/memberships" element={<AdminMemberships />} />
               <Route path="/admin/profiles" element={<AdminProfiles />} />
+              <Route path="/admin/roles" element={<AdminRoles />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>
