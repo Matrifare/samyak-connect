@@ -51,16 +51,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const checkAdminRole = async (_userId: string) => {
+  const checkAdminRole = async (userId: string) => {
     try {
-      // Temporary admin check - will be replaced with proper database check
-      const { data: session } = await supabase.auth.getSession();
-      const adminEmails = ['admin@samyakmatrimony.in', 'demo@admin.com'];
-      if (session?.session?.user?.email && adminEmails.includes(session.session.user.email)) {
-        setIsAdmin(true);
-      } else {
+      const { data, error } = await supabase.rpc('has_role', {
+        _user_id: userId,
+        _role: 'admin'
+      });
+      
+      if (error) {
+        console.error('Error checking admin role:', error);
         setIsAdmin(false);
+        return;
       }
+      
+      setIsAdmin(data === true);
     } catch {
       setIsAdmin(false);
     }
