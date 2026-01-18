@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -28,37 +29,55 @@ import MembershipTransactions from "./pages/MembershipTransactions";
 
 const queryClient = new QueryClient();
 
+// Handle redirect from 404.html for SPA routing
+const RedirectHandler = ({ children }: { children: React.ReactNode }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const redirectPath = params.get('redirect');
+    if (redirectPath && location.pathname === '/') {
+      navigate(redirectPath, { replace: true });
+    }
+  }, [location, navigate]);
+
+  return <>{children}</>;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/search" element={<SearchResults />} />
-          <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/profile" element={<ProfileEdit />} />
-          <Route path="/dashboard/photos" element={<Photos />} />
-          <Route path="/dashboard/statistics" element={<ProfileStatistics />} />
-          <Route path="/dashboard/search" element={<DashboardSearch />} />
-          <Route path="/dashboard/preferences" element={<Preferences />} />
-          <Route path="/dashboard/matches" element={<Matches />} />
-          <Route path="/dashboard/shortlisted" element={<Shortlisted />} />
-          <Route path="/dashboard/interests" element={<Interests />} />
-          <Route path="/dashboard/settings" element={<Settings />} />
-          <Route path="/membership" element={<Membership />} />
-          <Route path="/membership/compare" element={<MembershipCompare />} />
-          <Route path="/membership/upgrade" element={<MembershipUpgrade />} />
-          <Route path="/membership/success" element={<MembershipSuccess />} />
-          <Route path="/membership/transactions" element={<MembershipTransactions />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <RedirectHandler>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/search" element={<SearchResults />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/profile" element={<ProfileEdit />} />
+            <Route path="/dashboard/photos" element={<Photos />} />
+            <Route path="/dashboard/statistics" element={<ProfileStatistics />} />
+            <Route path="/dashboard/search" element={<DashboardSearch />} />
+            <Route path="/dashboard/preferences" element={<Preferences />} />
+            <Route path="/dashboard/matches" element={<Matches />} />
+            <Route path="/dashboard/shortlisted" element={<Shortlisted />} />
+            <Route path="/dashboard/interests" element={<Interests />} />
+            <Route path="/dashboard/settings" element={<Settings />} />
+            <Route path="/membership" element={<Membership />} />
+            <Route path="/membership/compare" element={<MembershipCompare />} />
+            <Route path="/membership/upgrade" element={<MembershipUpgrade />} />
+            <Route path="/membership/success" element={<MembershipSuccess />} />
+            <Route path="/membership/transactions" element={<MembershipTransactions />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </RedirectHandler>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
