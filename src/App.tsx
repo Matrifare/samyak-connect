@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -26,6 +27,14 @@ import MembershipCompare from "./pages/MembershipCompare";
 import MembershipUpgrade from "./pages/MembershipUpgrade";
 import MembershipSuccess from "./pages/MembershipSuccess";
 import MembershipTransactions from "./pages/MembershipTransactions";
+
+// Admin Pages
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminApprovals from "./pages/admin/AdminApprovals";
+import AdminReports from "./pages/admin/AdminReports";
+import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -51,33 +60,44 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <RedirectHandler>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/search" element={<SearchResults />} />
-            <Route path="/profile/:id" element={<Profile />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/profile" element={<ProfileEdit />} />
-            <Route path="/dashboard/photos" element={<Photos />} />
-            <Route path="/dashboard/statistics" element={<ProfileStatistics />} />
-            <Route path="/dashboard/search" element={<DashboardSearch />} />
-            <Route path="/dashboard/preferences" element={<Preferences />} />
-            <Route path="/dashboard/matches" element={<Matches />} />
-            <Route path="/dashboard/shortlisted" element={<Shortlisted />} />
-            <Route path="/dashboard/interests" element={<Interests />} />
-            <Route path="/dashboard/settings" element={<Settings />} />
-            <Route path="/membership" element={<Membership />} />
-            <Route path="/membership/compare" element={<MembershipCompare />} />
-            <Route path="/membership/upgrade" element={<MembershipUpgrade />} />
-            <Route path="/membership/success" element={<MembershipSuccess />} />
-            <Route path="/membership/transactions" element={<MembershipTransactions />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </RedirectHandler>
+        <AuthProvider>
+          <RedirectHandler>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/search" element={<SearchResults />} />
+              <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/profile" element={<ProfileEdit />} />
+              <Route path="/dashboard/photos" element={<Photos />} />
+              <Route path="/dashboard/statistics" element={<ProfileStatistics />} />
+              <Route path="/dashboard/search" element={<DashboardSearch />} />
+              <Route path="/dashboard/preferences" element={<Preferences />} />
+              <Route path="/dashboard/matches" element={<Matches />} />
+              <Route path="/dashboard/shortlisted" element={<Shortlisted />} />
+              <Route path="/dashboard/interests" element={<Interests />} />
+              <Route path="/dashboard/settings" element={<Settings />} />
+              <Route path="/membership" element={<Membership />} />
+              <Route path="/membership/compare" element={<MembershipCompare />} />
+              <Route path="/membership/upgrade" element={<MembershipUpgrade />} />
+              <Route path="/membership/success" element={<MembershipSuccess />} />
+              <Route path="/membership/transactions" element={<MembershipTransactions />} />
+              
+              {/* Admin Routes */}
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/users" element={<AdminUsers />} />
+              <Route path="/admin/approvals" element={<AdminApprovals />} />
+              <Route path="/admin/reports" element={<AdminReports />} />
+              <Route path="/admin/settings" element={<AdminSettings />} />
+              
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </RedirectHandler>
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
