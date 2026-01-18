@@ -57,10 +57,10 @@ const FAQ = () => {
         <div className="container mx-auto px-4 text-center">
           <HelpCircle className="h-12 w-12 text-primary mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-            {pageData.page_name}
+            {pageData.content?.heading || pageData.page_name}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Find answers to commonly asked questions about Samyak Matrimony
+            {pageData.content?.subheading || "Find answers to commonly asked questions about Samyak Matrimony"}
           </p>
         </div>
       </section>

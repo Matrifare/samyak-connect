@@ -7,6 +7,8 @@ const About = () => {
   const { getPageContent } = usePageContent();
   const pageData = getPageContent("about-us");
 
+  const paragraphs = pageData.content?.body?.split("\n\n").filter(Boolean) || [];
+
   const features = [
     {
       icon: Users,
@@ -41,10 +43,10 @@ const About = () => {
       <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-            {pageData.page_name}
+            {pageData.content?.heading || pageData.page_name}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Samyak Matrimony is the most trusted Buddhist matrimonial service, dedicated to bringing families together.
+            {pageData.content?.subheading}
           </p>
         </div>
       </section>
@@ -57,16 +59,24 @@ const About = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Our Mission
               </h2>
-              <p className="text-muted-foreground mb-6">
-                At Samyak Matrimony, we believe that finding a life partner is one of the most important decisions in life. 
-                Our mission is to help Buddhist families across India find compatible matches that share the same values, 
-                traditions, and cultural understanding.
-              </p>
-              <p className="text-muted-foreground mb-6">
-                Founded with the vision of serving the Buddhist community, we have grown to become the largest and most 
-                trusted platform for Buddhist matrimonial services. Our team works tirelessly to ensure every profile 
-                is genuine and every match is meaningful.
-              </p>
+              {paragraphs.length > 0 ? (
+                paragraphs.map((paragraph, index) => (
+                  <p key={index} className="text-muted-foreground mb-6">
+                    {paragraph}
+                  </p>
+                ))
+              ) : (
+                <>
+                  <p className="text-muted-foreground mb-6">
+                    At Samyak Matrimony, we believe that finding a life partner is one of the most important decisions in life. 
+                    Our mission is to help Buddhist families across India find compatible matches.
+                  </p>
+                  <p className="text-muted-foreground mb-6">
+                    Founded with the vision of serving the Buddhist community, we have grown to become the largest and most 
+                    trusted platform for Buddhist matrimonial services.
+                  </p>
+                </>
+              )}
               <div className="space-y-3">
                 {values.map((value, index) => (
                   <div key={index} className="flex items-start gap-3">

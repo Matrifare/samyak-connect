@@ -47,10 +47,10 @@ const SuccessStories = () => {
         <div className="container mx-auto px-4 text-center">
           <Heart className="h-12 w-12 text-primary mx-auto mb-4 fill-primary" />
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-            {pageData.page_name}
+            {pageData.content?.heading || pageData.page_name}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real couples, real love stories. Read how our members found their perfect life partners.
+            {pageData.content?.subheading || "Real couples, real love stories. Read how our members found their perfect life partners."}
           </p>
         </div>
       </section>
