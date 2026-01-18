@@ -172,6 +172,69 @@ export type Database = {
         }
         Relationships: []
       }
+      membership_plans: {
+        Row: {
+          bg_color: string | null
+          border_color: string | null
+          category: string
+          color: string | null
+          created_at: string
+          duration: string
+          duration_months: number
+          icon: string | null
+          id: string
+          is_active: boolean | null
+          is_popular: boolean | null
+          name: string
+          price: number
+          send_messages: number
+          slug: string
+          sort_order: number | null
+          updated_at: string
+          view_contacts: number
+        }
+        Insert: {
+          bg_color?: string | null
+          border_color?: string | null
+          category: string
+          color?: string | null
+          created_at?: string
+          duration: string
+          duration_months: number
+          icon?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_popular?: boolean | null
+          name: string
+          price: number
+          send_messages?: number
+          slug: string
+          sort_order?: number | null
+          updated_at?: string
+          view_contacts?: number
+        }
+        Update: {
+          bg_color?: string | null
+          border_color?: string | null
+          category?: string
+          color?: string | null
+          created_at?: string
+          duration?: string
+          duration_months?: number
+          icon?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_popular?: boolean | null
+          name?: string
+          price?: number
+          send_messages?: number
+          slug?: string
+          sort_order?: number | null
+          updated_at?: string
+          view_contacts?: number
+        }
+        Relationships: []
+      }
       site_settings: {
         Row: {
           created_at: string | null
