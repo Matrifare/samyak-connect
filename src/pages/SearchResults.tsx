@@ -188,14 +188,15 @@ const SearchResults = () => {
             )}
           </div>
 
-          {/* Results Grid/List */}
-          <div
-            className={
-              viewType === "grid"
-                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-                : "flex flex-col gap-4"
-            }
-          >
+          {/* Results Grid/List with About Us Sidebar for List View on Desktop */}
+          <div className={viewType === "list" ? "flex gap-6" : ""}>
+            <div
+              className={
+                viewType === "grid"
+                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                  : "flex flex-col gap-4 flex-1"
+              }
+            >
             {currentProfiles.map((profile) => (
               <div
                 key={profile.id}
@@ -264,6 +265,38 @@ const SearchResults = () => {
                 </div>
               </div>
             ))}
+            </div>
+
+            {/* About Us Sidebar - Only visible on desktop in list view */}
+            {viewType === "list" && (
+              <div className="hidden lg:block w-80 flex-shrink-0">
+                <div className="bg-card rounded-xl shadow-lg border border-border p-6 sticky top-28">
+                  <h3 className="text-lg font-semibold text-foreground mb-4">About Us</h3>
+                  <div className="space-y-4 text-sm text-muted-foreground">
+                    <p>
+                      <strong className="text-foreground">Samyak Matrimony</strong> is a trusted matrimonial service dedicated to helping Buddhist community members find their life partners.
+                    </p>
+                    <p>
+                      With over 15 years of experience, we have successfully connected thousands of couples across India and worldwide.
+                    </p>
+                    <div className="border-t pt-4 mt-4">
+                      <h4 className="font-medium text-foreground mb-2">Why Choose Us?</h4>
+                      <ul className="space-y-2 list-disc list-inside">
+                        <li>Verified Profiles</li>
+                        <li>Privacy Protected</li>
+                        <li>Dedicated Support</li>
+                        <li>Trusted Community</li>
+                      </ul>
+                    </div>
+                    <div className="border-t pt-4 mt-4">
+                      <h4 className="font-medium text-foreground mb-2">Contact Us</h4>
+                      <p>📞 +91 98765 43210</p>
+                      <p>📧 info@samyakmatrimony.com</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Pagination */}
