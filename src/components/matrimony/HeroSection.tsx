@@ -32,9 +32,10 @@ const HeroSection = () => {
         
         {/* Search Box */}
         <div className="max-w-7xl mx-auto glass rounded-2xl p-4 md:p-6 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-          {/* Single Row on Desktop, Grid on Mobile */}
+          {/* Desktop: Single Row | Mobile: Organized 2-col grid */}
           <div className="grid grid-cols-2 lg:grid-cols-7 gap-3 items-end">
-            <div className="text-left">
+            {/* Row 1 Mobile: Looking for + Religion */}
+            <div className="text-left order-1 lg:order-1">
               <label className="block text-xs font-medium text-foreground mb-1.5">I'm looking for</label>
               <Select defaultValue="bride">
                 <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
@@ -47,35 +48,7 @@ const HeroSection = () => {
               </Select>
             </div>
             
-            <div className="text-left">
-              <label className="block text-xs font-medium text-foreground mb-1.5">Age From</label>
-              <Select defaultValue="21">
-                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
-                  <SelectValue placeholder="Min" />
-                </SelectTrigger>
-                <SelectContent className="bg-white z-50">
-                  {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
-                    <SelectItem key={age} value={age.toString()}>{age} yrs</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            
-            <div className="text-left">
-              <label className="block text-xs font-medium text-foreground mb-1.5">Age To</label>
-              <Select defaultValue="30">
-                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
-                  <SelectValue placeholder="Max" />
-                </SelectTrigger>
-                <SelectContent className="bg-white z-50">
-                  {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
-                    <SelectItem key={age} value={age.toString()}>{age} yrs</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            
-            <div className="text-left">
+            <div className="text-left order-2 lg:order-4">
               <label className="block text-xs font-medium text-foreground mb-1.5">Religion</label>
               <Select defaultValue="buddhist">
                 <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
@@ -94,7 +67,37 @@ const HeroSection = () => {
               </Select>
             </div>
 
-            <div className="text-left">
+            {/* Row 2 Mobile: Age From + Age To */}
+            <div className="text-left order-3 lg:order-2">
+              <label className="block text-xs font-medium text-foreground mb-1.5">Age From</label>
+              <Select defaultValue="21">
+                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
+                  <SelectValue placeholder="Min" />
+                </SelectTrigger>
+                <SelectContent className="bg-white z-50">
+                  {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
+                    <SelectItem key={age} value={age.toString()}>{age} yrs</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="text-left order-4 lg:order-3">
+              <label className="block text-xs font-medium text-foreground mb-1.5">Age To</label>
+              <Select defaultValue="30">
+                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
+                  <SelectValue placeholder="Max" />
+                </SelectTrigger>
+                <SelectContent className="bg-white z-50">
+                  {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
+                    <SelectItem key={age} value={age.toString()}>{age} yrs</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Row 3 Mobile: Marital Status + Education */}
+            <div className="text-left order-5 lg:order-5">
               <label className="block text-xs font-medium text-foreground mb-1.5">Marital Status</label>
               <Select defaultValue="any">
                 <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
@@ -110,7 +113,7 @@ const HeroSection = () => {
               </Select>
             </div>
             
-            <div className="text-left">
+            <div className="text-left order-6 lg:order-6">
               <label className="block text-xs font-medium text-foreground mb-1.5">Education</label>
               <Select defaultValue="any">
                 <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
@@ -128,7 +131,8 @@ const HeroSection = () => {
               </Select>
             </div>
             
-            <div className="flex items-end col-span-2 lg:col-span-1">
+            {/* Row 4 Mobile: Search Button (full width) */}
+            <div className="flex items-end col-span-2 lg:col-span-1 order-7 lg:order-7">
               <Button className="w-full bg-gradient-primary hover:opacity-90 h-9 gap-2 pulse-glow">
                 <Search className="h-4 w-4" />
                 Search
