@@ -53,11 +53,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const checkAdminRole = async (_userId: string) => {
     try {
-      // Temporarily set isAdmin based on a check
-      // Once the database tables are created, this will use proper RPC calls
-      // For now, we'll check via a direct fetch to avoid TypeScript errors
+      // Temporary admin check - will be replaced with proper database check
       const { data: session } = await supabase.auth.getSession();
-      if (session?.session?.user?.email === 'admin@samyakmatrimony.in') {
+      const adminEmails = ['admin@samyakmatrimony.in', 'demo@admin.com'];
+      if (session?.session?.user?.email && adminEmails.includes(session.session.user.email)) {
         setIsAdmin(true);
       } else {
         setIsAdmin(false);
