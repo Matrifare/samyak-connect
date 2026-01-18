@@ -7,8 +7,7 @@ const Privacy = () => {
   const { getPageContent } = usePageContent();
   const pageData = getPageContent("privacy-policy");
 
-  // Split body content into paragraphs
-  const paragraphs = pageData.content?.body?.split("\n\n").filter(Boolean) || [];
+  const hasRichContent = pageData.content?.body?.includes("<");
 
   return (
     <div className="min-h-screen bg-background">
@@ -28,41 +27,45 @@ const Privacy = () => {
       {/* Content */}
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="prose prose-lg max-w-none">
-            {paragraphs.length > 0 ? (
-              paragraphs.map((paragraph, index) => (
-                <p key={index} className="text-muted-foreground mb-6">
-                  {paragraph}
-                </p>
-              ))
-            ) : (
-              <>
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
-                  1. Information We Collect
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  We collect information you provide directly to us, including your name, email address, phone number, 
-                  date of birth, photographs, and other profile information.
-                </p>
+          {hasRichContent ? (
+            <div 
+              className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary"
+              dangerouslySetInnerHTML={{ __html: pageData.content?.body || "" }}
+            />
+          ) : (
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                1. Information We Collect
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                We collect information you provide directly to us, including your name, email address, phone number, 
+                date of birth, photographs, and other profile information.
+              </p>
 
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
-                  2. How We Use Your Information
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  We use the information we collect to provide, maintain, and improve our services, to process 
-                  transactions and send related information.
-                </p>
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                2. How We Use Your Information
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                We use the information we collect to provide, maintain, and improve our services, to process 
+                transactions and send related information.
+              </p>
 
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
-                  3. Data Security
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  We take reasonable measures to help protect information about you from loss, theft, misuse, 
-                  unauthorized access, disclosure, alteration, and destruction.
-                </p>
-              </>
-            )}
-          </div>
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                3. Data Security
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                We take reasonable measures to help protect information about you from loss, theft, misuse, 
+                unauthorized access, disclosure, alteration, and destruction.
+              </p>
+
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                4. Contact Us
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                If you have any questions about this Privacy Policy, please contact us at privacy@samyakmatrimony.com.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

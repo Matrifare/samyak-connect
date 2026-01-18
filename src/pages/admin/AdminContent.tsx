@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/dialog";
 import {
   Search,
-  Edit,
   Save,
   X,
   Globe,
@@ -27,6 +26,7 @@ import {
   FileText,
 } from "lucide-react";
 import { usePageContent, PageContent } from "@/hooks/usePageContent";
+import RichTextEditor from "@/components/admin/RichTextEditor";
 
 const STORAGE_KEY = "samyak_page_content";
 
@@ -380,24 +380,21 @@ const AdminContent = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="body" className="text-slate-300">
+                    <Label className="text-slate-300">
                       Page Body Content
                     </Label>
-                    <Textarea
-                      id="body"
-                      value={editingPage.content?.body || ""}
-                      onChange={(e) =>
+                    <RichTextEditor
+                      content={editingPage.content?.body || ""}
+                      onChange={(html) =>
                         setEditingPage({
                           ...editingPage,
-                          content: { ...editingPage.content, body: e.target.value },
+                          content: { ...editingPage.content, body: html },
                         })
                       }
-                      placeholder="Main content of the page. Use line breaks for paragraphs."
-                      className="bg-slate-800 border-slate-700 text-white resize-none"
-                      rows={8}
+                      placeholder="Main content of the page"
                     />
                     <p className="text-xs text-slate-500">
-                      Use double line breaks to separate paragraphs
+                      Use the toolbar to format text with headings, bold, lists, etc.
                     </p>
                   </div>
                 </TabsContent>

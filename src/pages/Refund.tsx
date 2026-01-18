@@ -7,7 +7,7 @@ const Refund = () => {
   const { getPageContent } = usePageContent();
   const pageData = getPageContent("refund-policy");
 
-  const paragraphs = pageData.content?.body?.split("\n\n").filter(Boolean) || [];
+  const hasRichContent = pageData.content?.body?.includes("<");
 
   return (
     <div className="min-h-screen bg-background">
@@ -27,41 +27,45 @@ const Refund = () => {
       {/* Content */}
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="prose prose-lg max-w-none">
-            {paragraphs.length > 0 ? (
-              paragraphs.map((paragraph, index) => (
-                <p key={index} className="text-muted-foreground mb-6">
-                  {paragraph}
-                </p>
-              ))
-            ) : (
-              <>
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
-                  1. Refund Eligibility
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  Refunds may be requested within 7 days of purchase if you have not used any premium features.
-                </p>
+          {hasRichContent ? (
+            <div 
+              className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary"
+              dangerouslySetInnerHTML={{ __html: pageData.content?.body || "" }}
+            />
+          ) : (
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                1. Refund Eligibility
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                Refunds may be requested within 7 days of purchase if you have not used any premium features.
+              </p>
 
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
-                  2. Refund Process
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  To request a refund, please contact our support team with your registered email and transaction ID.
-                </p>
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                2. Refund Process
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                To request a refund, please contact our support team with your registered email and transaction ID.
+              </p>
 
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
-                  3. Contact Us
-                </h2>
-                <div className="bg-muted/30 p-6 rounded-lg">
-                  <p className="text-foreground">
-                    <strong>Email:</strong> refunds@samyakmatrimony.com<br />
-                    <strong>Phone:</strong> +91 98765 43210
-                  </p>
-                </div>
-              </>
-            )}
-          </div>
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                3. Refund Timeline
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                Once approved, refunds will be processed within 7-10 business days.
+              </p>
+
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                4. Contact Us
+              </h2>
+              <div className="bg-muted/30 p-6 rounded-lg">
+                <p className="text-foreground">
+                  <strong>Email:</strong> refunds@samyakmatrimony.com<br />
+                  <strong>Phone:</strong> +91 98765 43210
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
