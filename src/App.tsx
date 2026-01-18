@@ -28,6 +28,14 @@ import MembershipUpgrade from "./pages/MembershipUpgrade";
 import MembershipSuccess from "./pages/MembershipSuccess";
 import MembershipTransactions from "./pages/MembershipTransactions";
 
+// Content Pages
+import SuccessStories from "./pages/SuccessStories";
+import About from "./pages/About";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import FAQ from "./pages/FAQ";
+import Refund from "./pages/Refund";
+
 // Admin Pages
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -85,6 +93,14 @@ const App = () => (
               <Route path="/membership/upgrade" element={<MembershipUpgrade />} />
               <Route path="/membership/success" element={<MembershipSuccess />} />
               <Route path="/membership/transactions" element={<MembershipTransactions />} />
+              
+              {/* Content Pages */}
+              <Route path="/success-stories" element={<SuccessStories />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/refund" element={<Refund />} />
               
 {/* Admin Routes */}
               <Route path="/admin/login" element={<AdminLogin />} />
