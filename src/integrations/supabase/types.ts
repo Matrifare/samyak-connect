@@ -235,6 +235,206 @@ export type Database = {
         }
         Relationships: []
       }
+      profiles: {
+        Row: {
+          about_me: string | null
+          age: number | null
+          annual_income: string | null
+          blood_group: string | null
+          body_type: string | null
+          brothers: number | null
+          brothers_married: number | null
+          caste: string | null
+          city: string | null
+          complexion: string | null
+          contacts_used: number | null
+          country: string | null
+          created_at: string
+          date_of_birth: string | null
+          diet: string | null
+          drinking: string | null
+          education: string | null
+          education_detail: string | null
+          email: string | null
+          employer_name: string | null
+          family_status: string | null
+          family_type: string | null
+          family_values: string | null
+          father_name: string | null
+          father_occupation: string | null
+          first_name: string
+          gender: string
+          gotra: string | null
+          height: string | null
+          hobbies: string | null
+          id: string
+          is_premium: boolean | null
+          is_verified: boolean | null
+          last_login: string | null
+          last_name: string | null
+          marital_status: string | null
+          matri_id: string
+          membership_end_date: string | null
+          membership_plan_id: string | null
+          membership_start_date: string | null
+          messages_used: number | null
+          mother_name: string | null
+          mother_occupation: string | null
+          native_place: string | null
+          occupation: string | null
+          occupation_detail: string | null
+          partner_expectations: string | null
+          password_hash: string | null
+          phone: string | null
+          photo_url: string | null
+          physical_status: string | null
+          profile_completion: number | null
+          religion: string | null
+          sisters: number | null
+          sisters_married: number | null
+          smoking: string | null
+          state: string | null
+          status: string | null
+          sub_caste: string | null
+          updated_at: string
+          weight: string | null
+        }
+        Insert: {
+          about_me?: string | null
+          age?: number | null
+          annual_income?: string | null
+          blood_group?: string | null
+          body_type?: string | null
+          brothers?: number | null
+          brothers_married?: number | null
+          caste?: string | null
+          city?: string | null
+          complexion?: string | null
+          contacts_used?: number | null
+          country?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          diet?: string | null
+          drinking?: string | null
+          education?: string | null
+          education_detail?: string | null
+          email?: string | null
+          employer_name?: string | null
+          family_status?: string | null
+          family_type?: string | null
+          family_values?: string | null
+          father_name?: string | null
+          father_occupation?: string | null
+          first_name: string
+          gender: string
+          gotra?: string | null
+          height?: string | null
+          hobbies?: string | null
+          id?: string
+          is_premium?: boolean | null
+          is_verified?: boolean | null
+          last_login?: string | null
+          last_name?: string | null
+          marital_status?: string | null
+          matri_id: string
+          membership_end_date?: string | null
+          membership_plan_id?: string | null
+          membership_start_date?: string | null
+          messages_used?: number | null
+          mother_name?: string | null
+          mother_occupation?: string | null
+          native_place?: string | null
+          occupation?: string | null
+          occupation_detail?: string | null
+          partner_expectations?: string | null
+          password_hash?: string | null
+          phone?: string | null
+          photo_url?: string | null
+          physical_status?: string | null
+          profile_completion?: number | null
+          religion?: string | null
+          sisters?: number | null
+          sisters_married?: number | null
+          smoking?: string | null
+          state?: string | null
+          status?: string | null
+          sub_caste?: string | null
+          updated_at?: string
+          weight?: string | null
+        }
+        Update: {
+          about_me?: string | null
+          age?: number | null
+          annual_income?: string | null
+          blood_group?: string | null
+          body_type?: string | null
+          brothers?: number | null
+          brothers_married?: number | null
+          caste?: string | null
+          city?: string | null
+          complexion?: string | null
+          contacts_used?: number | null
+          country?: string | null
+          created_at?: string
+          date_of_birth?: string | null
+          diet?: string | null
+          drinking?: string | null
+          education?: string | null
+          education_detail?: string | null
+          email?: string | null
+          employer_name?: string | null
+          family_status?: string | null
+          family_type?: string | null
+          family_values?: string | null
+          father_name?: string | null
+          father_occupation?: string | null
+          first_name?: string
+          gender?: string
+          gotra?: string | null
+          height?: string | null
+          hobbies?: string | null
+          id?: string
+          is_premium?: boolean | null
+          is_verified?: boolean | null
+          last_login?: string | null
+          last_name?: string | null
+          marital_status?: string | null
+          matri_id?: string
+          membership_end_date?: string | null
+          membership_plan_id?: string | null
+          membership_start_date?: string | null
+          messages_used?: number | null
+          mother_name?: string | null
+          mother_occupation?: string | null
+          native_place?: string | null
+          occupation?: string | null
+          occupation_detail?: string | null
+          partner_expectations?: string | null
+          password_hash?: string | null
+          phone?: string | null
+          photo_url?: string | null
+          physical_status?: string | null
+          profile_completion?: number | null
+          religion?: string | null
+          sisters?: number | null
+          sisters_married?: number | null
+          smoking?: string | null
+          state?: string | null
+          status?: string | null
+          sub_caste?: string | null
+          updated_at?: string
+          weight?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "profiles_membership_plan_id_fkey"
+            columns: ["membership_plan_id"]
+            isOneToOne: false
+            referencedRelation: "membership_plans"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       site_settings: {
         Row: {
           created_at: string | null

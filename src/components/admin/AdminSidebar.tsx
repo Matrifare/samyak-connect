@@ -4,6 +4,7 @@ import {
   LayoutDashboard,
   Users,
   UserCheck,
+  UserPlus,
   FileText,
   Settings,
   LogOut,
@@ -20,6 +21,7 @@ import { useState } from "react";
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/admin" },
+  { icon: UserPlus, label: "Add/Manage Profiles", path: "/admin/profiles" },
   { icon: Users, label: "All Users", path: "/admin/users" },
   { icon: UserCheck, label: "Profile Approvals", path: "/admin/approvals" },
   { icon: Heart, label: "Interests", path: "/admin/interests" },
