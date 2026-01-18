@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/matrimony/Header";
 import Footer from "@/components/matrimony/Footer";
+import BlogSidebar from "@/components/blog/BlogSidebar";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ArrowLeft, User, Tag, Share2 } from "lucide-react";
 import { getPostBySlug, getPosts, BlogPost } from "@/lib/blog";
@@ -133,58 +134,70 @@ const BlogPostPage = () => {
         </div>
       )}
 
-      {/* Content */}
-      <article className="py-12">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div
-            className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
-            dangerouslySetInnerHTML={{ __html: post.content || "" }}
-          />
+      {/* Content + Sidebar */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Content */}
+            <article className="lg:col-span-2">
+              <div
+                className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
+                dangerouslySetInnerHTML={{ __html: post.content || "" }}
+              />
 
-          {/* Tags */}
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex items-center gap-2 mt-8 pt-8 border-t">
-              <Tag className="h-4 w-4 text-muted-foreground" />
-              <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <Badge key={tag.id} variant="outline">
-                    {tag.name}
-                  </Badge>
-                ))}
+              {/* Tags */}
+              {post.tags && post.tags.length > 0 && (
+                <div className="flex items-center gap-2 mt-8 pt-8 border-t">
+                  <Tag className="h-4 w-4 text-muted-foreground" />
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag) => (
+                      <Badge key={tag.id} variant="outline">
+                        {tag.name}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Share */}
+              <div className="flex items-center gap-4 mt-6">
+                <span className="text-muted-foreground">Share:</span>
+                <a
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  Twitter
+                </a>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  Facebook
+                </a>
+                <a
+                  href={`https://wa.me/?text=${encodeURIComponent(post.title + " " + window.location.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            </article>
+
+            {/* Right Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-6">
+                <BlogSidebar />
               </div>
             </div>
-          )}
-
-          {/* Share */}
-          <div className="flex items-center gap-4 mt-6">
-            <span className="text-muted-foreground">Share:</span>
-            <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              Twitter
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              Facebook
-            </a>
-            <a
-              href={`https://wa.me/?text=${encodeURIComponent(post.title + " " + window.location.href)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              WhatsApp
-            </a>
           </div>
         </div>
-      </article>
+      </section>
 
       {/* Related Posts */}
       {relatedPosts && relatedPosts.length > 0 && (
