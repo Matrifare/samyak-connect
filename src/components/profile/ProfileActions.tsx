@@ -81,14 +81,14 @@ const ProfileActions = ({ profileId, variant = "card", className = "" }: Profile
   // Card variant - compact icons with tooltips
   return (
     <TooltipProvider delayDuration={100}>
-      <div className={`flex items-center gap-1 ${className}`}>
+      <div className={`flex flex-wrap items-center gap-1.5 ${className}`}>
         {actions.map((action) => (
           <Tooltip key={action.id}>
             <TooltipTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className={`h-8 w-8 ${action.bgHover} transition-all`}
+                className={`h-8 w-8 min-w-8 ${action.bgHover} transition-all border border-border`}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
