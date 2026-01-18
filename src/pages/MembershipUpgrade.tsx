@@ -7,9 +7,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
-import { membershipPlans, paymentMethods } from "@/data/membershipPlans";
+import { onlinePlans, personalizedPlans, paymentMethods, MembershipPlan } from "@/data/membershipPlans";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
+
+const allPlans = [...onlinePlans, ...personalizedPlans];
 
 const MembershipUpgrade = () => {
   const navigate = useNavigate();
@@ -17,25 +19,15 @@ const MembershipUpgrade = () => {
   const { toast } = useToast();
 
   const planId = searchParams.get('plan') || 'gold';
-  const durationParam = searchParams.get('duration') || 'monthly';
   
-  const [selectedDuration, setSelectedDuration] = useState<'monthly' | 'quarterly' | 'yearly'>(
-    durationParam as 'monthly' | 'quarterly' | 'yearly'
-  );
   const [selectedPayment, setSelectedPayment] = useState('card');
   const [couponCode, setCouponCode] = useState('');
   const [couponApplied, setCouponApplied] = useState(false);
 
-  const plan = membershipPlans.find(p => p.id === planId) || membershipPlans[2];
-  const price = plan.prices[selectedDuration];
+  const plan = allPlans.find(p => p.id === planId) || onlinePlans[1];
+  const price = plan.price;
   const discount = couponApplied ? Math.round(price * 0.1) : 0;
   const total = price - discount;
-
-  const durationLabels = {
-    monthly: '1 Month',
-    quarterly: '3 Months',
-    yearly: '12 Months',
-  };
 
   const handleApplyCoupon = () => {
     if (couponCode.toUpperCase() === 'FIRST10') {
@@ -54,8 +46,6 @@ const MembershipUpgrade = () => {
   };
 
   const handleProceedPayment = () => {
-    // Mock payment - navigate to success page
-    // In real implementation, this would integrate with payment gateway
     toast({
       title: "Processing Payment...",
       description: "Please wait while we process your payment.",
@@ -97,47 +87,6 @@ const MembershipUpgrade = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {/* Left - Payment Options */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Plan Duration */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Select Duration</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <RadioGroup 
-                  value={selectedDuration} 
-                  onValueChange={(v) => setSelectedDuration(v as typeof selectedDuration)}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-4"
-                >
-                  {(['monthly', 'quarterly', 'yearly'] as const).map((dur) => {
-                    const durPrice = plan.prices[dur];
-                    const savings = dur === 'quarterly' ? 15 : dur === 'yearly' ? 35 : 0;
-                    
-                    return (
-                      <Label
-                        key={dur}
-                        htmlFor={dur}
-                        className={cn(
-                          "flex flex-col items-center gap-2 p-4 border-2 rounded-lg cursor-pointer transition-all",
-                          selectedDuration === dur 
-                            ? "border-primary bg-primary/5" 
-                            : "border-border hover:border-primary/50"
-                        )}
-                      >
-                        <RadioGroupItem value={dur} id={dur} className="sr-only" />
-                        <span className="font-semibold capitalize">{durationLabels[dur]}</span>
-                        <span className="text-2xl font-bold">₹{durPrice.toLocaleString()}</span>
-                        {savings > 0 && (
-                          <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
-                            Save {savings}%
-                          </span>
-                        )}
-                      </Label>
-                    );
-                  })}
-                </RadioGroup>
-              </CardContent>
-            </Card>
-
             {/* Payment Method */}
             <Card>
               <CardHeader>
@@ -208,12 +157,11 @@ const MembershipUpgrade = () => {
           {/* Right - Order Summary */}
           <div>
             <Card className="sticky top-4">
-              <CardHeader className="bg-muted/50">
+              <CardHeader className={cn("rounded-t-lg", plan.bgColor, plan.color)}>
                 <CardTitle className="flex items-center gap-3">
-                  <span className="text-3xl">{plan.icon}</span>
                   <div>
-                    <div className="text-xl">{plan.name} Plan</div>
-                    <CardDescription>{durationLabels[selectedDuration]}</CardDescription>
+                    <div className="text-xl font-bold">{plan.name} Plan</div>
+                    <CardDescription className={cn("opacity-90", plan.color)}>{plan.duration}</CardDescription>
                   </div>
                 </CardTitle>
               </CardHeader>
@@ -224,22 +172,24 @@ const MembershipUpgrade = () => {
                   <ul className="space-y-1.5 text-sm">
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-green-500" />
-                      {plan.features.profileViews} profile views
+                      View {plan.viewContacts} contacts
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-green-500" />
-                      {plan.features.messagingLimit} messages
+                      Send {plan.sendMessages} messages
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-green-500" />
-                      {plan.features.searchFilters} filters
+                      Valid for {plan.duration}
                     </li>
-                    {plan.features.profileHighlight && (
-                      <li className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-green-500" />
-                        Profile highlighting
-                      </li>
-                    )}
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-500" />
+                      View contact details
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-500" />
+                      Chat with online members
+                    </li>
                   </ul>
                 </div>
 
