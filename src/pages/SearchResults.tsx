@@ -200,63 +200,63 @@ const SearchResults = () => {
               <div
                 key={profile.id}
                 className={`bg-card rounded-xl shadow-lg border border-border overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
-                  viewType === "list" ? "flex flex-col sm:flex-row" : "flex flex-col"
+                  viewType === "list" ? "flex flex-row" : "flex flex-col"
                 }`}
               >
                 {/* Profile Image */}
-                <div className={`relative ${viewType === "list" ? "w-full sm:w-48 aspect-[4/5] sm:aspect-auto flex-shrink-0" : "aspect-[3/4]"}`}>
+                <div className={`relative ${viewType === "list" ? "w-36 sm:w-44 md:w-48 flex-shrink-0 self-stretch" : "aspect-[3/4]"}`}>
                   <img
                     src={profile.gender === "female" ? defaultFemale : defaultMale}
                     alt={profile.name}
-                    className="w-full h-full object-cover object-top"
+                    className={`w-full h-full object-cover object-top ${viewType === "list" ? "absolute inset-0" : ""}`}
                   />
                   {profile.premium && (
-                    <Badge className="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs">
+                    <Badge className={`absolute ${viewType === "list" ? "top-2 left-2" : "top-3 left-3"} bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs`}>
                       Premium
                     </Badge>
                   )}
                   {profile.verified && (
-                    <Badge className="absolute top-3 right-3 bg-green-500 text-white text-xs">Verified</Badge>
+                    <Badge className={`absolute ${viewType === "list" ? "top-2 right-2" : "top-3 right-3"} bg-green-500 text-white text-xs`}>Verified</Badge>
                   )}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 sm:p-3">
                     <span className="text-white text-xs font-medium">{profile.lastOnline}</span>
                   </div>
                 </div>
 
                 {/* Profile Info */}
-                <div className="p-4 flex-1 flex flex-col">
+                <div className={`p-3 sm:p-4 flex-1 flex flex-col ${viewType === "list" ? "min-w-0" : ""}`}>
                   <div className="mb-2">
-                    <h3 className="font-semibold text-base text-foreground line-clamp-1">{profile.name}</h3>
+                    <h3 className="font-semibold text-sm sm:text-base text-foreground line-clamp-1">{profile.name}</h3>
                     <p className="text-xs text-primary font-medium">{profile.id}</p>
                   </div>
 
-                  <div className="space-y-1.5 text-sm text-muted-foreground mb-3 flex-1">
-                    <p className="font-medium text-foreground text-sm">
+                  <div className={`space-y-1 text-sm text-muted-foreground mb-2 sm:mb-3 flex-1 ${viewType === "list" ? "text-xs sm:text-sm" : ""}`}>
+                    <p className="font-medium text-foreground text-xs sm:text-sm">
                       {profile.age} yrs, {profile.height}
                     </p>
-                    <p className="flex items-center gap-1.5 text-xs">
-                      <MapPin className="h-3.5 w-3.5" />
-                      {profile.city}
+                    <p className="flex items-center gap-1 sm:gap-1.5 text-xs">
+                      <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
+                      <span className="truncate">{profile.city}</span>
                     </p>
-                    <p className="flex items-center gap-1.5 text-xs">
-                      <GraduationCap className="h-3.5 w-3.5" />
-                      {profile.education}
+                    <p className="flex items-center gap-1 sm:gap-1.5 text-xs">
+                      <GraduationCap className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
+                      <span className="truncate">{profile.education}</span>
                     </p>
-                    <p className="flex items-center gap-1.5 text-xs">
-                      <Briefcase className="h-3.5 w-3.5" />
-                      {profile.occupation}
+                    <p className="flex items-center gap-1 sm:gap-1.5 text-xs">
+                      <Briefcase className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
+                      <span className="truncate">{profile.occupation}</span>
                     </p>
-                    <p className="text-xs text-muted-foreground/80">
+                    <p className="text-xs text-muted-foreground/80 truncate">
                       {profile.religion} • {profile.caste}
                     </p>
                   </div>
 
-                  {/* Profile Actions - Always visible on mobile, hover on desktop */}
-                  <div className="border-t pt-3 mt-auto">
-                    <ProfileActions profileId={profile.id} variant="card" className="justify-start flex-wrap" />
+                  {/* Profile Actions */}
+                  <div className="border-t pt-2 sm:pt-3 mt-auto">
+                    <ProfileActions profileId={profile.id} variant="card" className="justify-start" />
                     <Link to={`/profile/${profile.id}`} className="block mt-2">
-                      <Button size="sm" variant="outline" className="w-full gap-1 text-xs h-9">
-                        <Eye className="h-3.5 w-3.5" />
+                      <Button size="sm" variant="outline" className="w-full gap-1 text-xs h-8 sm:h-9">
+                        <Eye className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                         View Full Profile
                       </Button>
                     </Link>
