@@ -37,10 +37,10 @@ const HeroSection = () => {
             <div className="text-left">
               <label className="block text-xs font-medium text-foreground mb-1.5">I'm looking for</label>
               <Select defaultValue="bride">
-                <SelectTrigger className="w-full bg-background/80 h-9">
+                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
-                <SelectContent className="bg-background z-50">
+                <SelectContent className="bg-white z-50">
                   <SelectItem value="bride">Bride</SelectItem>
                   <SelectItem value="groom">Groom</SelectItem>
                 </SelectContent>
@@ -50,10 +50,10 @@ const HeroSection = () => {
             <div className="text-left">
               <label className="block text-xs font-medium text-foreground mb-1.5">Age From</label>
               <Select defaultValue="21">
-                <SelectTrigger className="w-full bg-background/80 h-9">
+                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
                   <SelectValue placeholder="Min" />
                 </SelectTrigger>
-                <SelectContent className="bg-background z-50">
+                <SelectContent className="bg-white z-50">
                   {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
                     <SelectItem key={age} value={age.toString()}>{age} yrs</SelectItem>
                   ))}
@@ -64,10 +64,10 @@ const HeroSection = () => {
             <div className="text-left">
               <label className="block text-xs font-medium text-foreground mb-1.5">Age To</label>
               <Select defaultValue="30">
-                <SelectTrigger className="w-full bg-background/80 h-9">
+                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
                   <SelectValue placeholder="Max" />
                 </SelectTrigger>
-                <SelectContent className="bg-background z-50">
+                <SelectContent className="bg-white z-50">
                   {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
                     <SelectItem key={age} value={age.toString()}>{age} yrs</SelectItem>
                   ))}
@@ -78,10 +78,10 @@ const HeroSection = () => {
             <div className="text-left">
               <label className="block text-xs font-medium text-foreground mb-1.5">Religion</label>
               <Select defaultValue="buddhist">
-                <SelectTrigger className="w-full bg-background/80 h-9">
+                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
-                <SelectContent className="bg-background z-50">
+                <SelectContent className="bg-white z-50">
                   <SelectItem value="any">Any</SelectItem>
                   <SelectItem value="buddhist">Buddhist</SelectItem>
                   <SelectItem value="hindu">Hindu</SelectItem>
@@ -97,10 +97,10 @@ const HeroSection = () => {
             <div className="text-left">
               <label className="block text-xs font-medium text-foreground mb-1.5">Marital Status</label>
               <Select defaultValue="any">
-                <SelectTrigger className="w-full bg-background/80 h-9">
+                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
-                <SelectContent className="bg-background z-50">
+                <SelectContent className="bg-white z-50">
                   <SelectItem value="any">Any</SelectItem>
                   <SelectItem value="never_married">Never Married</SelectItem>
                   <SelectItem value="divorced">Divorced</SelectItem>
@@ -113,10 +113,10 @@ const HeroSection = () => {
             <div className="text-left">
               <label className="block text-xs font-medium text-foreground mb-1.5">Education</label>
               <Select defaultValue="any">
-                <SelectTrigger className="w-full bg-background/80 h-9">
+                <SelectTrigger className="w-full bg-white h-9 text-gray-800 border-0">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
-                <SelectContent className="bg-background z-50">
+                <SelectContent className="bg-white z-50">
                   <SelectItem value="any">Any</SelectItem>
                   <SelectItem value="doctorate">Doctorate</SelectItem>
                   <SelectItem value="masters">Masters</SelectItem>
