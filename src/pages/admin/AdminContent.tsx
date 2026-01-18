@@ -209,16 +209,15 @@ const AdminContent = () => {
                         size="sm"
                         variant="outline"
                         onClick={() => handleEditSEO(page)}
-                        className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-700"
+                        className="flex-1 border-slate-500 bg-slate-700/50 text-white hover:bg-slate-600 hover:text-white"
                       >
                         <Globe className="h-4 w-4 mr-1" />
                         Edit SEO
                       </Button>
                       <Button
                         size="sm"
-                        variant="outline"
                         onClick={() => handleEditContent(page)}
-                        className="flex-1 border-blue-600 text-blue-300 hover:bg-blue-900/30"
+                        className="flex-1 bg-blue-600 text-white hover:bg-blue-700"
                       >
                         <FileText className="h-4 w-4 mr-1" />
                         Edit Content
@@ -228,7 +227,7 @@ const AdminContent = () => {
                       size="sm"
                       variant="ghost"
                       onClick={() => togglePublish(page.id)}
-                      className="w-full text-slate-400 hover:text-white"
+                      className="w-full text-slate-300 hover:text-white hover:bg-slate-700"
                     >
                       {page.is_published ? (
                         <>
