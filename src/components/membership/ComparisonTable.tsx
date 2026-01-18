@@ -1,4 +1,4 @@
-import { Check, X } from "lucide-react";
+import { Check, X, Zap, Star } from "lucide-react";
 import { comparisonFeatures } from "@/data/membershipPlans";
 import { cn } from "@/lib/utils";
 
@@ -20,142 +20,70 @@ const ComparisonTable = ({ onSelectPlan }: ComparisonTableProps) => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full border-collapse">
-        <thead>
-          <tr className="border-b">
-            <th className="text-left py-4 px-4 font-semibold text-foreground">Features</th>
-            <th className="text-center py-4 px-4 min-w-[100px]">
-              <div className="flex flex-col items-center gap-1">
-                <span className="font-semibold text-foreground text-sm">Silver</span>
-                <span className="text-xs text-muted-foreground">3 Months</span>
-                <span className="text-sm font-bold text-primary">₹2,500</span>
-              </div>
-            </th>
-            <th className="text-center py-4 px-4 min-w-[100px]">
-              <div className="flex flex-col items-center gap-1">
-                <span className="font-semibold text-foreground text-sm">Gold</span>
-                <span className="text-xs text-muted-foreground">6 Months</span>
-                <span className="text-sm font-bold text-primary">₹3,500</span>
-              </div>
-            </th>
-            <th className="text-center py-4 px-4 min-w-[100px] bg-primary/5 rounded-t-lg">
-              <div className="flex flex-col items-center gap-1">
-                <span className="font-semibold text-primary text-sm">Premium</span>
-                <span className="text-xs bg-primary text-white px-2 py-0.5 rounded-full">Popular</span>
-                <span className="text-xs text-muted-foreground">12 Months</span>
-                <span className="text-sm font-bold text-primary">₹5,000</span>
-              </div>
-            </th>
-            <th className="text-center py-4 px-4 min-w-[100px]">
-              <div className="flex flex-col items-center gap-1">
-                <span className="font-semibold text-foreground text-sm">Elite Silver</span>
-                <span className="text-xs text-muted-foreground">4 Months</span>
-                <span className="text-sm font-bold text-primary">₹4,000</span>
-              </div>
-            </th>
-            <th className="text-center py-4 px-4 min-w-[100px]">
-              <div className="flex flex-col items-center gap-1">
-                <span className="font-semibold text-foreground text-sm">Elite Gold</span>
-                <span className="text-xs text-muted-foreground">8 Months</span>
-                <span className="text-sm font-bold text-primary">₹6,500</span>
-              </div>
-            </th>
-            <th className="text-center py-4 px-4 min-w-[100px]">
-              <div className="flex flex-col items-center gap-1">
-                <span className="font-semibold text-foreground text-sm">Elite Premium</span>
-                <span className="text-xs text-muted-foreground">12 Months</span>
-                <span className="text-sm font-bold text-primary">₹9,000</span>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className="bg-background rounded-2xl shadow-xl border border-border overflow-hidden min-w-[600px]">
+        {/* Header */}
+        <div className="grid grid-cols-3 border-b border-border">
+          <div className="p-4 md:p-6 font-semibold text-foreground">Features</div>
+          <div className="p-4 md:p-6 text-center bg-blue-50/50 dark:bg-blue-950/20">
+            <div className="flex items-center justify-center gap-2">
+              <Zap className="w-5 h-5 text-blue-600" />
+              <span className="font-semibold text-blue-700 dark:text-blue-400">Online</span>
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">Self-Assisted</p>
+          </div>
+          <div className="p-4 md:p-6 text-center bg-purple-50/50 dark:bg-purple-950/20">
+            <div className="flex items-center justify-center gap-2">
+              <Star className="w-5 h-5 text-purple-600" />
+              <span className="font-semibold text-purple-700 dark:text-purple-400">Elite</span>
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">Personalized</p>
+          </div>
+        </div>
+
+        {/* Comparison Rows */}
+        <div className="divide-y divide-border">
           {comparisonFeatures.map((feature, index) => (
-            <tr 
+            <div 
               key={feature.name}
               className={cn(
-                "border-b transition-colors hover:bg-muted/50",
-                index % 2 === 0 && "bg-muted/20"
+                "grid grid-cols-3 hover:bg-muted/30 transition-colors",
+                index % 2 === 0 && "bg-muted/10"
               )}
             >
-              <td className="py-4 px-4 text-sm text-foreground font-medium">
+              <div className="p-4 text-sm font-medium text-foreground">
                 {feature.name}
-              </td>
-              <td className="text-center py-4 px-4">
-                {renderValue(feature.silver)}
-              </td>
-              <td className="text-center py-4 px-4">
-                {renderValue(feature.gold)}
-              </td>
-              <td className="text-center py-4 px-4 bg-primary/5">
-                {renderValue(feature.premium)}
-              </td>
-              <td className="text-center py-4 px-4">
-                {renderValue(feature.eliteSilver)}
-              </td>
-              <td className="text-center py-4 px-4">
-                {renderValue(feature.eliteGold)}
-              </td>
-              <td className="text-center py-4 px-4">
-                {renderValue(feature.elitePremium)}
-              </td>
-            </tr>
+              </div>
+              <div className="p-4 text-center bg-blue-50/30 dark:bg-blue-950/10">
+                {renderValue(feature.online)}
+              </div>
+              <div className="p-4 text-center bg-purple-50/30 dark:bg-purple-950/10">
+                {renderValue(feature.elite)}
+              </div>
+            </div>
           ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td className="py-6 px-4"></td>
-            <td className="text-center py-6 px-4">
-              <button 
-                onClick={() => onSelectPlan('silver')}
-                className="px-3 py-2 text-xs border border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors font-medium"
-              >
-                Choose
-              </button>
-            </td>
-            <td className="text-center py-6 px-4">
-              <button 
-                onClick={() => onSelectPlan('gold')}
-                className="px-3 py-2 text-xs border border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors font-medium"
-              >
-                Choose
-              </button>
-            </td>
-            <td className="text-center py-6 px-4 bg-primary/5 rounded-b-lg">
-              <button 
-                onClick={() => onSelectPlan('premium')}
-                className="px-3 py-2 text-xs bg-gradient-primary text-white rounded-lg hover:opacity-90 transition-opacity font-medium"
-              >
-                Choose
-              </button>
-            </td>
-            <td className="text-center py-6 px-4">
-              <button 
-                onClick={() => onSelectPlan('elite-silver')}
-                className="px-3 py-2 text-xs border border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors font-medium"
-              >
-                Choose
-              </button>
-            </td>
-            <td className="text-center py-6 px-4">
-              <button 
-                onClick={() => onSelectPlan('elite-gold')}
-                className="px-3 py-2 text-xs border border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors font-medium"
-              >
-                Choose
-              </button>
-            </td>
-            <td className="text-center py-6 px-4">
-              <button 
-                onClick={() => onSelectPlan('elite-premium')}
-                className="px-3 py-2 text-xs border border-violet-500 text-violet-600 rounded-lg hover:bg-violet-50 transition-colors font-medium"
-              >
-                Choose
-              </button>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
+        </div>
+
+        {/* CTA Row */}
+        <div className="grid grid-cols-3 border-t border-border bg-muted/20">
+          <div className="p-4 md:p-6"></div>
+          <div className="p-4 md:p-6 text-center bg-blue-50/30 dark:bg-blue-950/10">
+            <button 
+              onClick={() => onSelectPlan('gold')}
+              className="px-4 py-2 text-sm border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-medium"
+            >
+              Choose Online
+            </button>
+          </div>
+          <div className="p-4 md:p-6 text-center bg-purple-50/30 dark:bg-purple-950/10">
+            <button 
+              onClick={() => onSelectPlan('elite-gold')}
+              className="px-4 py-2 text-sm bg-gradient-to-r from-purple-600 to-violet-600 text-white rounded-lg hover:opacity-90 transition-opacity font-medium"
+            >
+              Choose Elite
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

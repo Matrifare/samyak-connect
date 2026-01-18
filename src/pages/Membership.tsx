@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, Shield, Clock, Headphones, Eye, Phone, MessageCircle, Mail, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Shield, Clock, Headphones, Eye, Phone, MessageCircle, Mail, Users, Check, X, Sparkles, Star, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { onlinePlans, personalizedPlans, membershipFeatures, MembershipPlan } from "@/data/membershipPlans";
+import { Badge } from "@/components/ui/badge";
+import { onlinePlans, elitePlans, comparisonFeatures, membershipFeatures, MembershipPlan } from "@/data/membershipPlans";
 import { cn } from "@/lib/utils";
 
 const Membership = () => {
   const navigate = useNavigate();
-  const [category, setCategory] = useState<'online' | 'personalized'>('online');
+  const [category, setCategory] = useState<'online' | 'elite'>('online');
 
-  const currentPlans = category === 'online' ? onlinePlans : personalizedPlans;
+  const currentPlans = category === 'online' ? onlinePlans : elitePlans;
 
   const handleBuyNow = (planId: string) => {
     navigate(`/membership/upgrade?plan=${planId}`);
@@ -18,112 +18,175 @@ const Membership = () => {
 
   const getFeatureIcon = (iconName: string) => {
     switch (iconName) {
-      case 'contact': return <Users className="w-6 h-6" />;
-      case 'phone': return <Phone className="w-6 h-6" />;
-      case 'chat': return <MessageCircle className="w-6 h-6" />;
-      case 'message': return <Mail className="w-6 h-6" />;
-      default: return <Eye className="w-6 h-6" />;
+      case 'contact': return <Users className="w-5 h-5" />;
+      case 'phone': return <Phone className="w-5 h-5" />;
+      case 'chat': return <MessageCircle className="w-5 h-5" />;
+      case 'message': return <Mail className="w-5 h-5" />;
+      default: return <Eye className="w-5 h-5" />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
       {/* Hero Section */}
-      <section className="relative bg-gradient-hero py-12 md:py-16 px-4">
+      <section className="relative bg-gradient-hero py-16 md:py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 opacity-50" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }}></div>
         <div className="container mx-auto text-center relative z-10">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+            <Sparkles className="w-4 h-4 text-yellow-300" />
+            <span className="text-white/90 text-sm">Find Your Perfect Life Partner</span>
+          </div>
+          
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Membership Plans
           </h1>
-          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            Choose the perfect plan to find your life partner
+          <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
+            Choose the plan that fits your journey to finding love
           </p>
 
-          {/* Category Tabs */}
-          <div className="inline-flex">
-            <Tabs value={category} onValueChange={(v) => setCategory(v as typeof category)}>
-              <TabsList className="bg-white/10 backdrop-blur-sm p-1 rounded-full">
-                <TabsTrigger 
-                  value="online" 
-                  className="px-6 py-2.5 rounded-full data-[state=active]:bg-primary data-[state=active]:text-white transition-all"
-                >
-                  Online
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="personalized" 
-                  className="px-6 py-2.5 rounded-full data-[state=active]:bg-muted data-[state=active]:text-foreground transition-all"
-                >
-                  Personalized
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
+          {/* Category Toggle */}
+          <div className="inline-flex bg-white/10 backdrop-blur-md rounded-2xl p-1.5 gap-1">
+            <button 
+              onClick={() => setCategory('online')}
+              className={cn(
+                "px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2",
+                category === 'online' 
+                  ? "bg-white text-primary shadow-lg" 
+                  : "text-white/80 hover:text-white hover:bg-white/10"
+              )}
+            >
+              <Zap className="w-4 h-4" />
+              Online
+            </button>
+            <button 
+              onClick={() => setCategory('elite')}
+              className={cn(
+                "px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2",
+                category === 'elite' 
+                  ? "bg-white text-primary shadow-lg" 
+                  : "text-white/80 hover:text-white hover:bg-white/10"
+              )}
+            >
+              <Star className="w-4 h-4" />
+              Elite
+            </button>
           </div>
 
-          <p className="text-sm text-white/70 mt-4">
+          <p className="text-sm text-white/60 mt-4 max-w-md mx-auto">
             {category === 'online' 
-              ? 'All online services are self-assisted. Search, Shortlist and Send Interest.'
-              : 'Get dedicated relationship manager assistance for your match search.'
+              ? 'Self-assisted service with powerful tools to search and connect'
+              : 'Personalized matchmaking with dedicated relationship manager'
             }
           </p>
         </div>
       </section>
 
-      {/* Plans Table */}
-      <section className="py-8 md:py-12 px-4 -mt-4">
-        <div className="container mx-auto max-w-5xl">
-          <div className="bg-card rounded-2xl shadow-xl overflow-hidden border border-border">
-            {/* Desktop Table View */}
-            <div className="hidden md:block overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="text-left py-4 px-4 font-semibold text-foreground w-[180px]">Plan</th>
-                    <th className="text-center py-4 px-4 font-semibold text-foreground">
-                      <div className="flex flex-col items-center">
-                        <span className="text-muted-foreground text-xs font-normal">View</span>
-                        <span>Contacts</span>
-                      </div>
-                    </th>
-                    <th className="text-center py-4 px-4 font-semibold text-foreground">
-                      <div className="flex flex-col items-center">
-                        <span className="text-muted-foreground text-xs font-normal">Send Message</span>
-                        <span>Messages</span>
-                      </div>
-                    </th>
-                    <th className="text-center py-4 px-4 font-semibold text-foreground w-[160px]">
-                      <div className="flex flex-col items-center">
-                        <span className="text-muted-foreground text-xs font-normal">FINAL PRICE</span>
-                      </div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {currentPlans.map((plan, index) => (
-                    <PlanRow key={plan.id} plan={plan} onBuyNow={handleBuyNow} isLast={index === currentPlans.length - 1} />
-                  ))}
-                </tbody>
-              </table>
+      {/* Plans Cards */}
+      <section className="py-12 md:py-16 px-4 -mt-8">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {currentPlans.map((plan) => (
+              <PlanCard key={plan.id} plan={plan} onBuyNow={handleBuyNow} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Section */}
+      <section className="py-12 md:py-16 px-4 bg-card">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Online vs Elite Comparison
+            </h2>
+            <p className="text-muted-foreground">
+              See what makes Elite membership special
+            </p>
+          </div>
+
+          <div className="bg-background rounded-2xl shadow-xl border border-border overflow-hidden">
+            {/* Header */}
+            <div className="grid grid-cols-3 border-b border-border">
+              <div className="p-4 md:p-6 font-semibold text-foreground">Features</div>
+              <div className="p-4 md:p-6 text-center bg-blue-50/50 dark:bg-blue-950/20">
+                <div className="flex items-center justify-center gap-2">
+                  <Zap className="w-5 h-5 text-blue-600" />
+                  <span className="font-semibold text-blue-700 dark:text-blue-400">Online</span>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">Self-Assisted</p>
+              </div>
+              <div className="p-4 md:p-6 text-center bg-purple-50/50 dark:bg-purple-950/20">
+                <div className="flex items-center justify-center gap-2">
+                  <Star className="w-5 h-5 text-purple-600" />
+                  <span className="font-semibold text-purple-700 dark:text-purple-400">Elite</span>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">Personalized</p>
+              </div>
             </div>
 
-            {/* Mobile Card View */}
-            <div className="md:hidden divide-y divide-border">
-              {currentPlans.map((plan) => (
-                <PlanCard key={plan.id} plan={plan} onBuyNow={handleBuyNow} />
+            {/* Comparison Rows */}
+            <div className="divide-y divide-border">
+              {comparisonFeatures.map((feature, index) => (
+                <div 
+                  key={feature.name}
+                  className={cn(
+                    "grid grid-cols-3 hover:bg-muted/30 transition-colors",
+                    index % 2 === 0 && "bg-muted/10"
+                  )}
+                >
+                  <div className="p-4 text-sm font-medium text-foreground">
+                    {feature.name}
+                  </div>
+                  <div className="p-4 text-center bg-blue-50/30 dark:bg-blue-950/10">
+                    {renderComparisonValue(feature.online)}
+                  </div>
+                  <div className="p-4 text-center bg-purple-50/30 dark:bg-purple-950/10">
+                    {renderComparisonValue(feature.elite)}
+                  </div>
+                </div>
               ))}
+            </div>
+
+            {/* CTA Row */}
+            <div className="grid grid-cols-3 border-t border-border bg-muted/20">
+              <div className="p-4 md:p-6"></div>
+              <div className="p-4 md:p-6 text-center bg-blue-50/30 dark:bg-blue-950/10">
+                <Button 
+                  variant="outline" 
+                  className="border-blue-500 text-blue-600 hover:bg-blue-50"
+                  onClick={() => setCategory('online')}
+                >
+                  View Online Plans
+                </Button>
+              </div>
+              <div className="p-4 md:p-6 text-center bg-purple-50/30 dark:bg-purple-950/10">
+                <Button 
+                  className="bg-gradient-to-r from-purple-600 to-violet-600 hover:opacity-90 text-white"
+                  onClick={() => setCategory('elite')}
+                >
+                  View Elite Plans
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-12 px-4 bg-muted/30">
+      <section className="py-12 px-4">
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 text-foreground">
-            Features of Paid Membership
+            All Paid Plans Include
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {membershipFeatures.map((feature, index) => (
-              <div key={index} className="flex flex-col items-center text-center gap-3">
-                <div className="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center text-primary">
+              <div 
+                key={index} 
+                className="flex flex-col items-center text-center gap-3 p-4 rounded-xl bg-card border border-border hover:shadow-lg transition-shadow"
+              >
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                   {getFeatureIcon(feature.icon)}
                 </div>
                 <span className="text-sm font-medium text-foreground">{feature.label}</span>
@@ -134,67 +197,36 @@ const Membership = () => {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-12 px-4">
+      <section className="py-12 px-4 bg-muted/30">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 justify-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Shield className="w-6 h-6 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="flex items-center gap-4 justify-center p-4 rounded-xl bg-card border border-border">
+              <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                <Shield className="w-6 h-6 text-green-600" />
               </div>
               <div>
                 <h4 className="font-semibold text-foreground">100% Secure</h4>
-                <p className="text-sm text-muted-foreground">SSL encrypted payments</p>
+                <p className="text-sm text-muted-foreground">SSL encrypted</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 justify-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Clock className="w-6 h-6 text-primary" />
+            <div className="flex items-center gap-4 justify-center p-4 rounded-xl bg-card border border-border">
+              <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                <Clock className="w-6 h-6 text-blue-600" />
               </div>
               <div>
                 <h4 className="font-semibold text-foreground">Instant Activation</h4>
-                <p className="text-sm text-muted-foreground">Features unlock immediately</p>
+                <p className="text-sm text-muted-foreground">Start immediately</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 justify-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Headphones className="w-6 h-6 text-primary" />
+            <div className="flex items-center gap-4 justify-center p-4 rounded-xl bg-card border border-border">
+              <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
+                <Headphones className="w-6 h-6 text-orange-600" />
               </div>
               <div>
                 <h4 className="font-semibold text-foreground">24/7 Support</h4>
-                <p className="text-sm text-muted-foreground">Help when you need it</p>
+                <p className="text-sm text-muted-foreground">Always available</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Preview */}
-      <section className="py-12 px-4 bg-muted/20">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-          
-          <div className="space-y-4">
-            <FaqItem 
-              question="Can I upgrade my plan anytime?"
-              answer="Yes! You can upgrade your plan at any time. The difference in price will be prorated based on your remaining subscription period."
-            />
-            <FaqItem 
-              question="What payment methods are accepted?"
-              answer="We accept all major credit/debit cards, UPI, net banking, and popular digital wallets for your convenience."
-            />
-            <FaqItem 
-              question="Can I cancel my subscription?"
-              answer="Yes, you can cancel your subscription anytime. Your premium features will remain active until the end of your billing period."
-            />
-          </div>
-
-          <div className="text-center mt-8">
-            <Link to="/membership/compare">
-              <Button variant="link" className="text-primary">
-                Compare all features in detail
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
@@ -202,77 +234,103 @@ const Membership = () => {
   );
 };
 
-// Desktop Row Component
-const PlanRow = ({ plan, onBuyNow, isLast }: { plan: MembershipPlan; onBuyNow: (id: string) => void; isLast: boolean }) => (
-  <tr className={cn("border-b border-border transition-colors hover:bg-muted/30", isLast && "border-b-0")}>
-    <td className="py-3 px-4">
-      <div className={cn("px-4 py-3 rounded-lg", plan.bgColor, plan.color)}>
-        <div className="font-bold text-base">{plan.name}</div>
-        <div className="text-sm opacity-90">{plan.duration}</div>
-      </div>
-    </td>
-    <td className="text-center py-3 px-4">
-      <div className="text-2xl font-bold text-primary">{plan.viewContacts}</div>
-      <div className="text-xs text-muted-foreground">Contacts</div>
-    </td>
-    <td className="text-center py-3 px-4">
-      <div className="text-2xl font-bold text-primary">{plan.sendMessages}</div>
-      <div className="text-xs text-muted-foreground">Messages</div>
-    </td>
-    <td className="text-center py-3 px-4">
-      <div className="flex flex-col items-center gap-2">
-        <div className="text-xl font-bold text-foreground">₹ {plan.price.toLocaleString()}</div>
-        <Button 
-          size="sm" 
-          onClick={() => onBuyNow(plan.id)}
-          className="bg-primary hover:bg-primary/90 text-white px-6"
-        >
-          Buy Now
-        </Button>
-      </div>
-    </td>
-  </tr>
-);
-
-// Mobile Card Component
+// Plan Card Component
 const PlanCard = ({ plan, onBuyNow }: { plan: MembershipPlan; onBuyNow: (id: string) => void }) => (
-  <div className="p-4">
-    <div className="flex items-center gap-4 mb-4">
-      <div className={cn("px-4 py-2 rounded-lg flex-1", plan.bgColor, plan.color)}>
-        <div className="font-bold">{plan.name}</div>
-        <div className="text-sm opacity-90">{plan.duration}</div>
+  <div 
+    className={cn(
+      "relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group",
+      plan.popular && "ring-2 ring-primary shadow-xl scale-[1.02]"
+    )}
+  >
+    {plan.popular && (
+      <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-10">
+        <Badge className="bg-gradient-to-r from-primary to-pink-500 text-white px-4 py-1 rounded-full shadow-lg">
+          <Star className="w-3 h-3 mr-1" />
+          Most Popular
+        </Badge>
       </div>
-      <div className="text-right">
-        <div className="text-lg font-bold text-foreground">₹ {plan.price.toLocaleString()}</div>
+    )}
+    
+    {/* Card Header */}
+    <div className={cn("p-6 pt-8", plan.bgColor, plan.color)}>
+      <div className="text-center">
+        <span className="text-4xl mb-2 block">{plan.icon}</span>
+        <h3 className="text-xl font-bold">{plan.name}</h3>
+        <p className="text-sm opacity-80">{plan.duration}</p>
       </div>
     </div>
-    
-    <div className="flex items-center justify-between mb-4">
-      <div className="text-center flex-1">
-        <div className="text-xl font-bold text-primary">{plan.viewContacts}</div>
-        <div className="text-xs text-muted-foreground">View Contacts</div>
+
+    {/* Card Body */}
+    <div className="bg-card p-6 border-x border-b border-border rounded-b-2xl">
+      {/* Price */}
+      <div className="text-center mb-6">
+        <div className="flex items-baseline justify-center gap-1">
+          <span className="text-3xl font-bold text-foreground">₹{plan.price.toLocaleString()}</span>
+        </div>
+        <p className="text-sm text-muted-foreground mt-1">One-time payment</p>
       </div>
-      <div className="w-px h-8 bg-border"></div>
-      <div className="text-center flex-1">
-        <div className="text-xl font-bold text-primary">{plan.sendMessages}</div>
-        <div className="text-xs text-muted-foreground">Send Messages</div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <div className="text-center p-3 rounded-xl bg-muted/50">
+          <div className="text-2xl font-bold text-primary">{plan.viewContacts}</div>
+          <div className="text-xs text-muted-foreground">View Contacts</div>
+        </div>
+        <div className="text-center p-3 rounded-xl bg-muted/50">
+          <div className="text-2xl font-bold text-primary">{plan.sendMessages}</div>
+          <div className="text-xs text-muted-foreground">Messages</div>
+        </div>
       </div>
+
+      {/* Features */}
+      <ul className="space-y-2 mb-6">
+        <li className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+          View contact details
+        </li>
+        <li className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+          Chat with members
+        </li>
+        <li className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+          Send interest
+        </li>
+        {plan.category === 'elite' && (
+          <li className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+            Dedicated relationship manager
+          </li>
+        )}
+      </ul>
+
+      {/* CTA */}
+      <Button 
+        className={cn(
+          "w-full",
+          plan.popular 
+            ? "bg-gradient-to-r from-primary to-pink-500 hover:opacity-90" 
+            : "bg-primary hover:bg-primary/90"
+        )}
+        size="lg"
+        onClick={() => onBuyNow(plan.id)}
+      >
+        Get Started
+      </Button>
     </div>
-    
-    <Button 
-      className="w-full bg-primary hover:bg-primary/90"
-      onClick={() => onBuyNow(plan.id)}
-    >
-      Buy Now
-    </Button>
   </div>
 );
 
-const FaqItem = ({ question, answer }: { question: string; answer: string }) => (
-  <div className="border rounded-lg p-4 bg-card">
-    <h4 className="font-semibold text-foreground mb-2">{question}</h4>
-    <p className="text-sm text-muted-foreground">{answer}</p>
-  </div>
-);
+// Helper function to render comparison values
+const renderComparisonValue = (value: string | boolean) => {
+  if (typeof value === 'boolean') {
+    return value ? (
+      <Check className="w-5 h-5 text-green-500 mx-auto" />
+    ) : (
+      <X className="w-5 h-5 text-muted-foreground/40 mx-auto" />
+    );
+  }
+  return <span className="text-sm font-medium text-foreground">{value}</span>;
+};
 
 export default Membership;

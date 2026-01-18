@@ -7,11 +7,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
-import { onlinePlans, personalizedPlans, paymentMethods, MembershipPlan } from "@/data/membershipPlans";
+import { onlinePlans, elitePlans, paymentMethods, MembershipPlan } from "@/data/membershipPlans";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
-const allPlans = [...onlinePlans, ...personalizedPlans];
+const allPlans = [...onlinePlans, ...elitePlans];
 
 const MembershipUpgrade = () => {
   const navigate = useNavigate();
@@ -159,6 +159,7 @@ const MembershipUpgrade = () => {
             <Card className="sticky top-4">
               <CardHeader className={cn("rounded-t-lg", plan.bgColor, plan.color)}>
                 <CardTitle className="flex items-center gap-3">
+                  <span className="text-3xl">{plan.icon}</span>
                   <div>
                     <div className="text-xl font-bold">{plan.name} Plan</div>
                     <CardDescription className={cn("opacity-90", plan.color)}>{plan.duration}</CardDescription>
