@@ -105,7 +105,7 @@ const RichTextEditor = ({ content, onChange, placeholder }: RichTextEditorProps)
   return (
     <div className="border border-slate-600 rounded-lg overflow-hidden bg-slate-800">
       {/* Toolbar */}
-      <div className="flex flex-wrap items-center gap-1 p-2 border-b border-slate-600 bg-slate-700">
+      <div className="flex items-center gap-1 p-2 border-b border-slate-600 bg-slate-700 overflow-x-auto">
         {/* Undo/Redo */}
         <Button
           type="button"
@@ -288,7 +288,7 @@ const RichTextEditor = ({ content, onChange, placeholder }: RichTextEditorProps)
           size="sm"
           pressed={isHtmlMode}
           onPressedChange={toggleHtmlMode}
-          className="h-8 px-2 text-slate-300 hover:text-white hover:bg-slate-600 data-[state=on]:bg-orange-600 data-[state=on]:text-white"
+          className="ml-auto shrink-0 h-8 px-2 text-slate-300 hover:text-white hover:bg-slate-600 data-[state=on]:bg-orange-600 data-[state=on]:text-white"
         >
           <Code className="h-4 w-4 mr-1" />
           <span className="text-xs">HTML</span>
