@@ -171,6 +171,76 @@ const AdminSettings = () => {
             </CardContent>
           </Card>
 
+          {/* Contact Us Page Settings */}
+          <Card className="bg-slate-800/50 border-slate-700">
+            <CardHeader>
+              <CardTitle className="text-white">Contact Us Page</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid gap-2">
+                <Label className="text-slate-200">Page Title</Label>
+                <Input
+                  value={settings.contact_page_title}
+                  onChange={(e) => handleChange("contact_page_title", e.target.value)}
+                  className="bg-slate-700/50 border-slate-600 text-white"
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label className="text-slate-200">Page Subtitle</Label>
+                <Textarea
+                  value={settings.contact_page_subtitle}
+                  onChange={(e) => handleChange("contact_page_subtitle", e.target.value)}
+                  className="bg-slate-700/50 border-slate-600 text-white"
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label className="text-slate-200">Office Address (displayed on contact page)</Label>
+                <Textarea
+                  value={settings.contact_office_address}
+                  onChange={(e) => handleChange("contact_office_address", e.target.value)}
+                  className="bg-slate-700/50 border-slate-600 text-white min-h-[100px]"
+                  placeholder="Full address with line breaks"
+                />
+              </div>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid gap-2">
+                  <Label className="text-slate-200">Phone Number 2</Label>
+                  <Input
+                    value={settings.contact_phone_2}
+                    onChange={(e) => handleChange("contact_phone_2", e.target.value)}
+                    className="bg-slate-700/50 border-slate-600 text-white"
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <Label className="text-slate-200">Email Address 2</Label>
+                  <Input
+                    value={settings.contact_email_2}
+                    onChange={(e) => handleChange("contact_email_2", e.target.value)}
+                    className="bg-slate-700/50 border-slate-600 text-white"
+                  />
+                </div>
+              </div>
+              <div className="grid gap-2">
+                <Label className="text-slate-200">Office Hours</Label>
+                <Textarea
+                  value={settings.contact_office_hours}
+                  onChange={(e) => handleChange("contact_office_hours", e.target.value)}
+                  className="bg-slate-700/50 border-slate-600 text-white"
+                  placeholder="e.g., Monday - Saturday: 10:00 AM - 7:00 PM"
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label className="text-slate-200">Google Map Embed URL (optional)</Label>
+                <Input
+                  value={settings.contact_map_embed}
+                  onChange={(e) => handleChange("contact_map_embed", e.target.value)}
+                  placeholder="https://www.google.com/maps/embed?..."
+                  className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-500"
+                />
+              </div>
+            </CardContent>
+          </Card>
+
           <Button onClick={handleSave} disabled={saving} className="w-fit">
             {saving ? (
               <Loader2 className="h-4 w-4 mr-2 animate-spin" />
