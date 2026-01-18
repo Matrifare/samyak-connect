@@ -52,6 +52,7 @@ import AdminBlogEditor from "./pages/admin/AdminBlogEditor";
 import Blog from "./pages/Blog";
 import BlogCategory from "./pages/BlogCategory";
 import BlogPost from "./pages/BlogPost";
+import WhatsAppButton from "./components/matrimony/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
@@ -132,6 +133,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </RedirectHandler>
+          <WhatsAppButton />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
