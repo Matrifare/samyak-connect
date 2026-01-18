@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
@@ -31,6 +32,9 @@ interface RichTextEditorProps {
 }
 
 const RichTextEditor = ({ content, onChange, placeholder }: RichTextEditorProps) => {
+  // TipTap only uses `content` on first mount; keep it in sync when editing an existing post.
+  const lastContentRef = useRef<string>(content || "");
+
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
@@ -45,7 +49,9 @@ const RichTextEditor = ({ content, onChange, placeholder }: RichTextEditorProps)
     ],
     content: content || "",
     onUpdate: ({ editor }) => {
-      onChange(editor.getHTML());
+      const html = editor.getHTML();
+      lastContentRef.current = html;
+      onChange(html);
     },
     editorProps: {
       attributes: {
@@ -54,6 +60,19 @@ const RichTextEditor = ({ content, onChange, placeholder }: RichTextEditorProps)
       },
     },
   });
+
+  useEffect(() => {
+    if (!editor) return;
+    const next = content || "";
+
+    // Don’t fight the user while typing.
+    if (editor.isFocused) return;
+    if (lastContentRef.current === next) return;
+
+    lastContentRef.current = next;
+    // Keep TipTap in sync without triggering onUpdate loops.
+    editor.commands.setContent(next, { emitUpdate: false });
+  }, [content, editor]);
 
   if (!editor) {
     return null;
