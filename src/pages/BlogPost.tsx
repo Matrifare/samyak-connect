@@ -87,36 +87,39 @@ const BlogPostPage = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-12">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-primary mb-6 hover:underline">
-            <ArrowLeft className="h-4 w-4" />
-            Back to Blog
-          </Link>
-          
-          {post.category && (
-            <Link to={`/blog/category/${post.category.slug}`}>
-              <Badge variant="secondary" className="mb-4">
-                {post.category.name}
-              </Badge>
+      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-8 md:py-12 pt-20 md:pt-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl">
+            <Link to="/blog" className="inline-flex items-center gap-2 text-primary mb-4 hover:underline">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Blog
             </Link>
-          )}
-          
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
-            {post.title}
-          </h1>
-          
+            
+            {post.category && (
+              <Link to={`/blog/category/${post.category.slug}`}>
+                <Badge variant="secondary" className="mb-4 block w-fit">
+                  {post.category.name}
+                </Badge>
+              </Link>
+            )}
+            
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-foreground leading-tight">
+              {post.title}
+            </h1>
+          </div>
         </div>
       </section>
 
       {/* Featured Image */}
       {post.featured_image_url && (
-        <div className="container mx-auto px-4 max-w-4xl -mt-4">
-          <img
-            src={post.featured_image_url}
-            alt={post.title}
-            className="w-full aspect-video object-cover rounded-xl shadow-lg"
-          />
+        <div className="container mx-auto px-4 py-6">
+          <div className="max-w-4xl">
+            <img
+              src={post.featured_image_url}
+              alt={post.title}
+              className="w-full aspect-video object-cover rounded-xl shadow-lg"
+            />
+          </div>
         </div>
       )}
 
