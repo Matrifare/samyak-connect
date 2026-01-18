@@ -25,6 +25,8 @@ const menuItems = [
   { icon: Heart, label: "Interests", path: "/admin/interests" },
   { icon: CreditCard, label: "Memberships", path: "/admin/memberships" },
   { icon: BarChart3, label: "Reports", path: "/admin/reports" },
+  { icon: FileText, label: "Blog Posts", path: "/admin/blog" },
+  { icon: FileText, label: "Blog Categories", path: "/admin/blog/categories" },
   { icon: FileText, label: "Content Pages", path: "/admin/content" },
   { icon: Shield, label: "Roles & Access", path: "/admin/roles" },
   { icon: Settings, label: "Settings", path: "/admin/settings" },
