@@ -276,6 +276,37 @@ const SearchResults = () => {
               </div>
             ))}
             </div>
+
+            {/* About Us Sidebar - Only visible on desktop in list view */}
+            {viewType === "list" && (
+              <div className="hidden lg:block w-72 flex-shrink-0">
+                <div className="bg-card rounded-xl shadow-lg border border-border p-5 sticky top-28">
+                  <h3 className="text-lg font-semibold text-foreground mb-4">About Samyak Matrimony</h3>
+                  <div className="space-y-3 text-sm text-muted-foreground">
+                    <p>
+                      A trusted matrimonial service dedicated to helping Buddhist community members find their life partners.
+                    </p>
+                    <p>
+                      With over 15 years of experience, we have successfully connected thousands of couples across India.
+                    </p>
+                    <div className="border-t pt-3 mt-3">
+                      <h4 className="font-medium text-foreground mb-2 text-sm">Why Choose Us?</h4>
+                      <ul className="space-y-1 text-xs list-disc list-inside">
+                        <li>Verified Profiles</li>
+                        <li>Privacy Protected</li>
+                        <li>Dedicated Support</li>
+                        <li>Trusted Community</li>
+                      </ul>
+                    </div>
+                    <div className="border-t pt-3 mt-3">
+                      <h4 className="font-medium text-foreground mb-2 text-sm">Contact Us</h4>
+                      <p className="text-xs">📞 +91 98765 43210</p>
+                      <p className="text-xs">📧 info@samyakmatrimony.com</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Pagination */}
