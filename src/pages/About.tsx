@@ -7,7 +7,7 @@ const About = () => {
   const { getPageContent } = usePageContent();
   const pageData = getPageContent("about-us");
 
-  const paragraphs = pageData.content?.body?.split("\n\n").filter(Boolean) || [];
+  const hasRichContent = pageData.content?.body?.includes("<");
 
   const features = [
     {
@@ -59,12 +59,11 @@ const About = () => {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
                 Our Mission
               </h2>
-              {paragraphs.length > 0 ? (
-                paragraphs.map((paragraph, index) => (
-                  <p key={index} className="text-muted-foreground mb-6">
-                    {paragraph}
-                  </p>
-                ))
+              {hasRichContent ? (
+                <div 
+                  className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground mb-6"
+                  dangerouslySetInnerHTML={{ __html: pageData.content?.body || "" }}
+                />
               ) : (
                 <>
                   <p className="text-muted-foreground mb-6">

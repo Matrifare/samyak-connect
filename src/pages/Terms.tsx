@@ -7,7 +7,7 @@ const Terms = () => {
   const { getPageContent } = usePageContent();
   const pageData = getPageContent("terms-conditions");
 
-  const paragraphs = pageData.content?.body?.split("\n\n").filter(Boolean) || [];
+  const hasRichContent = pageData.content?.body?.includes("<");
 
   return (
     <div className="min-h-screen bg-background">
@@ -27,38 +27,42 @@ const Terms = () => {
       {/* Content */}
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="prose prose-lg max-w-none">
-            {paragraphs.length > 0 ? (
-              paragraphs.map((paragraph, index) => (
-                <p key={index} className="text-muted-foreground mb-6">
-                  {paragraph}
-                </p>
-              ))
-            ) : (
-              <>
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
-                  1. Acceptance of Terms
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  By accessing and using Samyak Matrimony, you accept and agree to be bound by these Terms and Conditions.
-                </p>
+          {hasRichContent ? (
+            <div 
+              className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary"
+              dangerouslySetInnerHTML={{ __html: pageData.content?.body || "" }}
+            />
+          ) : (
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                1. Acceptance of Terms
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                By accessing and using Samyak Matrimony, you accept and agree to be bound by these Terms and Conditions.
+              </p>
 
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
-                  2. Eligibility
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  You must be at least 18 years old (21 for males, 18 for females as per Indian law) to register on our platform.
-                </p>
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                2. Eligibility
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                You must be at least 18 years old (21 for males, 18 for females as per Indian law) to register on our platform.
+              </p>
 
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
-                  3. User Accounts
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  You are responsible for maintaining the confidentiality of your account credentials.
-                </p>
-              </>
-            )}
-          </div>
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                3. User Accounts
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                You are responsible for maintaining the confidentiality of your account credentials.
+              </p>
+
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-4">
+                4. Code of Conduct
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                Users must not post false, misleading, or offensive content. Harassment is strictly prohibited.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
