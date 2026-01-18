@@ -52,7 +52,8 @@ const Hero = () => {
             transition={{ delay: 0.6 }}
             className="backdrop-blur-xl bg-white/95 dark:bg-card/95 p-6 md:p-8 rounded-2xl shadow-2xl border border-white/40"
           >
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+            {/* Row 1 */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-end mb-4">
               {/* Looking For */}
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-foreground block text-left">
@@ -103,7 +104,72 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Religion/Sect */}
+              {/* Religion */}
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground block text-left">
+                  Religion
+                </label>
+                <Select defaultValue="buddhist">
+                  <SelectTrigger className="h-12 bg-background border-2 hover:border-primary/50 transition-colors">
+                    <SelectValue placeholder="Select" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-background z-50">
+                    <SelectItem value="any">Any</SelectItem>
+                    <SelectItem value="buddhist">Buddhist</SelectItem>
+                    <SelectItem value="hindu">Hindu</SelectItem>
+                    <SelectItem value="christian">Christian</SelectItem>
+                    <SelectItem value="muslim">Muslim</SelectItem>
+                    <SelectItem value="sikh">Sikh</SelectItem>
+                    <SelectItem value="jain">Jain</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Marital Status */}
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground block text-left">
+                  Marital Status
+                </label>
+                <Select defaultValue="any">
+                  <SelectTrigger className="h-12 bg-background border-2 hover:border-primary/50 transition-colors">
+                    <SelectValue placeholder="Select" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-background z-50">
+                    <SelectItem value="any">Any</SelectItem>
+                    <SelectItem value="never_married">Never Married</SelectItem>
+                    <SelectItem value="divorced">Divorced</SelectItem>
+                    <SelectItem value="widowed">Widowed</SelectItem>
+                    <SelectItem value="awaiting_divorce">Awaiting Divorce</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            {/* Row 2 */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-end">
+              {/* Education */}
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground block text-left">
+                  Education
+                </label>
+                <Select defaultValue="any">
+                  <SelectTrigger className="h-12 bg-background border-2 hover:border-primary/50 transition-colors">
+                    <SelectValue placeholder="Select" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-background z-50">
+                    <SelectItem value="any">Any</SelectItem>
+                    <SelectItem value="doctorate">Doctorate</SelectItem>
+                    <SelectItem value="masters">Masters</SelectItem>
+                    <SelectItem value="bachelors">Bachelors</SelectItem>
+                    <SelectItem value="diploma">Diploma</SelectItem>
+                    <SelectItem value="high_school">High School</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Buddhist Sect */}
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-foreground block text-left">
                   Buddhist Sect
@@ -124,10 +190,13 @@ const Hero = () => {
                 </Select>
               </div>
 
+              {/* Empty space for alignment */}
+              <div className="hidden md:block"></div>
+
               {/* Search Button */}
               <Button 
                 size="lg"
-                className="h-12 bg-gradient-primary hover:opacity-90 text-white font-semibold shadow-lg hover:shadow-xl transition-all"
+                className="h-12 bg-gradient-primary hover:opacity-90 text-white font-semibold shadow-lg hover:shadow-xl transition-all col-span-2 md:col-span-1"
               >
                 <Search className="w-5 h-5 mr-2" />
                 Search Partner
