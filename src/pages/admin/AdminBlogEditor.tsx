@@ -112,6 +112,11 @@ const AdminBlogEditor = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["admin-blog-posts"] });
+      // Refresh public-facing queries so updated content shows immediately.
+      queryClient.invalidateQueries({ queryKey: ["blog-posts"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-post"] });
+      queryClient.invalidateQueries({ queryKey: ["blog-category-posts"] });
+
       toast.success(isEditing ? "Post updated!" : "Post created!");
       navigate("/admin/blog");
     },
