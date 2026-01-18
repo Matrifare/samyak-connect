@@ -31,13 +31,13 @@ const HeroSection = () => {
         </p>
         
         {/* Search Box */}
-        <div className="max-w-5xl mx-auto glass rounded-2xl p-6 md:p-8 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-          {/* Row 1 */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+        <div className="max-w-7xl mx-auto glass rounded-2xl p-4 md:p-6 animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          {/* Single Row on Desktop, Grid on Mobile */}
+          <div className="grid grid-cols-2 lg:grid-cols-7 gap-3 items-end">
             <div className="text-left">
-              <label className="block text-sm font-medium text-foreground mb-2">I'm looking for</label>
+              <label className="block text-xs font-medium text-foreground mb-1.5">I'm looking for</label>
               <Select defaultValue="bride">
-                <SelectTrigger className="w-full bg-background/80">
+                <SelectTrigger className="w-full bg-background/80 h-9">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent className="bg-background z-50">
@@ -48,37 +48,37 @@ const HeroSection = () => {
             </div>
             
             <div className="text-left">
-              <label className="block text-sm font-medium text-foreground mb-2">Age From</label>
+              <label className="block text-xs font-medium text-foreground mb-1.5">Age From</label>
               <Select defaultValue="21">
-                <SelectTrigger className="w-full bg-background/80">
-                  <SelectValue placeholder="Min Age" />
+                <SelectTrigger className="w-full bg-background/80 h-9">
+                  <SelectValue placeholder="Min" />
                 </SelectTrigger>
                 <SelectContent className="bg-background z-50">
                   {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
-                    <SelectItem key={age} value={age.toString()}>{age} years</SelectItem>
+                    <SelectItem key={age} value={age.toString()}>{age} yrs</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
             
             <div className="text-left">
-              <label className="block text-sm font-medium text-foreground mb-2">Age To</label>
+              <label className="block text-xs font-medium text-foreground mb-1.5">Age To</label>
               <Select defaultValue="30">
-                <SelectTrigger className="w-full bg-background/80">
-                  <SelectValue placeholder="Max Age" />
+                <SelectTrigger className="w-full bg-background/80 h-9">
+                  <SelectValue placeholder="Max" />
                 </SelectTrigger>
                 <SelectContent className="bg-background z-50">
                   {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
-                    <SelectItem key={age} value={age.toString()}>{age} years</SelectItem>
+                    <SelectItem key={age} value={age.toString()}>{age} yrs</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
             
             <div className="text-left">
-              <label className="block text-sm font-medium text-foreground mb-2">Religion</label>
+              <label className="block text-xs font-medium text-foreground mb-1.5">Religion</label>
               <Select defaultValue="buddhist">
-                <SelectTrigger className="w-full bg-background/80">
+                <SelectTrigger className="w-full bg-background/80 h-9">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent className="bg-background z-50">
@@ -93,14 +93,11 @@ const HeroSection = () => {
                 </SelectContent>
               </Select>
             </div>
-          </div>
 
-          {/* Row 2 */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-left">
-              <label className="block text-sm font-medium text-foreground mb-2">Marital Status</label>
+              <label className="block text-xs font-medium text-foreground mb-1.5">Marital Status</label>
               <Select defaultValue="any">
-                <SelectTrigger className="w-full bg-background/80">
+                <SelectTrigger className="w-full bg-background/80 h-9">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent className="bg-background z-50">
@@ -114,9 +111,9 @@ const HeroSection = () => {
             </div>
             
             <div className="text-left">
-              <label className="block text-sm font-medium text-foreground mb-2">Education</label>
+              <label className="block text-xs font-medium text-foreground mb-1.5">Education</label>
               <Select defaultValue="any">
-                <SelectTrigger className="w-full bg-background/80">
+                <SelectTrigger className="w-full bg-background/80 h-9">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent className="bg-background z-50">
@@ -130,11 +127,9 @@ const HeroSection = () => {
                 </SelectContent>
               </Select>
             </div>
-
-            <div className="hidden md:block"></div>
             
-            <div className="flex items-end col-span-2 md:col-span-1">
-              <Button className="w-full bg-gradient-primary hover:opacity-90 h-10 gap-2 pulse-glow">
+            <div className="flex items-end col-span-2 lg:col-span-1">
+              <Button className="w-full bg-gradient-primary hover:opacity-90 h-9 gap-2 pulse-glow">
                 <Search className="h-4 w-4" />
                 Search
               </Button>
