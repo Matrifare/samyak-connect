@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, Filter, Grid, List, Eye, MapPin, Briefcase, GraduationCap } from "lucide-react";
+import { Search, Filter, Grid, List, Eye, MapPin, Briefcase, GraduationCap, Crown, BadgeCheck, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -211,14 +211,19 @@ const SearchResults = () => {
                     alt={profile.name}
                     className={`w-full h-full object-cover object-top ${viewType === "list" ? "absolute inset-0" : ""}`}
                   />
-                  {profile.premium && (
-                    <Badge className={`absolute ${viewType === "list" ? "top-2 left-2" : "top-3 left-3"} bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs`}>
-                      Premium
-                    </Badge>
-                  )}
-                  {profile.verified && (
-                    <Badge className={`absolute ${viewType === "list" ? "top-2 right-2" : "top-3 right-3"} bg-green-500 text-white text-xs`}>Verified</Badge>
-                  )}
+                  {/* Status Icons */}
+                  <div className={`absolute ${viewType === "list" ? "top-2 left-2" : "top-3 left-3"} flex gap-1.5`}>
+                    {profile.premium && (
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 flex items-center justify-center shadow-md" title="Premium Member">
+                        <Crown className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" />
+                      </div>
+                    )}
+                    {profile.verified && (
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-green-500 flex items-center justify-center shadow-md" title="Verified Profile">
+                        <BadgeCheck className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" />
+                      </div>
+                    )}
+                  </div>
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-2 sm:p-3">
                     <span className="text-white text-xs font-medium">{profile.lastOnline}</span>
                   </div>
