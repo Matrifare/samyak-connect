@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, Send, MessageCircle, Facebook, Instagram, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,8 +7,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Header from "@/components/matrimony/Header";
 import Footer from "@/components/matrimony/Footer";
+import { getSiteSettings, SiteSettings, defaultSettings } from "@/lib/siteSettings";
 
 const Contact = () => {
+  const [settings, setSettings] = useState<SiteSettings>(defaultSettings);
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,10 +20,25 @@ const Contact = () => {
     message: "",
   });
 
+  useEffect(() => {
+    const loadSettings = async () => {
+      const data = await getSiteSettings();
+      setSettings(data);
+      setLoading(false);
+    };
+    loadSettings();
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Contact form submitted:", formData);
   };
+
+  // Parse office hours into lines
+  const officeHoursLines = settings.contact_office_hours.split("\n").filter(Boolean);
+
+  // Clean WhatsApp number for URL
+  const cleanWhatsApp = settings.whatsapp_number.replace(/\D/g, "");
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-secondary/30 to-background">
@@ -30,9 +48,11 @@ const Contact = () => {
         {/* Hero Section */}
         <section className="py-12 bg-gradient-primary text-white">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl md:text-4xl font-serif font-bold mb-4">Contact Us</h1>
+            <h1 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+              {settings.contact_page_title}
+            </h1>
             <p className="text-lg text-white/90 max-w-2xl mx-auto">
-              Have questions or need help? We're here to assist you on your journey to finding your perfect match.
+              {settings.contact_page_subtitle}
             </p>
           </div>
         </section>
@@ -49,11 +69,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Office Address</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Samyak Matrimony<br />
-                      123, ABC Complex, Near XYZ Junction<br />
-                      Andheri West, Mumbai - 400058<br />
-                      Maharashtra, India
+                    <p className="text-muted-foreground text-sm whitespace-pre-line">
+                      {settings.contact_office_address}
                     </p>
                   </div>
                 </div>
@@ -68,16 +85,20 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Phone Numbers</h3>
                     <div className="space-y-1 text-sm">
-                      <p className="text-muted-foreground">
-                        <a href="tel:+919819886759" className="hover:text-primary">
-                          +91 98198 86759
-                        </a>
-                      </p>
-                      <p className="text-muted-foreground">
-                        <a href="tel:+917977993616" className="hover:text-primary">
-                          +91 79779 93616
-                        </a>
-                      </p>
+                      {settings.contact_phone && (
+                        <p className="text-muted-foreground">
+                          <a href={`tel:${settings.contact_phone.replace(/\s/g, "")}`} className="hover:text-primary">
+                            {settings.contact_phone}
+                          </a>
+                        </p>
+                      )}
+                      {settings.contact_phone_2 && (
+                        <p className="text-muted-foreground">
+                          <a href={`tel:${settings.contact_phone_2.replace(/\s/g, "")}`} className="hover:text-primary">
+                            {settings.contact_phone_2}
+                          </a>
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -92,16 +113,20 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Email Address</h3>
                     <div className="space-y-1 text-sm">
-                      <p className="text-muted-foreground">
-                        <a href="mailto:info@samyakmatrimony.com" className="hover:text-primary">
-                          info@samyakmatrimony.com
-                        </a>
-                      </p>
-                      <p className="text-muted-foreground">
-                        <a href="mailto:support@samyakmatrimony.com" className="hover:text-primary">
-                          support@samyakmatrimony.com
-                        </a>
-                      </p>
+                      {settings.contact_email && (
+                        <p className="text-muted-foreground">
+                          <a href={`mailto:${settings.contact_email}`} className="hover:text-primary">
+                            {settings.contact_email}
+                          </a>
+                        </p>
+                      )}
+                      {settings.contact_email_2 && (
+                        <p className="text-muted-foreground">
+                          <a href={`mailto:${settings.contact_email_2}`} className="hover:text-primary">
+                            {settings.contact_email_2}
+                          </a>
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -116,8 +141,9 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Office Hours</h3>
                     <div className="space-y-1 text-sm text-muted-foreground">
-                      <p>Monday - Saturday: 10:00 AM - 7:00 PM</p>
-                      <p>Sunday: Closed</p>
+                      {officeHoursLines.map((line, idx) => (
+                        <p key={idx}>{line}</p>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -127,30 +153,46 @@ const Contact = () => {
               <div className="bg-card rounded-xl shadow-lg p-6 border border-border">
                 <h3 className="font-semibold text-lg mb-4">Connect With Us</h3>
                 <div className="flex gap-3">
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:opacity-90 transition-opacity"
-                  >
-                    <Facebook className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center text-white hover:opacity-90 transition-opacity"
-                  >
-                    <Instagram className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center text-white hover:opacity-90 transition-opacity"
-                  >
-                    <Twitter className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="https://api.whatsapp.com/send?phone=919819886759"
-                    className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white hover:opacity-90 transition-opacity"
-                  >
-                    <MessageCircle className="h-5 w-5" />
-                  </a>
+                  {settings.facebook_url && (
+                    <a
+                      href={settings.facebook_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:opacity-90 transition-opacity"
+                    >
+                      <Facebook className="h-5 w-5" />
+                    </a>
+                  )}
+                  {settings.instagram_url && (
+                    <a
+                      href={settings.instagram_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center text-white hover:opacity-90 transition-opacity"
+                    >
+                      <Instagram className="h-5 w-5" />
+                    </a>
+                  )}
+                  {settings.twitter_url && (
+                    <a
+                      href={settings.twitter_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center text-white hover:opacity-90 transition-opacity"
+                    >
+                      <Twitter className="h-5 w-5" />
+                    </a>
+                  )}
+                  {settings.whatsapp_number && (
+                    <a
+                      href={`https://wa.me/${cleanWhatsApp}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white hover:opacity-90 transition-opacity"
+                    >
+                      <MessageCircle className="h-5 w-5" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -238,14 +280,24 @@ const Contact = () => {
                 </form>
               </div>
 
-              {/* Map Placeholder */}
+              {/* Map */}
               <div className="mt-8 bg-card rounded-xl shadow-lg p-4 border border-border">
-                <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <MapPin className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                    <p>Google Map would be displayed here</p>
+                {settings.contact_map_embed ? (
+                  <iframe
+                    src={settings.contact_map_embed}
+                    className="w-full h-64 rounded-lg"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                ) : (
+                  <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
+                    <div className="text-center text-muted-foreground">
+                      <MapPin className="h-12 w-12 mx-auto mb-2 opacity-50" />
+                      <p>Google Map would be displayed here</p>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

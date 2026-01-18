@@ -11,6 +11,14 @@ export interface SiteSettings {
   instagram_url: string;
   youtube_url: string;
   whatsapp_number: string;
+  // Contact Page Settings
+  contact_page_title: string;
+  contact_page_subtitle: string;
+  contact_office_address: string;
+  contact_phone_2: string;
+  contact_email_2: string;
+  contact_office_hours: string;
+  contact_map_embed: string;
 }
 
 export const defaultSettings: SiteSettings = {
@@ -24,6 +32,14 @@ export const defaultSettings: SiteSettings = {
   instagram_url: "",
   youtube_url: "",
   whatsapp_number: "+91 79779 93616",
+  // Contact Page Settings
+  contact_page_title: "Contact Us",
+  contact_page_subtitle: "Have questions or need help? We're here to assist you on your journey to finding your perfect match.",
+  contact_office_address: "Samyak Matrimony\n123, ABC Complex, Near XYZ Junction\nAndheri West, Mumbai - 400058\nMaharashtra, India",
+  contact_phone_2: "+91 79779 93616",
+  contact_email_2: "support@samyakmatrimony.com",
+  contact_office_hours: "Monday - Saturday: 10:00 AM - 7:00 PM\nSunday: Closed",
+  contact_map_embed: "",
 };
 
 interface SettingRow {
