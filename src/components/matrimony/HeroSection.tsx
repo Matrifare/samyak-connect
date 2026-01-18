@@ -31,15 +31,16 @@ const HeroSection = () => {
         </p>
         
         {/* Search Box */}
-        <div className="max-w-4xl mx-auto glass rounded-2xl p-6 md:p-8 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="max-w-5xl mx-auto glass rounded-2xl p-6 md:p-8 animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          {/* Row 1 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
             <div className="text-left">
               <label className="block text-sm font-medium text-foreground mb-2">I'm looking for</label>
               <Select defaultValue="bride">
                 <SelectTrigger className="w-full bg-background/80">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background z-50">
                   <SelectItem value="bride">Bride</SelectItem>
                   <SelectItem value="groom">Groom</SelectItem>
                 </SelectContent>
@@ -52,7 +53,7 @@ const HeroSection = () => {
                 <SelectTrigger className="w-full bg-background/80">
                   <SelectValue placeholder="Min Age" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background z-50">
                   {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
                     <SelectItem key={age} value={age.toString()}>{age} years</SelectItem>
                   ))}
@@ -66,7 +67,7 @@ const HeroSection = () => {
                 <SelectTrigger className="w-full bg-background/80">
                   <SelectValue placeholder="Max Age" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background z-50">
                   {Array.from({ length: 43 }, (_, i) => i + 18).map((age) => (
                     <SelectItem key={age} value={age.toString()}>{age} years</SelectItem>
                   ))}
@@ -74,7 +75,65 @@ const HeroSection = () => {
               </Select>
             </div>
             
-            <div className="flex items-end">
+            <div className="text-left">
+              <label className="block text-sm font-medium text-foreground mb-2">Religion</label>
+              <Select defaultValue="buddhist">
+                <SelectTrigger className="w-full bg-background/80">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent className="bg-background z-50">
+                  <SelectItem value="any">Any</SelectItem>
+                  <SelectItem value="buddhist">Buddhist</SelectItem>
+                  <SelectItem value="hindu">Hindu</SelectItem>
+                  <SelectItem value="christian">Christian</SelectItem>
+                  <SelectItem value="muslim">Muslim</SelectItem>
+                  <SelectItem value="sikh">Sikh</SelectItem>
+                  <SelectItem value="jain">Jain</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          {/* Row 2 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="text-left">
+              <label className="block text-sm font-medium text-foreground mb-2">Marital Status</label>
+              <Select defaultValue="any">
+                <SelectTrigger className="w-full bg-background/80">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent className="bg-background z-50">
+                  <SelectItem value="any">Any</SelectItem>
+                  <SelectItem value="never_married">Never Married</SelectItem>
+                  <SelectItem value="divorced">Divorced</SelectItem>
+                  <SelectItem value="widowed">Widowed</SelectItem>
+                  <SelectItem value="awaiting_divorce">Awaiting Divorce</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="text-left">
+              <label className="block text-sm font-medium text-foreground mb-2">Education</label>
+              <Select defaultValue="any">
+                <SelectTrigger className="w-full bg-background/80">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent className="bg-background z-50">
+                  <SelectItem value="any">Any</SelectItem>
+                  <SelectItem value="doctorate">Doctorate</SelectItem>
+                  <SelectItem value="masters">Masters</SelectItem>
+                  <SelectItem value="bachelors">Bachelors</SelectItem>
+                  <SelectItem value="diploma">Diploma</SelectItem>
+                  <SelectItem value="high_school">High School</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="hidden md:block"></div>
+            
+            <div className="flex items-end col-span-2 md:col-span-1">
               <Button className="w-full bg-gradient-primary hover:opacity-90 h-10 gap-2 pulse-glow">
                 <Search className="h-4 w-4" />
                 Search
