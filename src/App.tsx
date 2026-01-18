@@ -47,6 +47,7 @@ import AdminContent from "./pages/admin/AdminContent";
 import AdminBlogPosts from "./pages/admin/AdminBlogPosts";
 import AdminBlogCategories from "./pages/admin/AdminBlogCategories";
 import AdminBlogEditor from "./pages/admin/AdminBlogEditor";
+import AdminMemberships from "./pages/admin/AdminMemberships";
 
 // Blog Pages
 import Blog from "./pages/Blog";
@@ -128,7 +129,7 @@ const App = () => (
               <Route path="/admin/blog/new" element={<AdminBlogEditor />} />
               <Route path="/admin/blog/edit/:id" element={<AdminBlogEditor />} />
               <Route path="/admin/blog/categories" element={<AdminBlogCategories />} />
-              
+              <Route path="/admin/memberships" element={<AdminMemberships />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -1,19 +1,84 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Shield, Clock, Headphones, Eye, Phone, MessageCircle, Mail, Users, Check, X, Sparkles, Star, Zap } from "lucide-react";
+import { Shield, Clock, Headphones, Eye, Phone, MessageCircle, Mail, Users, Check, X, Sparkles, Star, Zap, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { onlinePlans, elitePlans, comparisonFeatures, membershipFeatures, MembershipPlan } from "@/data/membershipPlans";
+import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
+
+interface MembershipPlan {
+  id: string;
+  name: string;
+  slug: string;
+  duration: string;
+  duration_months: number;
+  category: string;
+  view_contacts: number;
+  send_messages: number;
+  price: number;
+  icon: string;
+  color: string;
+  bg_color: string;
+  border_color: string;
+  is_popular: boolean;
+  is_active: boolean;
+}
+
+interface PlanFeature {
+  name: string;
+  online: string | boolean;
+  elite: string | boolean;
+}
+
+const comparisonFeatures: PlanFeature[] = [
+  { name: 'Service Type', online: 'Self-Assisted', elite: 'Dedicated Manager' },
+  { name: 'Profile Matching', online: 'Algorithm Based', elite: 'Personal Matchmaking' },
+  { name: 'Profile Verification', online: 'Basic Verification', elite: 'Premium Verification' },
+  { name: 'Support', online: 'Email Support', elite: '24/7 Priority Support' },
+  { name: 'Profile Boost', online: 'Monthly', elite: 'Weekly' },
+  { name: 'Background Check', online: false, elite: true },
+  { name: 'Relationship Manager', online: false, elite: true },
+  { name: 'Meeting Arrangement', online: false, elite: true },
+  { name: 'Video Introduction', online: false, elite: true },
+  { name: 'Profile Highlighting', online: 'Standard', elite: 'Premium Spotlight' },
+  { name: 'Search Priority', online: 'Normal', elite: 'Top Results' },
+  { name: 'Photo Privacy', online: 'Basic', elite: 'Advanced Controls' },
+];
+
+const membershipFeatures = [
+  { icon: 'contact', label: 'View Contact Details' },
+  { icon: 'phone', label: 'View Mobile Number' },
+  { icon: 'chat', label: 'Chat online members' },
+  { icon: 'message', label: 'Send Messages / SMS' },
+];
 
 const Membership = () => {
   const navigate = useNavigate();
   const [category, setCategory] = useState<'online' | 'elite'>('online');
+  const [plans, setPlans] = useState<MembershipPlan[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const currentPlans = category === 'online' ? onlinePlans : elitePlans;
+  useEffect(() => {
+    const fetchPlans = async () => {
+      const { data, error } = await supabase
+        .from("membership_plans")
+        .select("*")
+        .eq("is_active", true)
+        .order("sort_order", { ascending: true });
 
-  const handleBuyNow = (planId: string) => {
-    navigate(`/membership/upgrade?plan=${planId}`);
+      if (!error && data) {
+        setPlans(data);
+      }
+      setIsLoading(false);
+    };
+
+    fetchPlans();
+  }, []);
+
+  const currentPlans = plans.filter(p => p.category === category);
+
+  const handleBuyNow = (planSlug: string) => {
+    navigate(`/membership/upgrade?plan=${planSlug}`);
   };
 
   const getFeatureIcon = (iconName: string) => {
@@ -86,11 +151,21 @@ const Membership = () => {
       {/* Plans Cards */}
       <section className="py-12 md:py-16 px-4 -mt-8">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {currentPlans.map((plan) => (
-              <PlanCard key={plan.id} plan={plan} onBuyNow={handleBuyNow} />
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="w-8 h-8 animate-spin text-primary" />
+            </div>
+          ) : currentPlans.length === 0 ? (
+            <div className="text-center py-20 text-muted-foreground">
+              No plans available at the moment.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              {currentPlans.map((plan) => (
+                <PlanCard key={plan.id} plan={plan} onBuyNow={handleBuyNow} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -235,14 +310,14 @@ const Membership = () => {
 };
 
 // Plan Card Component
-const PlanCard = ({ plan, onBuyNow }: { plan: MembershipPlan; onBuyNow: (id: string) => void }) => (
+const PlanCard = ({ plan, onBuyNow }: { plan: MembershipPlan; onBuyNow: (slug: string) => void }) => (
   <div 
     className={cn(
       "relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group",
-      plan.popular && "ring-2 ring-primary shadow-xl scale-[1.02]"
+      plan.is_popular && "ring-2 ring-primary shadow-xl scale-[1.02]"
     )}
   >
-    {plan.popular && (
+    {plan.is_popular && (
       <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-10">
         <Badge className="bg-gradient-to-r from-primary to-pink-500 text-white px-4 py-1 rounded-full shadow-lg">
           <Star className="w-3 h-3 mr-1" />
@@ -252,7 +327,7 @@ const PlanCard = ({ plan, onBuyNow }: { plan: MembershipPlan; onBuyNow: (id: str
     )}
     
     {/* Card Header */}
-    <div className={cn("p-6 pt-8", plan.bgColor, plan.color)}>
+    <div className={cn("p-6 pt-8", plan.bg_color, plan.color)}>
       <div className="text-center">
         <span className="text-4xl mb-2 block">{plan.icon}</span>
         <h3 className="text-xl font-bold">{plan.name}</h3>
@@ -273,11 +348,11 @@ const PlanCard = ({ plan, onBuyNow }: { plan: MembershipPlan; onBuyNow: (id: str
       {/* Stats */}
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="text-center p-3 rounded-xl bg-muted/50">
-          <div className="text-2xl font-bold text-primary">{plan.viewContacts}</div>
+          <div className="text-2xl font-bold text-primary">{plan.view_contacts}</div>
           <div className="text-xs text-muted-foreground">View Contacts</div>
         </div>
         <div className="text-center p-3 rounded-xl bg-muted/50">
-          <div className="text-2xl font-bold text-primary">{plan.sendMessages}</div>
+          <div className="text-2xl font-bold text-primary">{plan.send_messages}</div>
           <div className="text-xs text-muted-foreground">Messages</div>
         </div>
       </div>
@@ -308,12 +383,12 @@ const PlanCard = ({ plan, onBuyNow }: { plan: MembershipPlan; onBuyNow: (id: str
       <Button 
         className={cn(
           "w-full",
-          plan.popular 
+          plan.is_popular 
             ? "bg-gradient-to-r from-primary to-pink-500 hover:opacity-90" 
             : "bg-primary hover:bg-primary/90"
         )}
         size="lg"
-        onClick={() => onBuyNow(plan.id)}
+        onClick={() => onBuyNow(plan.slug)}
       >
         Get Started
       </Button>

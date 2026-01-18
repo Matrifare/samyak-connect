@@ -1,31 +1,69 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { ArrowLeft, Check, Lock, Tag, CreditCard, Smartphone, Building, Wallet } from "lucide-react";
+import { ArrowLeft, Check, Lock, Tag, CreditCard, Smartphone, Building, Wallet, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
-import { onlinePlans, elitePlans, paymentMethods, MembershipPlan } from "@/data/membershipPlans";
+import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
-const allPlans = [...onlinePlans, ...elitePlans];
+interface MembershipPlan {
+  id: string;
+  name: string;
+  slug: string;
+  duration: string;
+  duration_months: number;
+  category: string;
+  view_contacts: number;
+  send_messages: number;
+  price: number;
+  icon: string;
+  color: string;
+  bg_color: string;
+}
+
+const paymentMethods = [
+  { id: 'card', name: 'Credit / Debit Card', icon: '💳' },
+  { id: 'upi', name: 'UPI Payment', icon: '📱' },
+  { id: 'netbanking', name: 'Net Banking', icon: '🏦' },
+  { id: 'wallet', name: 'Digital Wallet', icon: '👛' },
+];
 
 const MembershipUpgrade = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { toast } = useToast();
 
-  const planId = searchParams.get('plan') || 'gold';
+  const planSlug = searchParams.get('plan') || 'gold';
   
+  const [plan, setPlan] = useState<MembershipPlan | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedPayment, setSelectedPayment] = useState('card');
   const [couponCode, setCouponCode] = useState('');
   const [couponApplied, setCouponApplied] = useState(false);
 
-  const plan = allPlans.find(p => p.id === planId) || onlinePlans[1];
-  const price = plan.price;
+  useEffect(() => {
+    const fetchPlan = async () => {
+      const { data, error } = await supabase
+        .from("membership_plans")
+        .select("*")
+        .eq("slug", planSlug)
+        .maybeSingle();
+
+      if (!error && data) {
+        setPlan(data);
+      }
+      setIsLoading(false);
+    };
+
+    fetchPlan();
+  }, [planSlug]);
+
+  const price = plan?.price || 0;
   const discount = couponApplied ? Math.round(price * 0.1) : 0;
   const total = price - discount;
 
@@ -62,6 +100,23 @@ const MembershipUpgrade = () => {
     netbanking: Building,
     wallet: Wallet,
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-muted/30 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!plan) {
+    return (
+      <div className="min-h-screen bg-muted/30 flex flex-col items-center justify-center gap-4">
+        <p className="text-muted-foreground">Plan not found</p>
+        <Button onClick={() => navigate('/membership')}>Back to Plans</Button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-muted/30">
@@ -157,7 +212,7 @@ const MembershipUpgrade = () => {
           {/* Right - Order Summary */}
           <div>
             <Card className="sticky top-4">
-              <CardHeader className={cn("rounded-t-lg", plan.bgColor, plan.color)}>
+              <CardHeader className={cn("rounded-t-lg", plan.bg_color, plan.color)}>
                 <CardTitle className="flex items-center gap-3">
                   <span className="text-3xl">{plan.icon}</span>
                   <div>
@@ -173,11 +228,11 @@ const MembershipUpgrade = () => {
                   <ul className="space-y-1.5 text-sm">
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-green-500" />
-                      View {plan.viewContacts} contacts
+                      View {plan.view_contacts} contacts
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-green-500" />
-                      Send {plan.sendMessages} messages
+                      Send {plan.send_messages} messages
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-green-500" />
