@@ -1,13 +1,44 @@
-import { Users, Heart, UserCheck, Trophy } from "lucide-react";
-
-const stats = [
-  { icon: Users, value: "15,000+", label: "Total Profiles", color: "text-primary" },
-  { icon: UserCheck, value: "8,500+", label: "Male Profiles", color: "text-secondary" },
-  { icon: Heart, value: "6,500+", label: "Female Profiles", color: "text-accent-foreground" },
-  { icon: Trophy, value: "500+", label: "Success Stories", color: "text-success" },
-];
+import { Users, Heart, UserCheck, Trophy, Loader2 } from "lucide-react";
+import { useStats } from "@/hooks/useApi";
 
 const StatsSection = () => {
+  const { data: statsData, isLoading } = useStats();
+
+  const formatNumber = (num: number | undefined) => {
+    if (!num) return '0';
+    if (num >= 1000) {
+      return `${(num / 1000).toFixed(1).replace(/\.0$/, '')}K+`;
+    }
+    return `${num}+`;
+  };
+
+  const stats = [
+    { 
+      icon: Users, 
+      value: isLoading ? '...' : formatNumber(statsData?.total_profiles), 
+      label: "Total Profiles", 
+      color: "text-primary" 
+    },
+    { 
+      icon: UserCheck, 
+      value: isLoading ? '...' : formatNumber(statsData?.male_profiles), 
+      label: "Male Profiles", 
+      color: "text-secondary" 
+    },
+    { 
+      icon: Heart, 
+      value: isLoading ? '...' : formatNumber(statsData?.female_profiles), 
+      label: "Female Profiles", 
+      color: "text-accent-foreground" 
+    },
+    { 
+      icon: Trophy, 
+      value: isLoading ? '...' : formatNumber(statsData?.success_stories), 
+      label: "Success Stories", 
+      color: "text-success" 
+    },
+  ];
+
   return (
     <section className="py-16 bg-muted/50">
       <div className="container mx-auto px-4">
@@ -19,7 +50,11 @@ const StatsSection = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4`}>
-                <stat.icon className={`h-8 w-8 ${stat.color}`} />
+                {isLoading ? (
+                  <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                ) : (
+                  <stat.icon className={`h-8 w-8 ${stat.color}`} />
+                )}
               </div>
               <div className="text-3xl md:text-4xl font-serif font-bold gradient-text mb-2">
                 {stat.value}
