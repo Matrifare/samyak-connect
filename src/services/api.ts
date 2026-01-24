@@ -3,7 +3,7 @@
  * Connects to the Node.js API at m.samyakmatrimony.com
  */
 
-const API_BASE_URL = 'https://m.samyakmatrimony.com/api';
+const API_BASE_URL = 'https://samyak-node-api.samyakmatrimony.com/api';
 
 export interface Profile {
   matri_id: string;
